@@ -1,2 +1,20 @@
-acquisition files + all dependencies that we can legally share!
-also list python additional modules and maybe include hardware dependencies
+Two main (and very similar) scripts were used to collect the data shown in this research article:
+
+1) RR_vs_insert_vs_dmi8.py
+2) RR_fast_volumes_preview.py
+
+The exact script for each data set was not kept as it amounted only to minor changes in stack amplitude, step size, exposure, etc or changes in the order of operation or routine depending on the experiment. To run these scripts the user will need the following additional files included in the directory:
+
+image_data_pipeline.py
+lumencor.py
+ni.py
+pco.py
+leica_scope.py ***NOT INCLUDED*** (the leica control code has not been made public)
+
+The user must also import these python modules:
+
+time
+tkinter
+numpy
+serial
+ctypes
