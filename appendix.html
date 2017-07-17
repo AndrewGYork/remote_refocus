@@ -1,0 +1,669 @@
+<!doctype html>
+<!-- 
+##############################################################
+Ignore this boilerplate if you're just trying to edit the text.
+Skip to the part that says 'The real text begins here'
+##############################################################
+
+Based on this theme: https://github.com/broccolini/dinky , which mentioned that attribution is appreciated. Thanks, broccolini!
+-->
+<html lang="en">
+  <head>
+    <base target="_blank">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>4D imaging via remote re-focus by Alfred Millett-Sikking - Appendix</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/prism.css">
+    <!--[if lt IE 9]>
+    <script src="javascript/html5shiv/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <script src="javascript/scale-fix/scale.fix.js"></script>
+    <script src="javascript/python-highlighting/prism.js"></script>
+    <script async  src="javascript/Minimal-MathJax/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script src="javascript/update_figures.js"></script>
+    <script src="javascript/reference_list/reference_list.js"></script>
+    <script src="javascript/google-analytics/analytics.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">4D imaging via remote re-focus - Appendix</h1>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/AndrewGYork/rescan_line_sted/zipball/master">Download ZIP</a></li>
+          <li><a class="buttons github" href="https://github.com/AndrewGYork/rescan_line_sted">View On GitHub</a></li>
+		  <li><a class="buttons pdf" href="./Publication_template%20by%20AndrewGYork.pdf">Download PDF</a></li>
+        </ul>
+        <p class="header" style="text-align:left;">This project is maintained by <a class="header name" href="https://github.com/AndrewGYork">AndrewGYork</a>, and was funded by <a class="header name" href="https://www.calicolabs.com/">Calico Labs</a></p>
+      </header>
+<!-- 
+##############################################################
+The real text begins here.
+##############################################################
+ -->
+<section>
+<h1>Appendix</h1>
+<h2>4D optical microscopy at high spatiotemporal resolution using remote re-focus</h2>
+<p><a href="./index.html" title="Main text" target="_self">Back to the main text</a></p>
+
+<h3 id="Concept, rules and simulation">
+Concept, rules and simulation</h3>
+<h4>The idea</h4>
+
+<p>The basic concept of RR is to make a 3D unity magnification copy of the sample volume at a remote location and then image this with a second microscope. Under normal operation collecting light with a microscope objective away from the corrected focal plane will introduce abberations that depend strongly on the effective de-focus and give unacceptably poor 3D image quality
+[<a class="citation" href="https://doi.org/10.1007/978-0-387-45524-2" title="Handbook of Biological Confocal Microscopy, third edition; J. Pawley; Springer US, ISBN 978-0-387-25921-5, eBook ISBN 978-0-387-45524-2, (2006)">Pawley 2006</a>].
+The 'magic' of RR is to use a standard microscope setup (objective-tube lens) in combination with a reversed copy of the optics (tube lens-objective) to produce an abberation free 3D image - where the second microscope is configured to cancel the aberrations of the first. The detailed optical theory of RR is elegantly described in the original paper
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>]
+and will not be re-visited here. However for those wishing to build an RR system there are a few simple concepts and rules that should be highlighted.</p>
+
+<p>Firstly there are two main optical arrangements (AFigure 1) which will be refered to as single objective remote re-focus (SORR) and double objective remote re-focus (DORR) for ease of discussion. DORR is the most straightforward implementation and in its most elementary form consists of 3 identical microscopes back to back, where moving either the 2nd or 3rd objective will perform the re-focus. The simplest version of the SORR variant uses a single objective in a double pass configuration with an additional beam splitter optic and mirror. The re-focus in SORR is then performed by moving either the objective or the mirror.</p>
+
+<figure id="AFigure_1">
+<img src="images/RR schematic/RR schematic.png" alt="AFigure 1" id="AFigure_1_svg" style="width:100%;">
+<figcaption><strong>AFigure 1: DORR vs SORR </strong> schematic of double vs single objective remote re-focus</figcaption>
+</figure>
+
+<p></p>
+<p>The main benefit of SORR is that the mirror can be very small and agile (<1mm diameter) as it only has to cover the original sample scaled field of view (FOV) , but the penalty is the introduction of the beam splitter optic. If a SORR is used with polarised light then the introduction of a quarter wave plate and polarising beam splitter cube can give high optical efficiency. However in most imaging modalities light is unpolarised and so the splitter optic in the SORR arrangement results in an immediate signal loss of 50%. Despite this loss the SORR arrangement has been implemented in many microscopes due to the potentially high speeds and the relative simplicity of the optical train as discussed in the <a href="./appendix.html#History">history</a> section. However if maximum efficiency is prioritised then the DORR arrangement is preferable and inherently faster in photon limited applications. For this reason the DORR arrangement was persued in this work.
+</p>
+
+<h4>The golden rules</h4>
+
+<p>Secondly there are a number of <strong>‘golden rules’</strong> for RR which must be respected to achieve best performance and are independent of the SORR or DORR arrangement.</p>
+<ol>
+<li>The <strong>magnification</strong> between the sample and it’s remote 3D copy should be set <strong>equal to the ratio of the index</strong> between these two locations:
+	\[M_{RR} = \frac{n_{sample}}{n_{RR}}\]
+For an air based RR system with \(n_{RR}=1\) then this gives \(M_{RR}\approx1.5\) for oil and \(M_{RR}\approx1.33\) for water, etc.</li>
+<li>The optics downstream of the first objective should have <strong>enough clear aperture</strong> (CA) to accommodate the full wavefront as vignetting by any optic (tube lens or mirror etc) will reduce resolution. It should be noted that the operation of RR expands the CA requirement beyond the normal range of a microscope as defocused positions create non infinity rays that may not be accommodated by the usual optical train. In this regard another critical consideration is that the RR objectives must have an angular acceptance that is greater than or equal to the first objective:
+	\[\frac{NA_{RR}}{n_{RR}} \geq \frac{NA_{sample}}{n_{sample}}\]
+Again for an air based RR system with \(n_{RR}=1\) then this simplifies to:
+	\[NA_{RR} \geq \frac{NA_{sample}}{n_{sample}}\]
+</li>
+<li>The <strong>individual objectives and tube lenses</strong> in the first two image relays which produce the 3D copy of the sample <strong>should approximate ideal lenses</strong>. RR theory is valid for lenses that well approximate ideal thin lenses placed in a 4f configuration and deviating from this can have drastic effects on RR performance. It should be noted that not all objectives and tube lenses operate in this mode and so builders should choose their optics carefully.</li>
+<li>The tube lenses between the first and second objective in the system should be in a <strong>telecentric 4f arrangement</strong> to give <strong>best performance</strong>. On a typical commercial microscope stand this is often not the case as the distance between the objective and tubes lens can be less than one focal length for practical reasons, which does not affect performance during normal use but can degrade RR operation.</li>
+</ol>
+
+<h4>How to check</h4>
+
+<p>It should be noted that the aforementioned rules for RR place substantial constraints on the optical design and if followed carefully a well performing system can be built with relative ease, and without the need for detailed optical design information or simulation. For those with access to detailed information about their optics and a suitable simulation software package like <a href="http://www.zemax.com/">Zemax</a> we recommend evaluating the performance of a possible RR configuration before building (AFigure 2). Even for a novice designer this process can be relatively straightforward with the following workflow:</p>
+
+<ul>
+<li>Start by laying out a simple DORR optical train with ideal elements that match the diameters and focal lengths of the intended build and adhere to the <strong>‘golden rules’</strong> of RR.</li>
+<li>Defocus the sample and chase the image with one of the RR objectives by the magnification factor between the conjugate planes (1st golden rule). The RR should work perfectly and any basic mistakes in design will be highlighted at this point and can be easily corrected.</li>
+<li>Now substitute in real components and evaluate the performance of the RR over its axial range. All of the non idealities of the system will now show to give a finite range over which the real system can be expected to be diffraction limited (DL) if built and aligned correctly.</li>
+</ul>
+
+
+<figure id="AFigure_2">
+<img src="images/Zemax/RR Zemax.png" alt="AFigure 2" id="AFigure_2_svg" style="width:100%;">
+<figcaption><strong>AFigure 2: Zemax of RR </strong> using public data...</figcaption>
+</figure>
+
+<h3 id="Design">
+Design</h3>
+
+<h4>A high performance RR for a 60x oil objective</h4>
+
+<p>In this section a recipe for a high performance RR in the DORR configuration is given and presented as a versatile addition to a typical microscope stand. This RR module is designed to work with a high NA 60x oil immersion objective and is capable of producing multicolor DL stacks over the full FOV of a standard sCMOS camera. The emphasis in this design was on achieving a high performance RR using minimal custom parts. In this vein all of the optics and the majority of the mechanics are relatively low cost short lead time stock parts with only a few simple bespoke mechanics where needed. The merits and choices of the design will now be discussed in turn and the reader may refer to the <a href="Build">build</a> section for a full <a href="Parts">list of parts</a>, <a href="Drawings">drawings</a> and an <a href="Alignment">alignment procedure</a>.</p>
+
+<figure id="AFigure_3">
+<img src="images/RR images/Remote re-focus 1.2 wireframe.png" alt="AFigure 3" id="AFigure_3_svg" style="width:100%;">
+<figcaption><strong>AFigure 3: Solidworks wireframe of RR </strong> overview...</figcaption>
+</figure>
+
+<p></p>
+<p>To avoid custom optics this DORR is based on the readily available <a href="https://www.nikoninstruments.com">Nikon</a> 60x1.45 oil and 40x0.95 air objectives that together with stock tube lenses <strong>very conveniently obey</strong> the first three <strong>golden rules</strong> of RR, with the 4th rule achieved by setting the right mechanical spacing of the elements (see <a href="Drawings">drawings</a>). By working closely with <a href="https://www.nikoninstruments.com">Nikon</a> we were able to establish excellent performance with a 450-650nm polychromatic strehl ratio > 0.74 over an axial range of +-32um in the sample with a 150um diameter field of view.</p>
+<p>With good optical performance established the choice of z-drive actuator was made relatively straightforward - an axial range of +-32um in the sample with an index of ~1.5 corresponds to motion in air of ~+-50um which sits comfortably in the range of high performance piezo actuators - like the heavy duty <a href="https://www.physikinstrumente.com">PI</a> 726 that can move a ~200g objective at >500Hz over a 100<span>&#181;</span>m range. The 726 can achieve step and settle times in the 0.1-1um range in <10ms (AFigure 3) which is faster than the rolling time of a good sCMOS camera like the <a href="https://www.pco.de/">PCO</a>.edge 4.2. This motion solution offers performance above economy but may be substituted for other devices for those on a budget. Z-drive flexibility is second order advantage of using the RR arrangement - large atypical actuators that would otherwise be awkward to fit to a typical microscope can be accomodated with relative ease and do not interfere with normal operation of the stand.</p>
+
+<figure id="AFigure_4">
+<img src="images/PI/Step response - RR piezo for 0.1um - 10ms.png" alt="AFigure 4" id="AFigure_4_png" style="width:100%;">
+<table class="figure_controls">
+  <tr>
+  <td>Piezo</td><td><select id="afigure_4_choice" onchange="update_afigure_4()">
+    <option value="0.1umRR" selected="selected">Remote re-focus (0.1<span>&#181;</span>m)</option>
+	<option value="0.5umRR">Remote re-focus (0.5<span>&#181;</span>m)</option>
+	<option value="1.0umRR">Remote re-focus (1.0<span>&#181;</span>m)</option>
+	<option value="15umRR">Remote re-focus (15<span>&#181;</span>m)</option>
+	<option value="10umInsert">Stage insert (10<span>&#181;</span>m)</option>
+  </select></td><td>(step size)</td>
+  </tr>
+</table>
+<figcaption><strong>AFigure 4: Piezo performance</strong> description...</figcaption>
+</figure>
+
+<p></p>
+<p>The RR optics are folded with 4 standard 1" highly reflective mirrors, both to give a more compact footprint and also orientate the RR objectives into the vertical position for mechanical stability. The mirrors are housed in standard 3 axis kinematic mounts for ease of alignment and were noted to be slightly undersized at the design phase. This causes a small amount of vignetting in the corners of the sCMOS FOV at diameters >17.5mm but seemed like a good trade rather than upgrading to 2” mirrors and substantially increasing the size and cost of the module for relatively little gain. The fold arrangement accommodates common incubation chambers by keeping the optical train low and long out of the microscope side port, which is desirable for many live cell applications.</p>
+<p>Another critical part of the design is the ability to align and stabilise the RR objectives as unwanted motion here will translate directly into the image, making it the most sensitive part of the module. The z-drive piezo-objective assembly is therefore mounted on a heavy duty frame and isolated from the adjustable objective, which is mounted on an xyz translation stage to give the fine adjustment needed for alignment. Both RR objectives benefit from the gravitationally aligned axially symmetric vertical arrangement which avoids many of the unwanted drifts and motions that can occur in alternative setups. Stability testing gave xy drifts in the 150nm/h range for the combined sample, stage, microscope and RR which seems acceptable given typical lab thermal drift and the intended sub minute run time of a typical acquisition. All of the standard short lead time opto-mechanics were sourced from <a href="https://www.thorlabs.com/">Thorlabs</a> and could be substituted for equivalent parts from existing lab stock.</p>
+
+<figure id="AFigure_5">
+<img src="images/RR stability/RR stability.svg" alt="AFigure 5" id="AFigure_5_svg" style="width:100%;">
+<figcaption><strong>AFigure 5: Stabilty test</strong> desciption of testing...</figcaption>
+</figure>
+
+<p></p>
+<p>An AR coated 1” 340um coverslip correction glass window was ordered from <a href="www.markoptics.com/">Mark Optics</a> and inserted between the two 40x air objectives to give best performance as they are optimised to work with 170um of glass. An estimate for the optical efficiency of the RR was then calculated at ~70% with (0.9^2)*(0.95^2)*(0.99^4)*(0.99) for the objectives, tube lenses, mirrors and glass window respectively and was subsequently measured at >73% (AFigure 6). For those looking to save on cost the glass window can also be composed of two standard coverslips sandwiched together with some immersion oil with the penalty of ~5% loss in signal.</p>
+
+<figure id="AFigure_6">
+<img src="images/RR efficiency/White light test with 2 coverslips and oil.svg" alt="AFigure 6a" id="AFigure_6a_svg" style="width:100%;">
+<img src="images/RR efficiency/White light test with AR coated windows.svg" alt="AFigure 6b" id="AFigure_6b_svg" style="width:100%;">
+<figcaption><strong>AFigure 6: Efficiency tests</strong> desciption of testing...</figcaption>
+</figure>
+
+<p></p>
+<p>A flexible slot was reserved in the infinity space behind the last objective for the inclusion of a high speed emission filter wheel like the <a href="https://asi-instruments.com/">ASI</a> FW-1000 which we chose for its high speed trigger options and <40ms switch time. This can be mounted on the RR breadboard or directly to the optical table to avoid any unwanted vibrations that can couple from the torque generated by fast wheels. Of course any filter wheel that physically fits can be used here - including a low cost manual wheel from <a href="https://www.thorlabs.com/">Thorlabs</a> that will connect directly to the mechanics for starting off. The camera is easily focused by sliding the z position of the last mirror and orientated correctly with the built in rotation mount and the caged mirror on the input arm can be used to pull out the intermediate image plane with removing the instrument if needed. The remaining custom parts were prepared by <a href="http://www.zeradevelopment.com/">Zera Development</a> but can be readily milled by almost any CNC machine shop, see the <a href="Drawings">drawings</a> section for details.</p>
+
+<h3 id="Build">
+Build</h3>
+
+<h4 id="Parts">List of parts</h4>
+
+<p>This table can be used as a shopping list for the RR described in this article. Item 37 is a low cost manual filter wheel that can be substituted for an automated wheel if needed and item 49 can be avioded to reduce cost (substite with 2 coverslips sandwiched together with oil). With some re-design work items 38-40 can be substituted for a lower cost option although this is not encouraged as it may negate the intended high speed operation of the device. </p>
+
+<div>
+<style scoped>
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+	padding: 1px;
+	font-size: small;
+}
+</style>
+<table>
+  <tr><th>Item No.</th>	<th>Supplier</th>			<th>Part</th>
+  <th>Description</th>																					<th>Qty</th>
+  <tr><td>1</td>		<td>Thorlabs</td>			<td>MB1545/M</td>
+  <td>Aluminum Breadboard, 150 mm x 450 mm x 12.7 mm, M6 Taps</td>										<td>1</td></tr>
+  <tr><td>2</td>		<td>Thorlabs</td>			<td>SWB/M</td>
+  <td>Articulated Mounting Base, M6 x 1.0 Threaded Stud, Qty. 1</td>									<td>6</td></tr>
+  <tr><td>3</td>		<td>Thorlabs</td>			<td>ER10</td>
+  <td>Cage Assembly Rod, 10" (254.0 mm) Long, Ø6 mm</td>												<td>4</td></tr>
+  <tr><td>4</td>		<td>Thorlabs</td>			<td>C6W</td>
+  <td>30 mm Cage Cube, Ø6 mm Through Holes</td>															<td>1</td></tr>
+  <tr><td>5</td>		<td>Thorlabs</td>			<td>CP08/M</td>
+  <td>SM1 Threaded 30 mm Enhanced Clamping Cage Plate, 0.35" Thick, M4 Tap</td>							<td>3</td></tr>
+  <tr><td>6</td>		<td>Thorlabs</td>			<td>RS075P4M</td>
+  <td>Ø25.0 mm Pedestal Pillar Post, M4 Taps, L = 19 mm</td>											<td>3</td></tr>
+  <tr><td>7</td>		<td>Thorlabs</td>			<td>CF125</td>
+  <td>Short Clamping Fork, 1.24" Counterbored Slot, Universal</td>										<td>7</td></tr>
+  <tr><td>8</td>		<td>Thorlabs</td>			<td>LCP02/M</td>
+  <td>30 mm to 60 mm Cage Plate Adapter, M4 Tap</td>													<td>6</td></tr>
+  <tr><td>9</td>		<td>Thorlabs</td>			<td>ER6</td>
+  <td>Cage Assembly Rod, 6" (152.4 mm) Long, Ø6 mm</td>													<td>4</td></tr>
+  <tr><td>10</td>		<td>Thorlabs</td>			<td>ER3</td>
+  <td>Cage Assembly Rod, 3" (76.2 mm) Long, Ø6 mm</td>													<td>4</td></tr>
+  <tr><td>11</td>		<td>Thorlabs</td>			<td>ERSCA</td>
+  <td>Rod Adapter for Ø6 mm ER Rods, Qty. 1</td>														<td>4</td></tr>
+  <tr><td>12</td>		<td>Thorlabs</td>			<td>CP360R/M</td>
+  <td>Pivoting, Quick-Release, Ø1" Optic Mount for 30 mm Cage System (Metric)</td>						<td>1</td></tr>
+  <tr><td>13</td>		<td>Thorlabs</td>			<td>BB1-E02</td>
+  <td>Ø1" Broadband Dielectric Mirror, 400 - 750 nm</td>												<td>5</td></tr>
+  <tr><td>14</td>		<td>Thorlabs</td>			<td>CPVM</td>
+  <td>Vertical Cage System Mounting Plate</td>															<td>2</td></tr>
+  <tr><td>15</td>		<td>Thorlabs</td>			<td>ER8</td>
+  <td>Cage Assembly Rod, 8" (203.2 mm) Long, Ø6 mm</td>													<td>4</td></tr>
+  <tr><td>16</td>		<td>Thorlabs</td>			<td>KCB1C/M</td>
+  <td>Right-Angle Kinematic Mirror Mount with Smooth Cage Rod Bores, 30 mm Cage System and SM1 Compatible, M4 and M6 Mounting Holes</td>			 																		<td>4</td></tr>
+  <tr><td>17</td>		<td>Thorlabs</td>			<td>ER1</td>
+  <td>Cage Assembly Rod, 1" (25.4 mm) Long, Ø6 mm</td>													<td>20</td></tr>
+  <tr><td>18</td>		<td>Thorlabs</td>			<td>CXYZ1/M</td>
+  <td>XYZ Translation Mount for Ø1" Optics, M6 Taps</td>												<td>1</td></tr>
+  <tr><td>19</td>		<td>Thorlabs</td>			<td>SM1A12</td>
+  <td>Adapter with External SM1 Threads and Internal M25 x 0.75 Threads</td>							<td>1</td></tr>
+  <tr><td>20</td>		<td>Thorlabs</td>			<td>LCP08/M</td>
+  <td>60 mm Cage Plate, SM2 Threaded, Enhanced Clamping, 0.5" Thick, M4 Tap (One SM2RR Retaining Ring Included)</td>																										<td>2</td></tr>
+  <tr><td>21</td>		<td>Thorlabs</td>			<td>SM2V05</td>
+  <td>Ø2" Adjustable Lens Tube, 0.31" Travel</td>														<td>1</td></tr>
+  <tr><td>22</td>		<td>Thorlabs</td>			<td>SM2A6</td>
+  <td>Adapter with External SM2 Threads and Internal SM1 Threads</td>									<td>1</td></tr>
+  <tr><td>23</td>		<td>Thorlabs</td>			<td>RS150/M</td>
+  <td>Ø25 mm Post, L = 150 mm</td>																		<td>6</td></tr>
+  <tr><td>24</td>		<td>Thorlabs</td>			<td>RS100/M</td>
+  <td>Ø25 mm Post, L = 100 mm</td>																		<td>6</td></tr>
+  <tr><td>25</td>		<td>Thorlabs</td>			<td>RS25/M</td>
+  <td>Ø25 mm Post, L = 25 mm</td>																		<td>6</td></tr>
+  <tr><td>26</td>		<td>Thorlabs</td>			<td>ER05</td>
+  <td>Cage Assembly Rod, 1/2" (12.7 mm) Long, Ø6 mm</td>												<td>12</td></tr>
+  <tr><td>27</td>		<td>Thorlabs</td>			<td>ER12</td>
+  <td>Cage Assembly Rod, 12" (304.8 mm) Long, Ø6 mm</td>												<td>4</td></tr>
+  <tr><td>28</td>		<td>Thorlabs</td>			<td>LCP01B</td>
+  <td>60 mm Cage Mounting Bracket</td>																	<td>1</td></tr>
+  <tr><td>29</td>		<td>Thorlabs</td>			<td>SM1A39</td>
+  <td>Adapter with External C-Mount Threads and External SM1 Threads</td>								<td>1</td></tr>
+  <tr><td>30</td>		<td>Thorlabs</td>			<td>CRM1/M</td>
+  <td>Cage Rotation Mount for Ø1" Optics, SM1 Threaded, M4 Tap</td>										<td>1</td></tr>
+  <tr><td>31</td>		<td>Thorlabs</td>			<td>RS100/M</td>
+  <td>Ø25 mm Post, L = 100 mm</td>																		<td>1</td></tr>
+  <tr><td>32</td>		<td>Thorlabs</td>			<td>RSH3/M</td>
+  <td>Ø25 mm Post Holder with Flexure Lock, Pedestal Base, L = 75 mm</td>								<td>1</td></tr>
+  <tr><td>33</td>		<td>Thorlabs</td>			<td>PF175</td>
+  <td>Clamping Fork for Ø1.5" Pedestal Post or Post Pedestal Base Adapter, Universal</td>				<td>1</td></tr>
+  <tr><td>34</td>		<td>Thorlabs</td>			<td>C1A</td>
+  <td>ER Rod Cross Coupler, Top and Bottom Pieces</td>													<td>8</td></tr>
+  <tr><td>35</td>		<td>Thorlabs</td>			<td>BA1S/M</td>
+  <td>Mounting Base, 25 mm x 58 mm x 10 mm</td>															<td>2</td></tr>
+  <tr><td>36</td>		<td>Thorlabs</td>			<td>TR150/M</td>
+  <td>Ø12.7 mm Optical Post, SS, M4 Setscrew, M6 Tap, L = 150 mm</td>									<td>2</td></tr>
+  <tr><td>37</td>		<td>Thorlabs</td>			<td>CFW6</td>
+  <td>30 mm Cage Filter Wheel for Six Ø1" Filters</td>													<td>1</td></tr>
+  <tr><td>38</td>		<td>PI</td>					<td>P-726.1CD</td>
+  <td>PIFOC® Ultra-High-Dynamics Microscope Lens Piezo-Z Positioning Drive, 100um travel</td>			<td>1</td></tr>
+  <tr><td>49</td>		<td>PI</td>					<td>P-726.11</td>
+  <td>P-726 PIFOC® Thread Adapter M25</td>																<td>1</td></tr>
+  <tr><td>40</td>		<td>PI</td>					<td>E-753.1CD</td>
+  <td>High-Speed Single-Channel Digital Piezo Controller for Capacitive Sensors</td>					<td>1</td></tr>
+  <tr><td>41</td>		<td>Nikon</td> 				<td>MXA22018</td>
+  <td>Tube lens 200mm EFL</td>																			<td>3</td></tr>
+  <tr><td>42</td>		<td>Nikon</td>				<td>MRD00405</td>
+  <td>CFI Plan Apo Lambda 40x - 0.95NA, WD0.25-0.17</td>												<td>2</td></tr>
+  <tr><td>43</td>		<td>Nikon</td>				<td>MRD01605</td>
+  <td>CFI60 Plan Apochromat Lambda 60x Oil Immersion Objective Lens, N.A. 1.4, W.D., 0.13mm, F.O.V. 25mm, DIC</td>																										<td>1</td></tr>
+  <tr><td>44</td>		<td>Zera Development</td>   <td>DMi8 casting flange adaptor 1.0</td>
+  <td>Adaptor for connecting a 6x30mm cage system to the cast flange of the DMi8 camera side port. This version is for the right hand port (left hand version requires M3 holes mirrored on optical axis).</td>				 <td>1</td></tr>
+  <tr><td>45</td>		<td>Zera Development</td>   <td>Objective holder plate M25x0.75</td>
+  <td>Adaptor plate for integrating M25 x 0.75 objectives into a 6x60mm cage system with M6 counter sunk holes for metric breadboards. Exact thickness is design specific.</td>											 <td>1</td></tr>
+  <tr><td>46</td>		<td>Zera Development</td>   <td>Tube lens adaptor M38 x 0.5 for 60mm cage 1.0</td>
+  <td>Adaptor plate for including M38 x 0.5 threaded parts into a 60mm cage system on axis.</td>		<td>2</td></tr>
+  <tr><td>47</td>		<td>Mark Optics</td>		<td>Custom</td>
+  <td>Custom glass window: Window, Coated, Bk-7, OD: 25mm +/- 0.2mm, Thk: 0.34mm +/- 0.1mm, polished both sides 20/10, TWF 1/4 wave, parallelism < 10 arc sec, CA 90%, VIS AR coated Tavg > 99% 400-700nm, AOI = 0 degree</td>	<td>1</td></tr>
+</table>
+</div>
+
+<h4 id="Drawings">Drawings</h4>
+
+<p>For 2D CAD drawings please refer to this <a href="images/RR CAD/2D CAD.zip">folder</a> and for full sized assembly drawings please click <a href="images/RR CAD/Remote re-focus 1.2.pdf">here</a>. For our custom parts .STEP files can be found <a href="images/RR CAD/STEP files.zip">here</a> and 3D CAD for all other parts can be sourced from the respective manufacturers.</p>
+
+<figure id="AFigure_7">
+<img src="images/RR images/Remote re-focus 1.2 dimensions.png" alt="AFigure 7" id="AFigure_7_svg" style="width:100%;">
+<figcaption><strong>AFigure 7: RR assembly</strong> desciption...</figcaption>
+</figure>
+
+<h4 id="Alignment">Alignment procedure</h4>
+
+<p>Aligning the RR for someone with optical assembly and microscopy experience is straightforward. For those unsure as to how to proceed please try one of the following alignment procedures, bearing in mind that alignment is iterative and usually a learning process. The first time might take a day or two, the nth time less than an hour...</p>
+
+<ul>
+<li>Alignment with extended tool set and full access to components:</li>
+	<ol>
+		<li>Collimate a small diameter (<1mm) low power (<1mW) laser beam over a few meters and axially align the beam with the appropriate microscope thread (usually M25x0.75 or RMS).</li>
+		<li>Remove all the lenses from the system (3 objective tube lens pairs) and the camera.</li>
+		<li>Fire the laser beam through the microscope from the primary objective thread and out through the side port and through the RR optical train.</li>
+		<li>Use pinholes or irises to firstly align the RR to the microscope by adjusting the hieght of the feet and the relative position on the table (then bolt down).</li>
+		<li>Now use pinholes or irises to axially align the rest of the path using the RR tip tilt mirrors. At the end of this step the beam should be centered in xy at every point in the system from the primary objective to the camera.</li>
+		<li>Now remove the laser, add the camera and fit the lenses as close as possible to their designed positions ready for imaging.</li>
+		<li>Image a known sample (like a graticule) with transmitted light and focus with the eye pieces. Now image with the RR camera and (with the piezo powered and in it's nominal rest position) use the xyz mount on the adjustable objective to focus and centre the sample.</li>
+		<li>Now de-focus with the microscope stand and re-focus with the RR to check function. Minor adjustments to the mirrors and xyz objective may be needed for good alignment.</li>
+	</ol>
+<li>Alignment with limited tools and access</li>
+	<ol>
+		<li>Image a known transmitted light sample (like a graticule) with the primary objective tube lens pair on the microscope using the eyepieces to centre and focus.</li>
+		<li>Remove the RR lenses (2 objective tube lens piars) and the camera.</li>
+		<li>Set the white light source to maximum intensity and darken the room so that the beam is visible throughout he system.</li>
+		<li>Use pinholes or irises to firstly align the RR to the microscope by adjusting the hieght of the feet and the relative position on the table (then bolt down). A graticule with a well chosen scale can have a visible image (crosshairs) that can be used at the magnified image plane to get good alignment.</li>
+		<li>Now use pinholes or irises to axially align the rest of the path using the RR tip tilt mirrors. At the end of this step the beam should be centered in xy at every point in the system from the primary objective to the camera.</li>
+		<li>Add the camera to the RR and fit the lenses as close as possible to their designed positions ready for imaging.</li>
+		<li>Image with the RR camera and (with the piezo powered and in it's nominal rest position) use the xyz mount on the adjustable objective to focus and centre the sample.</li>
+		<li>Now de-focus with the microscope stand and re-focus with the RR to check function.</li>
+		<li>Adjustments to the position of the RR base, mirrors and xyz objective will likely be needed for good alignment - expect to iterate.</li>
+	</ol>
+</ul>
+
+<h3 id="Acquisition">
+Acquisition</h3>
+
+<h4>Additional equipment</h4>
+
+<p>To evaluate the RR we used the following additional equipment in our experimental setup</p>
+
+<div>
+<style scoped>
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+	padding: 2px;
+	font-size: small;
+}
+</style>
+<table>
+  <tr><th>Item No.</th>	<th>Supplier</th>				<th>Part</th>
+  <th>Description</th>
+  <tr><td>1</td>		<td>Leica</td>					<td>DMi8</td>
+  <td>Research grade inverted microscope stand with motorised z-drive</td>
+  <tr><td>2</td>		<td>PI</td>						<td>U-780</td>
+  <td>Automated xy stage, 100nm precision, closed loop PID control</td>
+  <tr><td>3</td>		<td>PI</td>						<td>P-737</td>
+  <td>Z piezo stage insert, 500um travel, 100Hz resonant fequency (200g load), closed loop PID control with 5kHz analoque in</td>
+  <tr><td>4</td>		<td>Lumencor</td>				<td>SpectraX</td>
+  <td>Multicolor LED light source with TTL trigger (10<span>&#181;</span>s rise/fall)</td>
+  <tr><td>5</td>		<td>PCO</td>					<td>edge 4.2</td>
+  <td>sCMOS camera, (2048x2048)pixels with 6.5<span>&#181;</span>mx6.5<span>&#181;</span>m size, 100fps full field, TTL trigger <50<span>&#181;</span>s response</td>
+  <tr><td>6</td>		<td>NI</td>						<td>PCI-6733</td>
+  <td>8 channel analogue out card, 1MHz, 16bit</td>
+  <tr><td>7</td>		<td>Zera Development</td>		<td>DMi8 stage spacer 15mm front 1.0</td>
+  <td>Raises xy stage on DMi8 platform by 15mm to accomodate objectives with longer parfocal distance or piezo z-drive inserts that require more height.</td>
+  <tr><td>8</td>		<td>Zera Development</td>		<td>DMi8 stage spacer 15mm rear 1.0</td>
+  <td>Raises xy stage on DMi8 platform by 15mm to accomodate objectives with longer parfocal distance or piezo z-drive inserts that require more height.</td>
+  <tr><td>9</td>		<td>Thorlabs</td>				<td>PL15M25</td>
+  <td>15 mm Parfocal Length Extender for Microscope Objectives, M25 x 0.75 Threading</td>
+  </table>
+</div>
+
+
+<h4>How we took our data</h4>
+
+<p> With the above mentioned hardware setup we used <a href="https://www.python.org/">python</a> scripts to issue serial port commands to devices and create voltages to play with the <a href="http://www.ni.com/">National Instruments</a> analogue out card. The RR piezo, camera and light sources could all be triggered and controlled by the analogue signals for synchronized high speed acquisitions. In practice data was taken by focusing on the sample with the microscope z drive to give the ‘zero’ or reference position. Focus was then adjusted by using the either the microscope z, the piezo z stage insert or the remote re-focus piezo depending on the mode of operation.</p>
+
+<h4>Example code</h4>
+
+<p> Here we anotate a typical example of the script that was used for data collection. The exact script for each data set was not kept as it amounted only to minor changes in stack amplitude, step size, exposure, etc or changes in the order of operation or routine depending on the experiment. Base examples of the scripts used for biology and motion performance can be found in the data generation <a href="data_generation">folder</a> including the associated dependencies for running the hardware with the exception of the microscope stand the control of which has not been made public</p>
+
+<ol>
+<li>Necessary python modules are imported followed by hardware control scripts. The program then checks if it's the 'main' program and if so imports the multiprocessing module needed for image_data_pipeline.py which runs the camera. A sensible level of verbosity is then set using the logger commands.</li>
+
+<pre><code class="language-python">
+import time
+import tkinter
+import numpy as np
+import ni
+import leica_scope
+import physik_instrumente
+import image_data_pipeline
+import lumencor
+from pco import pco_edge_camera_child_process, legalize_roi
+
+if __name__ == '__main__':
+    import multiprocessing as mp
+    import logging
+    logger = mp.log_to_stderr()
+    logger.setLevel(logging.INFO)
+</pre></code>
+
+<p></p>
+<li>COM ports are assigned to the hardware with serial control and analogue out channels are given to the camera, RR and light source</li>
+	
+<pre><code class="language-python">
+    ### COM port assignment
+    dmi8_com_port = 'COM4'
+    rr_piezo_com_port = 'COM6'
+    epi_com_port = 'COM10'
+
+    ### Analog out channel settings
+    ao_ch = {'camera'    :0,
+             'rr_piezo'  :1,
+             'spx_uv'    :2,
+             'spx_blue'  :3,
+             'spx_cyan'  :4,
+             'spx_teal'  :5,
+             'spx_green' :6,
+             'spx_red'   :7,}
+    ao_ch_name = {}
+    for name, index in ao_ch.items():
+        ao_ch_name[index]= name
+</pre></code>
+
+<p></p>
+<li>The user sets the choice of objective to be either the 40x0.95 air or 60x1.4 oil. The RR instrument was designed to work with both objectives but the 'z_ratio' which is the amount the RR piezo needs to move in air to give a certain de-focus in the sample changes according to the 1st golden rule of RR. In practice with the optics used we found 0.98 to be correct for air and 1.42 for oil when imaging the Argolight slide. This was calibrated by de-focusing a known amount with the microscope and then seeing what piezo offset was needed to re-focus.</li>
+	
+<pre><code class="language-python">		
+    ### Objective choice
+    objective = 'oil' # Choose 'air' or 'oil'
+    #  'air':0.98 for best correction collar setting of 0.19 for Argolight
+    #  'oil':1.42
+    z_ratio = {'air':0.98, 'oil':1.42}[objective]
+
+</pre></code>
+
+<p></p>
+<li>Acquisition parameters are chosen including stack amplitude, step size, number of colors, number of volumes to image, exposure time and file name format. Sensible bounds of memory buffer size and camera chip region of interest are asserted to avoid crashes.</li>
+
+<pre><code class="language-python">	
+    ### Stack parameters
+    stk_amp = 5 # set half amplitude of stack around current focus (um)
+    stk_step_size = 1 # set stack step size (um)
+    stk_num_steps = round(2 * stk_amp / stk_step_size) + 1
+    # RR stack conversion
+    rr_stk_amp = stk_amp * z_ratio
+
+    ### Volumetric image information
+    num_vol = 2
+    num_colors = 2 # To change from 2 must edit voltage code
+    num_frames = stk_num_steps * num_vol * num_colors
+    assert num_frames < 1001 # Set sensible upper bound on buffer
+
+    ### Illumination settings
+    tl_ao_ch = ao_ch['spx_green'] # take an epi channels for trans light
+    led_ao_ch = ao_ch['spx_cyan'] # set epi excitation color
+    led_intensities = {'uv':255, # set epi excitation intensities
+                       'blue':255,
+                       'cyan':255,
+                       'teal':255,
+                       'green':255,
+                       'red':255,}
+
+    ### Camera settings
+    exposure_ms = 20 # set exposure - includes rolling time (ms)
+    filename_format = '%s_%s_vol_%sum_stk_%sum_step_%sms_exp.tif'
+                    # (led_ao_ch, num_vol, stk_amp, stk_step_size, exp_ms)
+    roi = legalize_roi({'top':1, # Be careful to choose a 'legal' roi!
+##                        'left':1,
+##                        'right':2060
+                        })
+</pre></code>
+
+<p></p>
+<li>The camera, analogue out card, microscope, LED light source and RR piezo are initialised. The camera is controlled through the image_data_pipeline.py module which simultaneously handles grabbing frames, displaying to screen and saving to disk using multiprocessing. The data rate for the analogue out card is set at least 10x higher than the fastest aquisition event to ensure synchronisation and the microscope tube lens turrent is moved to an empty position so as to not obsure the remote-refocus optics. The RR piezo is centered on it's reference position and a 'position to voltage' function is defined for analogue control.</li>
+	
+<pre><code class="language-python">		
+    ### Initialize hardware
+    # Camera
+    idp = image_data_pipeline.Image_Data_Pipeline(
+            num_buffers=1,
+            buffer_shape=(num_frames,   # Buffer size for full volume series
+                          roi['bottom']-roi['top']+1,
+                          roi['right']-roi['left']+1),
+            camera_child_process=pco_edge_camera_child_process)
+    idp.apply_camera_settings(
+            exposure_time_microseconds=exposure_ms*1000,
+            trigger='external_trigger',
+            preframes=0,
+            region_of_interest=roi)
+    ao = ni.Analog_Out(
+            num_channels='all',
+            rate=1e5,       # Voltages per second
+            daq_type='6733',
+            board_name='Dev1')
+    # Microscope
+    dmi8 = leica_scope.DMI_8_Microscope(dmi8_com_port)
+    dmi8.set_max_pos_magn(max_n=4)
+    dmi8.change_magn(4) # Set tube lens to empty position
+    # Epi light source
+    epi_source = lumencor.SpectraX(epi_com_port, verbose=False)
+    epi_source.set_intensity(**led_intensities)
+    # Remote re-focus piezo
+    rr_piezo = physik_instrumente.E753_Z_Piezo(which_port=rr_piezo_com_port,
+                                               verbose=False)      
+    rr_piezo.move(50) # Send piezo to default zero position (um)
+    rr_piezo._finish_moving()
+    rr_piezo.set_analog_control_state(True)
+    def piezo_volts_from_pos(desired_piezo_offset_um):
+        piezo_position_abs = 50 + desired_piezo_offset_um
+        piezo_analog_in_voltage = (piezo_position_abs - 50) / 5
+        assert -10 <= piezo_analog_in_voltage <= 10
+        return piezo_analog_in_voltage
+</pre></code>
+
+<p></p>
+<li>A voltages vs time array is created for each channel of the analogue out card for device control (the default is zero volts for channels that are not specified). The exposure time set in the acquisition section is split into camera rolling time (time needed for camera to initialise all pixels) and actual exposure time (time when the lights can be on and data can be taken) with an addition 'jitter time' added to ensure the camera doesn't miss the first trigger after an exposure. With the time line established 'lights on' windows and piezo movements can be given according to the acquisition parameters.</li>
+	
+<pre><code class="language-python">	
+    ### Set up voltages for analog out control
+    #  Camera timing information
+    TTL_HIGH_V = 3 # 3V TTL
+    rolling_time_s = idp.camera.get_setting('rolling_time_microseconds')*1e-6
+    exposure_time_s = idp.camera.get_setting('exposure_time_microseconds')*1e-6
+    jitter_time_s = 50e-6
+    assert rolling_time_s < exposure_time_s
+    jitter_pix = round(jitter_time_s * ao.rate)
+    assert jitter_pix > 1 # Helps ensure the camera won't swallow a trigger
+    start_pix = jitter_pix + round(rolling_time_s * ao.rate)
+    stop_pix = round(exposure_time_s * ao.rate)
+    # Create voltage list and voltage shape
+    voltages_list = [] # To fill with numpy arrays
+    voltage_shape = (stop_pix + jitter_pix, ao.num_channels)
+    # Create voltages for volumes
+    for v in range(num_vol):
+        # Create voltages for stacks
+        for rr_piezo_z in np.linspace(-rr_stk_amp, rr_stk_amp, stk_num_steps):
+            # Create voltages for frames
+            # Transmitted light
+            tl_frame_voltages = np.zeros(voltage_shape, dtype=np.float64)
+            tl_frame_voltages[:start_pix, ao_ch['camera']] = TTL_HIGH_V
+            tl_frame_voltages[start_pix:stop_pix, tl_ao_ch] = TTL_HIGH_V
+            tl_frame_voltages[:, ao_ch['rr_piezo']] = piezo_volts_from_pos(
+                rr_piezo_z)
+            voltages_list.append(tl_frame_voltages)
+            # Epi led excitation
+            led_frame_voltages = np.zeros(voltage_shape, dtype=np.float64)
+            led_frame_voltages[:start_pix, ao_ch['camera']] = TTL_HIGH_V
+            led_frame_voltages[start_pix:stop_pix, led_ao_ch] = TTL_HIGH_V
+            led_frame_voltages[:, ao_ch['rr_piezo']] = piezo_volts_from_pos(
+                rr_piezo_z)
+            voltages_list.append(led_frame_voltages)
+        rr_stk_amp = -rr_stk_amp # bidirectional z scanning for speed
+    # Combine voltages into single array
+    voltages = np.concatenate(voltages_list, axis=0)
+</pre></code>
+
+<p></p>
+<li>This optional code is useful for capturing live biological events that are seen on screen in a preview mode. The user can watch the sample in real time and then hit the acquire button when something interesting happens. The script turns on the light source and then continuosly runs the camera in a loop (displaying to screen) until the user closes the window at which point the acquisition begins immediately.</li>
+	
+<pre><code class="language-python">	
+    ### Prepare and run livemode for preview of sample
+    # Turn on transmitted light
+    tl_on_voltage_shape = (10, ao.num_channels) # 10 time units wide
+    tl_ao_ch_high = np.zeros(tl_on_voltage_shape, dtype=np.float64)
+    tl_ao_ch_high[:, tl_ao_ch] = TTL_HIGH_V
+    ao.play_voltages(tl_ao_ch_high, force_final_zeros=False)
+    # Reset camera buffer for livemode
+    idp.apply_camera_settings(frames_per_buffer=1) # For livemode image
+    def live_mode():
+        # Tell the camera to start trying to take an image
+        idp.load_permission_slips(num_slips=1)
+        idp.camera.commands.send(('force_trigger', {}))
+        assert idp.camera.commands.recv() # Trigger must be successful
+        # Wait for any previous image to finish:
+        while len(idp.idle_data_buffers) == 0: idp.collect_permission_slips()
+        tk.after(1, live_mode) # Re-schedule livemode
+    # Set up event loop for livemode
+    tk = tkinter.Tk()
+    tkinter.Label(tk, text="Close window to take a volumetric series").pack()
+##    tkinter.Button(tk, text="Snap", command=live_mode).pack()
+    tk.after(1, live_mode) # Schedule 1st instance of live mode in event loop
+    tk.mainloop() # Run event loop for livemode
+</pre></code>
+
+<p></p>
+<li>The camera is reset after the preview mode and the analogue out card now plays the pre-defined voltage arrays to run the acquisition and save files to disk.</li>
+
+<pre><code class="language-python">	
+    ### Reset camera properties for ao triggered stack
+    idp.apply_camera_settings(frames_per_buffer=num_frames) # Reset for volumes
+    # Wait for any previous file saving to finish:
+    while len(idp.idle_data_buffers) == 0: idp.collect_permission_slips()
+    # Tell the camera to start trying to take stacks and where to save
+    idp.load_permission_slips(
+        num_slips=1,
+        file_saving_info=[
+            {'filename': filename_format %(ao_ch_name[led_ao_ch],
+                                           num_vol,
+                                           2*stk_amp,
+                                           stk_step_size,
+                                           exposure_ms)}])
+    while not idp.camera.input_queue.empty(): # Is the camera ready?
+        pass # If not then hold ao play until camera is ready
+            
+    ### Play analog voltages
+    start = time.perf_counter()
+    ao.play_voltages(voltages)
+    end = time.perf_counter()
+##    print('Time elapsed in seconds =', end - start)
+##    input('hit enter to continue...')
+</pre></code>
+
+<p></p>
+<li>Hardware elements are released ready for the next acquisition.</li>
+
+<pre><code class="language-python">	
+    ### Close all objects
+    idp.close()
+    ao.close()
+    dmi8.close()
+    rr_piezo.close()
+
+</pre></code>
+
+<h3 id="History">
+History</h3>
+
+<h4>A summary of RR publications</h4>
+
+<p>Since the original RR paper
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>]
+there have been many publications that have used this technique for a variety of applications. The aim of this section is provide a very concise summary of these developments to help the reader frame the use of RR within the field of microscopy.</p>
+<p>
+[<a class="citation" href="https://doi.org/10.1364/OE.16.021843" title="Real-time extended depth of field microscopy; E.J. Botcherby, M.J. Booth, R. Juškaitis & T. Wilson; Optics Express, vol 16(26), p21843-21848, (2008)">Botcherby 2008</a>]
+applied a SORR to a spinning disk confocal microscope operating in an extended depth of field (EDF) mode to give z projections onto a single camera exposure. This had the advantage of achieving high frame rates due to a small scanning mirror at the expense ~50% of the fluorescence light, which is currently the main drawback of the SORR arrangement. A tilt mirror close to the back focal plane (BFB) was added to give angular variations of the EDF image over a small range giving an effective 3D perspective of the sample.
+[<a class="citation" href="https://doi.org/10.1364/OE.16.020306" title="Optically sectioned imaging by oblique plane microscopy; C. Dunsby; Optics Express, vol 16(25), p20306-20316, (2008)">Dunsby 2008</a>]
+ modified the DORR concept to invent the oblique plane microscopy (OPM) modality which enables light sheet illumination and collection from a single high numerical aperture objective. This breakthrough resulted in a true ‘single objective’ light sheet microscope removing the many drawbacks of multi-objective systems but with the inherent limitation of lower effective resolution and collection efficiency due to the tilted arrangement of the optics. For oil immersion objectives this equates to a maximum effective numerical aperture of  about ~1 with a ~50% loss in fluorescence signal.</p>
+<p>
+[<a class="citation" href="https://doi.org/10.1364/OL.34.001504" title="Real-time slit scanning microscopy in the meridional plane; E.J. Botcherby, M.J. Booth, R. Juškaitis & T. Wilson; Optics Letters, vol 34(10), p1504-1506, (2009)">Botcherby 2009</a>]
+used SORR in combination with a line illumination and slit confocal microscope arrangement including a secondary scanning mirror to pack lines onto the camera and produce high frame rates in the meridional or z plane of the sample. This SORR setup had the usual drawback of ~50% signal loss due to the polarizing beam splitter (PBS) cube but was nice early demonstration of how RR can be appended to an existing imaging platform.
+P. S. Salter et al 2009 demonstrated the use of SORR in a two photon microscope for analysing liquid crystal dynamics in z.</p>
+<p>
+[<a class="citation" href="https://doi.org/10.1364/BOE.2.000113" title="Remote focusing for programmable multi-layer differential multiphoton microscopy; E.E. Hoover, M.D. Young, E.V. Chandler, A. Luo, J.J. Field, K.E. Sheetz, A.W. Sylvester & J.A. Squier; Biomedical Optics Express, vol 2(1), p113-122, (2011)">Hoover 2011</a>]
+used SORR with their differential multiphoton microscopy technique to give agile z adjustment and
+[<a class="citation" href="https://doi.org/10.1364/OE.19.013839" title="High-speed 2D and 3D fluorescence microscopy of cardiac myocytes; S. Kumar, D. Wilding, M.B. Sikkel, A.R. Lyon, K.T. MacLeod & C. Dunsby; Optics Express, vol 19(15), p13839-13847, (2011)">Kumar 2011</a>]
+improved on the original OPM setup by coupling the excitation through the RR so that the light sheet and image plane can be simultaneously swept through the sample in a remote fashion to give inherently synchronized imaging at high volumetric frame rates.
+[<a class="citation" href="https://doi.org/10.1073/pnas.1109111108" title="Three-dimensional imaging and photostimulation by remote-focusing and holographic light patterning; F. Anselmi, C. Ventalon, A. Bègue, D. Ogden & V. Emiliani; PNAS, vol 108(49), p19504-19509, (2011)">Anselmi 2011</a>]
+combined SORR with 3D holographic stimulation and introduce a novel tilt of the RR scan mirror that is similar in concept to the OPM setup and allows imaging of tunable oblique planes in the sample. The paper also offers a thorough quantification of RR performance with the optics used in the experiment confirming the analysis of the original paper
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>].
+[<a class="citation" href="https://doi.org/10.1364/OL.36.000663" title="Agitation-free multiphoton microscopy of oblique planes; C.W. Smith, E.J. Botcherby, M.J. Booth, R. Juškaitis & T. Wilson; Optics Letters, vol 36(5), p663-665, (2011)">Smith 2011</a>]
+combine SORR with a traditional point scanning two photon microscope to give agile axial adjustment and the ability to create oblique excitation planes via high speed synchronized 3D point scanning.</p>
+<p>
+[<a class="citation" href="https://doi.org/10.1073/pnas.1111662109" title="Aberration-free three-dimensional multiphoton imaging of neuronal activity at kHz rates; E.J. Botcherby, C.W. Smith, M.M. Kohl, D. Débarre, M.J. Booth, R. Juškaitis, O. Paulsen & T. Wilson; PNAS, vol 109(8), p2919-2924, (2011)">Botcherby 2012</a>]
+optimise their SORR two photon microscope for high acquisition rates and present relevant applications and
+[<a class="citation" href="https://doi.org/10.1364/OE.20.000960" title="Optical refocusing three-dimensional wide-field fluorescence lifetime imaging microscopy; Q. Wu, S. Guo, Y. Ma, F. Gao, C. Yang, M. Yang, X. Yu, X. Zhang, R.A. Rupp & J. Xu; Optics Express, vol 20(2), p960-965, (2012)">Wu 2012</a>]
+combine SORR with wide field fluorescence lifetime microscopy (FLIM) to give agile 3D performance.</p>
+<p>
+[<a class="citation" href="https://doi.org/10.1364/AO.53.003473" title="Remote-focusing microscopy with long working distance objective lenses; Y. Qi, M. Lei, Y. Yang, B. Yao, D. Dan, X. Yu, S. Yan & T. Ye; Applied Optics, vol 53(16), p3473-3478, (2014)">Qi 2014</a>]
+perform a thorough simulation and experimental testing of SORR for long working distance objectives with findings that are in line with the original paper
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>].
+</p>
+<p>
+[<a class="citation" href="https://doi.org/10.1038/nphoton.2014.323" title="Swept confocally-aligned planar excitation (SCAPE) microscopy for high-speed volumetric imaging of behaving organisms; M.B. Bouchard, V. Voleti,	C.S. Mendes, C. Lacefield, W. B. Grueber,	R.S. Mann, R.M. Bruno & E.M.C. Hillman; Nature Photonics, vol 9, p113-119, (2015)">Bouchard 2015</a>]
+use DORR in an OPM arrangement to untilt the image plane from their swept confocally-aligned planar excitation (SCAPE) microscope and
+[<a class="citation" href="http://dx.doi.org/10.1016/j.bpj.2015.05.013" title="Deconvolution-free Subcellular Imaging with Axially Swept Light Sheet Microscopy; K.M. Dean, P. Roudot, E.S. Welf, G. Danuser & R. Fiolka; Biophysical Journal, vol 108, p2807-2815, (2015)">Dean 2015</a>]
+use SORR to give fast z scanning of a light sheet that is imaged by a second orthogonal objective in their axially swept light sheet microscope (ASLM) . Because the SORR is on the excitation path with abundant coherent light there is no significant loss from the PBS which nicely demonstrates the use of a penalty free RR arrangement.</p>
+<p>
+[<a class="citation" href="http://dx.doi.org/10.1002/jbio.201500193" title="High speed sCMOS-based oblique plane microscopy applied to the study of calcium dynamics in cardiac myocytes; M.B. Sikkel, S. Kumar, V. Maioli, C. Rowlands, F. Gordon, S.E. Harding, A.R. Lyon, K.T. MacLeod & C. Dunsby; Journal of Biophotonics, vol 9(3), p311-323, (2016)">Sikkel 2016</a>]
+refine the inherently synchronized 2nd generation OPM arrangement by adding parallelised multicolour excitation and emission paths, quantifying the performance and demonstrating relevant applications. The overall collection efficiency from the combined efficiencies of the optical train and OPM arrangement was found to be ~20%.
+[<a class="citation" href="https://doi.org/10.1016/j.bpj.2016.01.029" title="Diagonally Scanned Light-Sheet Microscopy for Fast Volumetric Imaging of Adherent Cells; K.M. Dean, P. Roudot, C.R. Reis, E.S. Welf, M. Mettlen & R. Fiolka; Biophysical Journal, vol 110(6), p1456-1465, (2016)">Dean 2016</a>]
+advance the ASLM concept to a diagonally swept version by using SORR to scan a dithered gaussian lattice light sheet onto a coverslip that is arranged at a convenient angle for the dual objective system.
+[<a class="citation" href="https://doi.org/10.1364/BOE.7.001656" title="Remote z-scanning with a macroscopic voice coil motor for fast 3D multiphoton laser scanning microscopy; P. Rupprecht, A. Prendergast, C. Wyart & R.W. Friedrich; Biomedical Optics Express, vol 7(5), p1656-1671, (2016)">Rupprecht 2016</a>]
+take a pragmatic approach to incorporating a platform independent SORR into a laser scanning microscope to give agile axial scanning in a relatively economical format using a voice coil actuator that they refer to as a z scanning unit (ZSU). (Zeiss)</p>
+</p>
+
+</section>
+<footer>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./images/cc_by_4p0.png"></a>
+
+  <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a></small></p>
+</footer>
+</div>
+ <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+</body>
+</html>
