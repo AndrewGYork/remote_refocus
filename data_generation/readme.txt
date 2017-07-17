@@ -9,6 +9,7 @@ image_data_pipeline.py
 lumencor.py
 ni.py
 pco.py
+physik_instrumente.py
 leica_scope.py ***NOT INCLUDED*** (the leica control code has not been made public)
 
 The user must also import these python modules:
