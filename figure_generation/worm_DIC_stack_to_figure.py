@@ -78,7 +78,13 @@ else:
         data.reshape(num_tps*num_slices, data.shape[-2], data.shape[-1]),
         registered_filename, slices=num_slices, channels=1, frames=num_tps)
     print('done')
-    print('tif shape (t, z, y, z) =', data.shape)
+    print('tif shape (t, z, y, x) =', data.shape)
+
+## Add white scale bar to all images
+for t in range(data.shape[0]):
+    for z in range(data.shape[1]):
+        image = data[t, z, :, :]
+        image[30:40, 635:820] = 2500
 
 ## Choose parameters for video
 num_z_stack = 4
@@ -86,7 +92,7 @@ pause = 25
 z_slow_down_factor = 5
 current_frame = -1
 current_tp = -1
-xmargin = 0.3
+xmargin = 0.25
 ymargin = 0.775
 space = 0.03
 t = num_tps - 1 # set initial t to reject noisy frame
@@ -111,7 +117,7 @@ for n in range(num_z_stack):
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '20 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.1f'%time),
                     color='white', family='monospace')
@@ -131,12 +137,12 @@ for n in range(num_z_stack):
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '20 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.1f'%time),
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + space,
-                    'z=%6s$\mu$m 20 volumes/s!'%('%0.1f'%z),
+                    'z=%6s$\mu$m Every time point is a 3D volume'%('%0.1f'%z),
                     color='yellow', family='monospace')
         plt.savefig(output_filename%current_frame, bbox_inches='tight')
         for r in range(z_slow_down_factor):
@@ -152,12 +158,12 @@ for n in range(num_z_stack):
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '20 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.1f'%time),
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + space,
-                    'z=%6s$\mu$m 20 volumes/s!'%('%0.1f'%z),
+                    'z=%6s$\mu$m Every time point is a 3D volume'%('%0.1f'%z),
                     color='yellow', family='monospace')
         plt.savefig(output_filename%current_frame, bbox_inches='tight')
         for r in range(z_slow_down_factor):
@@ -173,12 +179,12 @@ for n in range(num_z_stack):
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '20 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.1f'%time),
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + space,
-                    'z=%6s$\mu$m 20 volumes/s!'%('%0.1f'%z),
+                    'z=%6s$\mu$m Every time point is a 3D volume'%('%0.1f'%z),
                     color='yellow', family='monospace')
         plt.savefig(output_filename%current_frame, bbox_inches='tight')
         for r in range(z_slow_down_factor):

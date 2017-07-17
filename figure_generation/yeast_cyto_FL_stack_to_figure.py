@@ -100,6 +100,9 @@ for t in range(num_tps):
             ax[2*z+1] = plt.axes([0.1, 0.04*(2*z+1), 0.5, 0.5])
             rgb = np.zeros(data[t, z, :, :].shape + (3,))
             rgb[:, :, 1] = 1.0*norm(data[t, z, :, :])
+            if z == 4:
+                scale_bar = rgb[ :, :, :]
+                scale_bar[30:40, 1695:1880] = 1
             ax[2*z+1].imshow(rgb)
             plt.setp(ax[2*z+1].get_xticklabels(), visible=False)
             plt.setp(ax[2*z+1].get_yticklabels(), visible=False)

@@ -37,6 +37,11 @@ if os.path.exists(input_filename):
 else:
     print('No tif found')
 
+## Add white scale bar to all images
+for t in range(data.shape[0]):
+    image = data[t, :, :]
+    image[30:40, 550:735] = image.max()
+
 ## Choose parameters for video
 current_frame = -1
 xmargin = 0.15
@@ -56,7 +61,6 @@ for z in range(num_angles):
     plt.gca().get_xaxis().set_ticks([])
     plt.gca().get_yaxis().set_ticks([])
     plt.figtext(xmargin, ymargin, 'array=(40$\mu$m)\u00b3, '
-                'ring edge=300nm FWHM, '
                 'rotation=%3sdeg'%('%0.0f'%angle),
                 color='yellow', family='monospace')
     plt.savefig(output_filename%current_frame, bbox_inches='tight')

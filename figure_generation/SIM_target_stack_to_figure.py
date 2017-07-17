@@ -57,6 +57,12 @@ else:
 
 print('tif shape (Microsope z, RR z, y, x) =', data.shape)
 
+## Add white scale bar to all images
+for t in range(data.shape[0]):
+    for z in range(data.shape[1]):
+        image = data[t, z, :, :]
+        image[50:60, 1800:1985] = 5000
+
 ## Choose parameters for video
 current_frame = -1
 xmargin = 0.15
@@ -81,12 +87,15 @@ for fn in range(num_f):
         plt.imshow(data[fn, z, :, :], cmap='gray', vmin=1000, vmax=5000)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
+        plt.figtext(xmargin, ymargin + 23*space,
+                    'Field of view = (220x220)$\mu$m',
+                    color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 'RR z=%6s$\mu$m'%('%0.2f'%rrz),
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'Microscope z=%6s$\mu$m'%('%0.2f'%mz),
                     color='yellow', family='monospace')
-        plt.figtext(xmargin, ymargin, 'FOV = (220x220)$\mu$m, '
-                    'line width = 300nm FWHM',
+        plt.figtext(xmargin, ymargin,
+                    'Note that each line is actually a line pair separated by 750nm',
                     color='yellow', family='monospace')
         plt.savefig(output_filename%(fn, z), bbox_inches='tight')
 plt.close(fig)

@@ -90,6 +90,12 @@ space = 0.0275
 min_int = 50
 max_int = 450
 
+## Add white scale bar to all images
+for t in range(data.shape[0]):
+    for z in range(data.shape[1]):
+        image = data[t, z, :, :]
+        image[30:40, 855:1040] = max_int
+
 ## Set output folder and filename for images to make video
 output_filename = os.path.join(temp_directory, 'img%06i.png')
 

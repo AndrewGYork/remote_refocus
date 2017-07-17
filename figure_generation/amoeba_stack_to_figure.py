@@ -93,6 +93,12 @@ space = 0.0275
 min_int = 200
 max_int = 600
 
+## Add white scale bar to all images
+for t in range(data.shape[0]):
+    for z in range(data.shape[1]):
+        image = data[t, z, :, :]
+        image[30:40, 1325:1510] = max_int
+
 ## Set output folder and filename for images to make video
 output_filename = os.path.join(temp_directory, 'img%06i.png')
 
@@ -125,7 +131,7 @@ for n in range(num_z_stack):
         plt.imshow(data[t, z, :, :], cmap='gray', vmin=min_int, vmax=max_int)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
-        plt.figtext(xmargin, ymargin + 2*space, 'volumetric time series!',
+        plt.figtext(xmargin, ymargin + 2*space, 'volumetric time series',
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'z=%6s$\mu$m'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')
@@ -143,7 +149,7 @@ for n in range(num_z_stack):
         plt.imshow(data[t, z, :, :], cmap='gray', vmin=min_int, vmax=max_int)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
-        plt.figtext(xmargin, ymargin + 2*space, 'volumetric time series!',
+        plt.figtext(xmargin, ymargin + 2*space, 'volumetric time series',
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'z=%6s$\mu$m'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')
@@ -161,7 +167,7 @@ for n in range(num_z_stack):
         plt.imshow(data[t, z, :, :], cmap='gray', vmin=min_int, vmax=max_int)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
-        plt.figtext(xmargin, ymargin + 2*space, 'volumetric time series!',
+        plt.figtext(xmargin, ymargin + 2*space, 'volumetric time series',
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'z=%6s$\mu$m'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')

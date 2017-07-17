@@ -100,6 +100,8 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 1815:2000] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
@@ -121,10 +123,12 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 1815:2000] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
-        plt.figtext(xmargin, ymargin + 2*space, '2 color volumetric time series!',
+        plt.figtext(xmargin, ymargin + 2*space, '2 color volumetric time series',
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'z=%6s$\mu$m'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')
@@ -144,10 +148,12 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 1815:2000] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
-        plt.figtext(xmargin, ymargin + 2*space, '2 color volumetric time series!',
+        plt.figtext(xmargin, ymargin + 2*space, '2 color volumetric time series',
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'z=%6s$\mu$m'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')
@@ -167,10 +173,12 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 1815:2000] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
-        plt.figtext(xmargin, ymargin + 2*space, '2 color volumetric time series!',
+        plt.figtext(xmargin, ymargin + 2*space, '2 color volumetric time series',
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'z=%6s$\mu$m'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')

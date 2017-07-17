@@ -59,6 +59,12 @@ else:
     print('done')
     print('tif shape (t, z, c, y, x) =', data.shape)
 
+## Add white scale bar to all images
+for t in range(data.shape[0]):
+    for z in range(data.shape[1]):
+        image = data[t, z, :, :]
+        image[30:40, 635:820] = image.max()
+
 ## Choose parameters for video
 num_z_stack = 3
 pause = 25
@@ -66,7 +72,7 @@ z_slow_down_factor = 5
 z_scale = 1
 current_frame = -1
 current_tp = -1
-xmargin = 0.3
+xmargin = 0.25
 ymargin = 0.775
 space = 0.03
 min_int = 1000
@@ -100,11 +106,13 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 635:820] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '10 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.2f'%time),
                     color='white', family='monospace')
@@ -125,16 +133,18 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 635:820] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '10 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.2f'%time),
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + space,
-                    'z=%6s$\mu$m 10 volumes/s!'%('%0.2f'%(z_scale*z)),
+                    'z=%6s$\mu$m Every time point is a 3D volume'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')
         plt.savefig(output_filename%current_frame, bbox_inches='tight')
         for r in range(z_slow_down_factor):
@@ -150,16 +160,18 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 635:820] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '10 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.2f'%time),
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + space,
-                    'z=%6s$\mu$m 10 volumes/s!'%('%0.2f'%(z_scale*z)),
+                    'z=%6s$\mu$m Every time point is a 3D volume'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')
         plt.savefig(output_filename%current_frame, bbox_inches='tight')
         for r in range(z_slow_down_factor):
@@ -175,16 +187,18 @@ for n in range(num_z_stack):
         rgb0[:, :, :] = norm0(data[t, z, 0, :, :]).reshape(data.shape[-2], data.shape[-1], 1)
         rgb1[:, :, 1] = norm1(data[t, z, 1, :, :])
         overlay = np.clip(rgb0 + rgb1, 0, 1)
+        scale_bar = overlay[ :, :, :]
+        scale_bar[30:40, 635:820] = 1
         plt.imshow(overlay)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
         plt.figtext(xmargin, ymargin + 3*space,
-                    'Every time point is a 3D volume',
+                    '10 volumes/s',
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 't=%6ss'%('%0.2f'%time),
                     color='white', family='monospace')
         plt.figtext(xmargin, ymargin + space,
-                    'z=%6s$\mu$m 10 volumes/s!'%('%0.2f'%(z_scale*z)),
+                    'z=%6s$\mu$m Every time point is a 3D volume'%('%0.2f'%(z_scale*z)),
                     color='yellow', family='monospace')
         plt.savefig(output_filename%current_frame, bbox_inches='tight')
         for r in range(z_slow_down_factor):

@@ -69,6 +69,12 @@ else:
 
 print('tif shape (Microsope z, RR z, y, x) =', data.shape)
 
+## Add white scale bar to all images
+for t in range(data.shape[0]):
+    for z in range(data.shape[1]):
+        image = data[t, z, :, :]
+        image[20:30, 350:535] = 3000
+
 ## Choose parameters for video
 current_frame = -1
 pause = 5 # (number of frames to pause)
@@ -94,17 +100,14 @@ for fn in range(num_f):
         plt.imshow(data[fn, z, :, :], cmap='gray', vmin=750, vmax=3000)
         plt.gca().get_xaxis().set_ticks([])
         plt.gca().get_yaxis().set_ticks([])
+        plt.figtext(xmargin, ymargin + 22*space,
+                    'Diffraction limited resolution',
+                    color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + 2*space, 'RR z=%6s$\mu$m'%('%0.2f'%rrz),
                     color='yellow', family='monospace')
         plt.figtext(xmargin, ymargin + space, 'Microscope z=%6s$\mu$m'%('%0.2f'%mz),
                     color='yellow', family='monospace')
-        if (0 <= fn <= 12):
-            plt.figtext(xmargin, ymargin, 'FOV = half radius, '
-                        'lines resolved at separation of 270nm',
-                        color='yellow', family='monospace')
-        else:
-            plt.figtext(xmargin, ymargin, 'FOV = centre, '
-                        'lines resolved at separation of 300nm',
+        plt.figtext(xmargin, ymargin, 'Field of view = half radius',
                         color='yellow', family='monospace')
         plt.savefig(output_filename%(fn, z), bbox_inches='tight')
 plt.close(fig)
