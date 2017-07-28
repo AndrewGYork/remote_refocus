@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   already_included = "";
   list_of_refs = document.createElement("ol");
+  list_of_refs.id = 'references';
   var links = document.getElementsByClassName("citation");
   for(var i = 0; i < links.length; i++){
     if (!(already_included.indexOf(links[i].innerText) >= 0)) {
@@ -24,4 +25,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     last_section.appendChild(heading);
     last_section.appendChild(list_of_refs);
   }
-});
+  document.getElementById("references").style.textAlign = "left";
+  });
