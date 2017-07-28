@@ -7,21 +7,21 @@ import np_tif
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Worm TL FL'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Worm_TL_FL'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'Worm TL FL')
+temp_directory = os.path.join(temp_directory, 'Worm_TL_FL')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'Worm TL FL')
+output_directory = os.path.join(output_directory, 'Worm_TL_FL')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 input_filename = (
-    'Worm TL FL - spx_cyan_100_vol_10um_stk_1um_step_5ms_exp good-015.tif')
+    'Worm_TL_FL-spx_cyan_100_vol_10um_stk_1um_step_5ms_exp_good-015.tif')
 re_ordered_filename = os.path.splitext(input_filename)[0] + '_re_ordered.tif'
 input_filename = os.path.join(input_directory, input_filename)
 re_ordered_filename = os.path.join(temp_directory, re_ordered_filename)

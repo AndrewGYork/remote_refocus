@@ -4,11 +4,11 @@ from shutil import copyfile
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'RR animation'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'RR_animation'))
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'RR animation')
+output_directory = os.path.join(output_directory, 'RR_animation')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Create movies
@@ -70,7 +70,7 @@ copyfile(os.path.join(input_directory, 'img9.png'),
 
 ## This is a default figure so copy to 'images' in 'master' directory
 image_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'RR animation'))
+    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'RR_animation'))
 if not os.path.isdir(image_directory): os.mkdir(image_directory)
 copyfile(os.path.join(output_directory, 'slow.mp4'),
          os.path.join(image_directory, 'slow.mp4'))

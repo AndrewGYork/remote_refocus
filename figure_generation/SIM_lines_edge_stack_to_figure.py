@@ -7,16 +7,16 @@ import np_tif
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'SIM lines edge'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'SIM_lines_edge'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'SIM lines edge')
+temp_directory = os.path.join(temp_directory, 'SIM_lines_edge')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'SIM lines edge')
+output_directory = os.path.join(output_directory, 'SIM_lines_edge')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing

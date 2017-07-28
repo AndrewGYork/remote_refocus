@@ -8,21 +8,21 @@ import stack_registration as sr
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Spirostomum food'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Spirostomum_food'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'Spirostomum food')
+temp_directory = os.path.join(temp_directory, 'Spirostomum_food')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'Spirostomum food')
+output_directory = os.path.join(output_directory, 'Spirostomum_food')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 input_filename = (
-    'Spirostomum food - spx_cyan_100_vol_60um_stk_10um_step_10ms_exp-012_cropped.tif')
+    'Spirostomum_food-spx_cyan_100_vol_60um_stk_10um_step_10ms_exp-012_cropped.tif')
 registered_filename = os.path.splitext(input_filename)[0] + '_registered.tif'
 input_filename = os.path.join(input_directory, input_filename)
 registered_filename = os.path.join(temp_directory, registered_filename)

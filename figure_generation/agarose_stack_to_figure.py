@@ -20,7 +20,7 @@ output_directory = os.path.join(output_directory, 'Agarose')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
-input_filename = ('transmitted_z_step_10 fresh agarose coiled worm.tif')
+input_filename = ('transmitted_z_step_10_fresh_agarose_coiled_worm.tif')
 cropped_filename = os.path.splitext(input_filename)[0] + '_cropped.tif'
 input_filename = os.path.join(input_directory, input_filename)
 cropped_filename = os.path.join(temp_directory, cropped_filename)

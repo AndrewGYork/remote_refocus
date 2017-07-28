@@ -7,21 +7,21 @@ import np_tif
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Yeast 3 color'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Yeast_3_color'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'Yeast 3 color')
+temp_directory = os.path.join(temp_directory, 'Yeast_3_color')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'Yeast 3 color')
+output_directory = os.path.join(output_directory, 'Yeast_3_color')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 input_filename = (
-    'Yeast large FOV 3 color - spx_cyan_10_vol_6um_stk_0.5um_step_10ms_exp6_3_color.tif')
+    'Yeast_large_FOV_3_color-spx_cyan_10_vol_6um_stk_0.5um_step_10ms_exp6_3_color.tif')
 re_ordered_filename = os.path.splitext(input_filename)[0] + '_re_ordered.tif'
 input_filename = os.path.join(input_directory, input_filename)
 re_ordered_filename = os.path.join(temp_directory, re_ordered_filename)
@@ -243,7 +243,7 @@ print('done.')
 
 ## This is a default figure so copy to 'images' in 'master' directory
 image_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'Yeast 3 color'))
+    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'Yeast_3_color'))
 if not os.path.isdir(image_directory): os.mkdir(image_directory)
 copyfile(os.path.join(output_directory, 'figure.mp4'),
          os.path.join(image_directory, 'figure.mp4'))

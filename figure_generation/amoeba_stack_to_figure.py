@@ -22,7 +22,7 @@ if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 input_filename = (
-    'Amoeba -spx_cyan_150_vol_20um_stk_5um_step_20ms_exp3-011_cropped.tif')
+    'Amoeba-spx_cyan_150_vol_20um_stk_5um_step_20ms_exp3-011_cropped.tif')
 registered_filename = os.path.splitext(input_filename)[0] + '_registered.tif'
 input_filename = os.path.join(input_directory, input_filename)
 registered_filename = os.path.join(temp_directory, registered_filename)

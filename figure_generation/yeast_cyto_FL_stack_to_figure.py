@@ -8,22 +8,22 @@ import stack_registration as sr
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Yeast cyto FL'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Yeast_cyto_FL'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'Yeast cyto FL')
+temp_directory = os.path.join(temp_directory, 'Yeast_cyto_FL')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'Yeast cyto FL')
+output_directory = os.path.join(output_directory, 'Yeast_cyto_FL')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 input_filename = (
-    'Yeast cyto FL - spx_cyan_600_vol_20um_stk_5um_step_2ms_exp '
-    'FL only hd 100 volumes.tif')
+    'Yeast_cyto_FL-spx_cyan_600_vol_20um_stk_5um_step_2ms_exp_'
+    'FL_only_hd_100_volumes.tif')
 re_ordered_filename = os.path.splitext(input_filename)[0] + '_re_ordered.tif'
 input_filename = os.path.join(input_directory, input_filename)
 re_ordered_filename = os.path.join(temp_directory, re_ordered_filename)
@@ -175,7 +175,7 @@ print('done.')
 
 ## This is a default figure so copy to 'images' in 'master' directory
 image_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'Yeast cyto FL'))
+    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'Yeast_cyto_FL'))
 if not os.path.isdir(image_directory): os.mkdir(image_directory)
 copyfile(os.path.join(output_directory, 'figure.mp4'),
          os.path.join(image_directory, 'figure.mp4'))

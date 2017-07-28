@@ -7,22 +7,22 @@ import np_tif
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'SIM 3D'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'SIM_3D_projected'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'SIM 3D')
+temp_directory = os.path.join(temp_directory, 'SIM_3D_projected')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'SIM 3D')
+output_directory = os.path.join(output_directory, 'SIM_3D_projected')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 num_angles = 120 # number of rotation angles in stack
-input_filename = ('SpXcyan-dmi8GFPcube_dmi8z_0.0 +-25um in 0.5um steps '
-                  'cropped 3DP 4.6pix, 360deg, 3deg steps, intp.tif')
+input_filename = ('SpXcyan-dmi8GFPcube_dmi8z_0.0_+-25um_in_0.5um_steps_'
+                  'cropped_3DP_4.6pix,360deg,3deg_steps,intp.tif')
 input_filename = os.path.join(input_directory, input_filename)
 
 ## If file exists then load
@@ -100,7 +100,7 @@ print('done.')
 
 ## This is a default figure so copy to 'images' in 'master' directory
 image_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'SIM 3D'))
+    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'SIM_3D_projected'))
 if not os.path.isdir(image_directory): os.mkdir(image_directory)
 copyfile(os.path.join(output_directory, 'figure.mp4'),
          os.path.join(image_directory, 'figure.mp4'))

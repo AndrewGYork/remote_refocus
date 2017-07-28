@@ -22,7 +22,7 @@ if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 input_filename = (
-    'Paramecium - spx_cyan_100_vol_60um_stk_10um_step_10ms_exp-009-1_cropped.tif')
+    'Paramecium-spx_cyan_100_vol_60um_stk_10um_step_10ms_exp-009-1_cropped.tif')
 registered_filename = os.path.splitext(input_filename)[0] + '_cropped.tif'
 input_filename = os.path.join(input_directory, input_filename)
 registered_filename = os.path.join(temp_directory, registered_filename)

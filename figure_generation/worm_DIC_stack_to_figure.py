@@ -8,21 +8,21 @@ import stack_registration as sr
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Worm DIC'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'Worm_DIC'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'Worm DIC')
+temp_directory = os.path.join(temp_directory, 'Worm_DIC')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'Worm DIC')
+output_directory = os.path.join(output_directory, 'Worm_DIC')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
 input_filename = (
-    'Worm DIC - spx_cyan_200_vol_10um_stk_1um_step_5ms_exp DIC2-014.tif')
+    'Worm_DIC-spx_cyan_200_vol_10um_stk_1um_step_5ms_exp_DIC2-014.tif')
 registered_filename = os.path.splitext(input_filename)[0] + '_registered.tif'
 input_filename = os.path.join(input_directory, input_filename)
 registered_filename = os.path.join(temp_directory, registered_filename)
@@ -232,7 +232,7 @@ print('done.')
 
 ## This is a default figure so copy to 'images' in 'master' directory
 image_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'Worm DIC'))
+    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'Worm_DIC'))
 if not os.path.isdir(image_directory): os.mkdir(image_directory)
 copyfile(os.path.join(output_directory, 'figure.mp4'),
          os.path.join(image_directory, 'figure.mp4'))

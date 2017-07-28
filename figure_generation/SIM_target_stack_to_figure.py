@@ -7,16 +7,16 @@ import np_tif
 
 ## Set/create directories
 input_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'SIM target'))
+    os.getcwd(), os.pardir, os.pardir, 'big_data_input', 'SIM_target'))
 temp_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'temp'))
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
-temp_directory = os.path.join(temp_directory, 'SIM target')
+temp_directory = os.path.join(temp_directory, 'SIM_target')
 if not os.path.isdir(temp_directory): os.mkdir(temp_directory)
 output_directory = os.path.abspath(os.path.join(
     os.getcwd(), os.pardir, os.pardir, 'big_data_output'))
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
-output_directory = os.path.join(output_directory, 'SIM target')
+output_directory = os.path.join(output_directory, 'SIM_target')
 if not os.path.isdir(output_directory): os.mkdir(output_directory)
 
 ## Set input file name and acquisition parameters for processing
@@ -106,7 +106,7 @@ copyfile(os.path.join(output_directory, 'img0202.png'),
 
 ## This is a default figure so copy to 'images' in 'master' directory
 image_directory = os.path.abspath(os.path.join(
-    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'SIM target'))
+    os.getcwd(), os.pardir, os.pardir, 'master', 'images', 'SIM_target'))
 if not os.path.isdir(image_directory): os.mkdir(image_directory)
 copyfile(os.path.join(output_directory, 'default.png'),
          os.path.join(image_directory, 'default.png'))
