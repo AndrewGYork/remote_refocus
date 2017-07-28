@@ -79,8 +79,8 @@ Note that this is a limited PDF or print version; animated and interactive figur
 
 <figure id="Figure_1">
 <video controls autoplay loop muted style="width:100%;" id="Figure_1_vid"
- poster="images/Worm DIC/poster.png">
- <source src="images/Worm DIC/figure.mp4" type="video/mp4">
+ poster="images/Worm_DIC/poster.png">
+ <source src="images/Worm_DIC/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
 <table class="figure_controls">
@@ -91,7 +91,7 @@ Note that this is a limited PDF or print version; animated and interactive figur
   </select></td><td>(imaging method)</td>
   </tr>
 </table>
-<figcaption><strong>Figure 1: Worm DIC at 20V/s and TL FL at 10V/s.</strong> 11 z slices at 1<span>&#181;</span>m intervals, scale bar is 20<span>&#181;</span>m</figcaption>
+<figcaption><strong>Figure 1: Worm DIC at 20V/s and TL FL at 10V/s.</strong> 11 z slices at 1&mu;m intervals, scale bar is 20&mu;m</figcaption>
 </figure>
 
 <p></p>
@@ -104,46 +104,46 @@ and real time volumetric imaging via light field
 , with recent highlights in both regimes
 [<a class="citation" href="https://doi.org/10.1038/nmeth.2277" title="Fast multicolor 3D imaging using aberration-corrected multifocus microscopy; S. Abrahamsson, J. Chen, B. Hajj, S. Stallinga, A.Y. Katsov, J. Wisniewski, G. Mizuguchi, P. Soule, F. Mueller, C.D. Darzacq, X. Darzacq, C. Wu, C.I. Bargmann, D.A. Agard, M. Dahan and M.G.L. Gustafsson; Nature Methods, vol 10, p60-63, (2013)">Abrahamsson 2013</a>, <a class="citation" href="https://doi.org/10.1038/nmeth.2964" title="Simultaneous whole-animal 3D imaging of neuronal activity using light-field microscopy; Robert Prevedel,	Young-Gyu Yoon,	Maximilian Hoffmann,	Nikita Pak,	Gordon Wetzstein, Saul Kato,	Tina Schrödel,	Ramesh Raskar,	Manuel Zimmer,	Edward S Boyden	and Alipasha Vaziri; Nature Methods, vol 11), p727-730, (2014)">Prevedel 2014</a>]. 
 Here we revive a technique of similar vintage, the remote re-focus (RR)
-[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>]
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>]
 , and propose it as the right way to achieve fast high resolution volumes in many applications.</p>
 
 <figure id="Figure_2">
 <video controls autoplay loop muted style="width:100%;" id="Figure_2_vid"
- poster="images/Yeast cyto FL/poster.png">
- <source src="images/Yeast cyto FL/figure.mp4" type="video/mp4">
+ poster="images/Yeast_cyto_FL/poster.png">
+ <source src="images/Yeast_cyto_FL/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<figcaption><strong>Figure 2: Yeast flourescence at 50V/s.</strong> 10 z slices at 1.66<span>&#181;</span>m intervals</figcaption>
+<figcaption><strong>Figure 2: Yeast flourescence at 50V/s.</strong> 10 z slices at 1.66&mu;m intervals</figcaption>
 </figure>
 
 <p></p>
-<p>The remote re-focus method can effectively remove focusing as a constraint and return the system to its inherent 2D image rate limits, delivering camera or even photon limited operation with co-operative samples. The notable drawbacks are limited to an inevitable loss in optical efficiency and in certain configurations an extended depth of field. Whilst signal loss is undesirable it is a common byproduct of the additional optics needed for advanced features like confocal or multi-color/camera operation and the elongated depth of field is only relevant if the RR piezo motion exceeds the rolling time of the camera and is only applicable at the highest volumetric rates (see <a href="./appendix.html#Design">design</a> section for details).<p>
+<p>The remote re-focus method can effectively remove focusing as a constraint and return the system to its inherent 2D image rate limits, delivering photon or even camera limited operation for bight samples. The notable drawbacks are limited to an inevitable loss in optical efficiency and in certain configurations an extended depth of field. Whilst signal loss is undesirable it is a common byproduct of the additional optics needed for advanced features like confocal or multi-color/camera operation and the elongated depth of field is only relevant if the RR piezo motion exceeds the rolling time of the camera and is only applicable at the highest volumetric rates (see <a href="./appendix.html#Design">design</a> section for details).<p>
 
-<p>TODO ANDY: Compared to multi-focal or light field techniques the remote re-focus offers significant advantages... although it should be noted that it does not deliver true simultaneus volumetric imaging and should therefore not be considered if this modality is required.</p>
+<p>TODO ANDY: Compared to multi-focal or light field techniques the remote re-focus offers significant advantages...(DETAIL) although it should be noted that it does not deliver true simultaneus volumetric imaging and should therefore not be considered if this modality is required.</p>
 
-<p>We entice the reader by presenting a diffraction limited volumetric time series of a C. Elegan at 20 volumes/s (Figure 1) and yeast flowing in a microfluidic channel at 50 volumes/s (Figure 2). By presenting this work we hope to inspire and empower builders, create interest and demand from users and assure and enable manufacturers to persue remote re-focus as a powerful solution to fast 3D imaging.</p>
+<p>Given these insights and the <a href="./appendix.html#History">history</a> of the method we query the lack of uptake and hope to demonstate the power of RR with a good instrument design and supporting results, so that it may be more widely adopted. We entice the reader by presenting a diffraction limited volumetric time series of a C. Elegan at 20 volumes/s (Figure 1) and yeast flowing in a microfluidic channel at 50 volumes/s (Figure 2). By presenting this work we hope to inspire and empower builders, create interest and demand from users and assure and enable manufacturers to persue remote re-focus as a powerful solution to fast 3D imaging.</p>
 
 <h4>The why and how of remote re-focus</h4>
 
 <p></p>
-<p>The motivation for fast re-focusing to give volumetric information is clear but the advantages of ‘remote’ or indeed what this means may not be obvious. In standard microscopes focusing is achieved with the familiar z-axis motion of either the primary objective or the sample to select the image plane. This is conveniently simple but the relatively high inertia of these elements on a typical microscope stand presents a major drawback when agile motion is required. This can be overcome by integrating a high power z-drive actuator onto the objective whilst holding the sample stationary to avoid disturbance, but when but when the highest resolutions are needed an immersion medium is used which gives an unwanted mechanical coupling. This is particularly detrimental when working with sensitive samples or in a dipping regime where fast movements of the objective will often give blur or wobble artefacts (Figure 3).</p>
+<p>The motivation for fast re-focusing to give volumetric information is clear but the advantages of ‘remote’ or indeed what this means may not be obvious. In standard microscopes focusing is achieved with the familiar z-axis motion of either the primary objective or the sample to select the image plane (Figure 3, a) ). This is conveniently simple but the relatively high inertia of these elements on a typical microscope stand presents a major drawback when agile motion is required. This can be overcome by integrating a high power z-drive actuator onto the objective whilst holding the sample stationary to avoid disturbance, but when the highest resolutions are needed an immersion medium is used which gives an unwanted mechanical coupling. This is particularly detrimental when working with sensitive samples or in a dipping regime where fast movements of the objective will often give blur or wobble artefacts (Figure 3, c) ).</p>
 
 <figure id="Figure_3">
 <video controls autoplay loop muted style="width:100%;" id="Figure_3_vid"
- poster="images/RR animation/slowposter.png">
- <source src="images/RR animation/slow.mp4" type="video/mp4">
+ poster="images/RR_animation/slowposter.png">
+ <source src="images/RR_animation/slow.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
 <video controls autoplay loop muted style="width:100%;" id="Figure_4_vid"
- poster="images/RR animation/fastposter.png">
- <source src="images/RR animation/fast.mp4" type="video/mp4">
+ poster="images/RR_animation/fastposter.png">
+ <source src="images/RR_animation/fast.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
 <figcaption><strong>Figure 3: Normal vs Remote re-focus</strong> Nominally equivalent at moderate speeds, at high speeds normal focusing can disturb the sample and remote re-focusing allows for fast agile motion...</figcaption>
 </figure>
 
 <p></p>
-<p>The ability to re-focus remotely, without moving either the sample or the primary objective, can completely isolate the sample from perturbations and present unique opportunities to improve motion dynamics to give significantly faster 4D acquisitions (Figure 3). Additional benefits include the 'bolt on' nature of the module which does not interfere with the normal operation of the microscope and provides a convenient space for a fast filter wheel without the need for an additional telescope which is commonly added for this purpose.</p>
+<p>The ability to re-focus remotely, without moving either the sample or the primary objective (Figure 3, b) ), can completely isolate the sample from perturbations and present unique opportunities to improve motion dynamics to give significantly faster 4D acquisitions (Figure 3, d) ). Additional benefits include the 'bolt on' nature of the module which does not interfere with the normal operation of the microscope and provides a convenient space for a fast filter wheel without the need for an additional telescope which is commonly added for this purpose.</p>
 
 <p>A detailed description of RR theory is elegantly presented in the original paper 
 [<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>]
@@ -158,12 +158,12 @@ of the technique which may help the reader frame its use in the field of microsc
 <h3>Results</h3>
 <h4>Large diffraction limited volumes</h4>
 
-<p>The remote re-focus system presented in this article is designed to couple to a typical microscope stand and produce diffraction limited images over a ~150x150x60um volume using 60x1.45 oil immersion objective (Figure 4). The z-drive included can achieve step and settle times in the 0.1-1um range in <10ms which is faster than the rolling time of a good sCMOS camera at full field, and so the dynamics of the system are purely photon and detector limited in this regime. A detailed description of the module can be found in the <a href="./appendix.html#Design">design</a> and <a href="./appendix.html#Build">build</a> sections of the <a href="./appendix.html">appendix</a> and so here the emphasis will be on the resulting optical performance.</p>
+<p>The remote re-focus system presented in this article is designed to couple to a typical microscope stand and produce diffraction limited images using a 60x1.45 oil immersion objective (Figure 4). The z-drive included can achieve step and settle times in the 0.1-1&mu;m range in &lt10ms which is faster than the rolling time of a good sCMOS camera at full field, and so the dynamics of the system are purely photon and detector limited in this regime. A detailed description of the module can be found in the <a href="./appendix.html#Design">design</a> and <a href="./appendix.html#Build">build</a> sections of the <a href="./appendix.html">appendix</a> and so here the emphasis will be on the resulting optical performance.</p>
 
 <figure id="Figure_4">
-<img src="images/RR images/Fast 3D widefield microscope 1.0 - wireframe.png" alt="Figure 4" id="Figure_4_jpg" style="width:100%;">
-<img src="images/RR images/Remote re-focus 1.2 rendered.jpg" alt="Figure 4" id="Figure_4_jpg" style="width:49.5%;">
-<img src="images/RR images/Remote re-focus 1.2 photo.jpg" alt="Figure 4" id="Figure_4_jpg" style="width:48.1%;">
+<img src="images/RR_images/Fast_3D_widefield_microscope_1.0_wireframe.png" alt="Figure 4" id="Figure_4_jpg" style="width:100%;">
+<img src="images/RR_images/Remote_re-focus_1.2_rendered.jpg" alt="Figure 4" id="Figure_4_jpg" style="width:49.5%;">
+<img src="images/RR_images/Remote_re-focus_1.2_photo.jpg" alt="Figure 4" id="Figure_4_jpg" style="width:48.1%;">
 <figcaption><strong>Figure 4: Remote re-focus design</strong> optimised for a 60x1.4 oil immersion objective that can couple to the side port of a normal microscope stand</figcaption>
 </figure>
 
@@ -175,10 +175,11 @@ The rigor of the original RR paper
 [<a class="citation" href="https://doi.org/10.1073/pnas.1109111108" title="Three-dimensional imaging and photostimulation by remote-focusing and holographic light patterning; F. Anselmi, C. Ventalon, A. Bègue, D. Ogden and V. Emiliani; PNAS, vol 108(49), p19504-19509, (2011)">Anselmi 2011</a>, 
 <a class="citation" href="https://doi.org/10.1364/AO.53.003473" title="Remote-focusing microscopy with long working distance objective lenses; Y. Qi, M. Lei, Y. Yang, B. Yao, D. Dan, X. Yu, S. Yan and T. Ye; Applied Optics, vol 53(16), p3473-3478, (2014)">Qi 2014</a>]
  and the thorough optical design work implemented here meant that traditional and labour intensive volumetric PSF characterisation (using beads) was avoided and substituted for the very convenient <a href="http://argolight.com/">Argolight</a> SIM slide. This sample does not have subdriffactive point sources but does feature spatially stable patterns with broadband excitation/emmision bands and non bleaching linear features down to 30nm seperation. This was considered more than sufficient for evaluating the resolution and field of view of the RR and so the optical performance data is presented on this basis.</p>
- <p>Using a standard GFP filter cube it was straighforward to image a minimally distorted, full field of view resolution target, with line pairs separated by 750nm accross the whole 200x200x60<span>&#181;</span>m volume (Figure 5). Here the microscope z-drive was used to de-focus the sample and then the RR piezo was used to re-focus and take pictures and therefore scan the design volume of the instrument (see the <a href="./appendix.html#Acquisition">aquisition</a> section in the <a href="./appendix.html">appendix</a> for details).</p>
+ 
+ <p>Using a standard GFP filter cube it was straighforward to image a minimally distorted, full field of view resolution target, with line pairs separated by 750nm accross the whole 200x200x60&mu;m volume (Figure 5). Here the microscope z-drive was used to de-focus the sample and then the RR piezo was used to re-focus and take pictures and therefore scan the design volume of the instrument (see the <a href="./appendix.html#Acquisition">aquisition</a> section for details and links to the original data).</p>
  
  <figure id="Figure_5">
-<img src="images/SIM target/default.png" alt="Figure 5" id="Figure_5_png" style="width:100%;">
+<img src="images/SIM_target/default.png" alt="Figure 5" id="Figure_5_png" style="width:100%;">
 <table class="figure_controls">
   <tr>
   <td>Microscope de-focus:</td><td><select id="figure_5_microscope" onchange="update_figure_5()">
@@ -187,7 +188,7 @@ The rigor of the original RR paper
 	<option value="02" selected="selected" >0</option>
     <option value="01">-15</option>
 	<option value="00">-30</option>
-  </select></td><td>(<span>&#181;</span>m from eyepieces)</td>
+  </select></td><td>(&mu;m from eyepieces)</td>
   </tr>
    <tr>
   <td>RR de-focus:</td><td><select id="figure_5_RR" onchange="update_figure_5()">
@@ -200,23 +201,23 @@ The rigor of the original RR paper
 	<option value="02" selected="selected">-1.0</option>
 	<option value="01">-1.5</option>
 	<option value="00">-2.0</option>
-  </select></td><td>(<span>&#181;</span>m from microscope de-focus)</td>
+  </select></td><td>(&mu;m from microscope de-focus)</td>
   </tr>
   </table>
-<figcaption><strong>Figure 5: Optical peformance</strong> 200x200x60<span>&#181;</span>m field of view with 250nm FWHM line width</figcaption>
+<figcaption><strong>Figure 5: Optical peformance</strong> 200x200x60&mu;m field of view with 250nm FWHM line width</figcaption>
 </figure>
 
 <p></p>
-<p>Furthermore by translating the SIM resolution lines througth the field of view it was possible to resolve line features to better than 270nm accross the entire volume (Figure 6). Note that this is an upper bound on resolving power with significant areas showing <240nm. The classic Rayleigh limit \(\frac{0.61\lambda}{NA}\) gives an expectation of ~230nm in the green and so this demonstrates excellent overall optical performance that is consistent with expections (see <a href="./appendix.html#Design">design</a> section for details).</p>
+<p>Furthermore by translating finely spaced SIM resolution lines througth the field of view we could readily resolve line features to better than 270nm accross the entire volume (Figure 6). Note that this is an upper bound on resolving power with the central volume showing &lt240nm. The classic Rayleigh limit \(\frac{0.61\lambda}{NA}\) gives an expectation of ~230nm in the green and so this demonstrates excellent overall optical performance that is consistent with our expections of diffraction limited performance within the design volume (see <a href="./appendix.html#Design">design</a> section for details).</p>
 
 <figure id="Figure_6">
-<img src="images/SIM lines center/default.png" alt="Figure 6" id="Figure_6_png" style="width:100%;">
+<img src="images/SIM_lines_center/default.png" alt="Figure 6" id="Figure_6_png" style="width:100%;">
 <table class="figure_controls">
   <tr>
   <td>Field of view:</td><td><select id="figure_6_fov" onchange="update_figure_6()">
-	<option value="SIM lines center" selected="selected">center</option>
-    <option value="SIM lines mid">half radius</option>
-	<option value="SIM lines edge">edge</option>
+	<option value="SIM_lines_center" selected="selected">center</option>
+    <option value="SIM_lines_mid">half radius</option>
+	<option value="SIM_lines_edge">edge</option>
   </select></td><td>(location)</td>
   </tr>
   <tr>
@@ -234,7 +235,7 @@ The rigor of the original RR paper
     <option value="02">-20</option>
 	<option value="01">-25</option>
     <option value="00">-30</option>
-  </select></td><td>(<span>&#181;</span>m from eyepieces)</td>
+  </select></td><td>(&mu;m from eyepieces)</td>
   </tr>
    <tr>
   <td>RR de-focus:</td><td><select id="figure_6_RR" onchange="update_figure_6()">
@@ -255,29 +256,29 @@ The rigor of the original RR paper
     <option value="02">-1.50</option>
 	<option value="01">-1.75</option>
 	<option value="00">-2.00</option>
-  </select></td><td>(<span>&#181;</span>m from microscope de-focus)</td>
+  </select></td><td>(&mu;m from microscope de-focus)</td>
   </tr> 
   </table>
-<figcaption><strong>Figure 6: Optical peformance</strong> 200x200x60<span>&#181;</span>m volume with resolving power better than 270nm line seperation</figcaption>
+<figcaption><strong>Figure 6: Optical peformance</strong> 200x200x60&mu;m volume with resolving power better than 270nm line seperation</figcaption>
 </figure>
  
 <p></p>
-<p>To complete the testing straightforward broadband optical efficiency and stability tests were carried out giving a throughput of >73% and a mechanical drift of ~150nm/h respectively (see the <a href="./appendix.html#Design">design</a> section). For a nice demonstration of the volumetric capabilty of the RR see Firgure 7 which shows a 3D array of rings separated by 5<span>&#181;</span>m in each axis.</p>
+<p>To complete the testing straightforward broadband optical efficiency and stability tests were carried out giving a throughput of &gt73% and a mechanical drift of ~150nm/h respectively (see the <a href="./appendix.html#Design">design</a> section). For a nice demonstration of the volumetric capabilty of the RR see Firgure 7 which shows a uniform 3D structure consisting of an array of rings separated by 5&mu;m in each axis (see <a href="link...">Full data</a> for high resolution images).</p>
 
 <figure id="Figure_7">
 <video controls autoplay loop muted style="width:100%;" id="Figure_7_vid"
- poster="images/SIM 3D/poster.png">
- <source src="images/SIM 3D/figure.mp4" type="video/mp4">
+ poster="images/SIM_3D_projected/poster.png">
+ <source src="images/SIM_3D_projected/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<figcaption><strong>Figure 7: Optical peformance</strong> 3D array of 9x9x9 rings separated by 5<span>&#181;</span>m with 250nm FWHM feature size</figcaption>
+<figcaption><strong>Figure 7: Optical peformance</strong> 3D array of 9x9x9 rings separated by 5&mu;m with 250nm FWHM feature size</figcaption>
 </figure>
 
-<h4>Much faster with sensitive samples</h4>
+<h4>Much faster, especially with non-rigid and delicate samples</h4>
 
-<p>Having established excellent optical performance, the temporal dynamics of the remote re-focus were explored using a series of standard samples: a rigid slide (graticule), a semi-rigid slide (agarose pad), a dish and a microfluidic chip (Figure 8). To evaluate the advantages of the RR the system was compared to a typcal microscope stand and a high peformance piezo stage insert. For each sample the microsope was used to set an initial 10<span>&#181;</span>m de-focus and then each device in turn was used to focus the sample with an approprate time slot before returning to it's initial position (see the <a href="./appendix.html#Acquisition">aquisition</a> section in the <a href="./appendix.html">appendix</a> for details).</p>
+<p>Having established excellent optical performance, the temporal dynamics of the remote re-focus were explored using a series of standard samples: a glass slide with chrome graticule (rigid), a glass slide with agarose pad and coverslip (semi-rigid), a plastic dish with coverslip bottom (semi-rigid) and a microfluidic chip (flexible) (Figure 8). To evaluate the advantages of the RR the system was compared to a typcal microscope stand and a high peformance piezo stage insert. For each sample the microsope was used to set an initial 10&mu;m de-focus and then each device in turn was used to focus the sample with an approprate time interval before returning to it's initial position. The allocated time was determined in a sample independent way, either by the resulting serial communications latency for the microscope (&gt 100ms) or by evaluating the step and settle time of the piezo devices (15-50ms) using internal sensors (see the <a href="./appendix.html#Acquisition">aquisition</a> section in the <a href="./appendix.html">appendix</a> for details).</p>
 
-<p>For the graticule and agarose slides all three z-drives were able to reach focus in the allocated times, with the microscope showing significant xy motion but the piezo options both performing as expected. Because these samples are stiff and well clamped the main benefit of the RR in this regime is the physical decoupling of the fast z-drive from the microscope which allows a wide range of actuators to be considered. In this design the <15ms step and settle of the RR (10<span>&#181;</span>m jump) is achieved by using a bulky piezo unit that does not fit on every microscope platform and occupies a large space that interferes with the nosepiece automation and neighbouring objectives. Because the RR piezo unit is large, powerful and specifically optimised for the RR objective it offers an immediate 3x gain in speed compared to the other methods we tested, regardless of the sample.</p>
+<p>For the graticule and agarose slides all three z-drives were able to reach focus in the allocated times, with the microscope showing significant xy motion but the piezo stage insert and RR options both focusing as expected. Because these samples are stiff and well clamped the main benefit of the RR in this regime is the physical decoupling of the fast z-drive from the microscope which allows a wide range of actuators to be considered. In this design the &lt15ms step and settle of the RR (10&mu;m jump) is achieved by using a bulky piezo unit that does not fit on every microscope platform and occupies a large space that interferes with the nosepiece automation and neighbouring objectives. Because the RR piezo unit is large, powerful and specifically optimised for the RR objective it offers an immediate 3x gain in speed compared to the other methods we tested, regardless of the sample. It should also be noted that another major practical benefit of this architecture is that the RR piezo, camera and light source can all be triggered and controlled by high speed analogue signals which aviods the communication latency that often cripples good temporal performance in focusing.</p>
 
 <figure id="Figure_8">
 <video controls autoplay loop muted style="width:49%;" id="Figure_8a_vid"
@@ -295,7 +296,7 @@ The rigor of the original RR paper
 <table class="figure_controls">
   <tr>
   <td>Sample choice:</td><td><select id="figure_8_sample_choice" onchange="update_figure_8()">
-    <option value="graticule" selected="selected">Graticule(very low) and <span>&#181;</span>Fchip(very high)</option>
+    <option value="graticule" selected="selected">Graticule(very low) and &mu;Fchip(very high)</option>
     <option value="agarose">Agarose pad(low) and Dish(high)</option>
   </select></td><td>(sensitivity)</td>
   </tr>
@@ -304,16 +305,16 @@ The rigor of the original RR paper
 </figure>
 
 <p></p>
-<p>For the dish and microfluidic chip samples the advantages of the RR are clear. The microscope is able to reach focus on the dish by virture of being ~7x slower, which gives the oil and sample just enough time to settle (although the xy motion is still noticable). The stage insert however is only ~3x slower and so extra settle time must be added to the acquisition to compensate for the motion coupled to the sample and reach a sharp focus. With the flexible microfluidic chip the coupling of the oil is more detrimental and incapacitates both the microscope and stage inserts ability to focus on the normal time scales (50-110ms). In a separate test the settle time was found to be ~400ms which is ~27x slower than the RR. The RR naturally performs as well with the dish and microfluidc chip as with any other sample giving a speed advantage in the 3-27x range for the samples demonstrated here and larger benefits expected in a water dipping regime where this technique could revolutionise z stack acquisition.</p>
+<p>For the dish and microfluidic chip samples the advantages of the RR are substantial. The microscope is able to reach focus on the dish by virture of being ~7x slower, which gives the oil and sample just enough time to settle (although the xy motion is still noticable). The stage insert however is only ~3x slower and so extra settle time must be added to the acquisition to compensate for the motion coupled to the sample and reach a sharp focus. With the flexible microfluidic chip the coupling of the oil is more detrimental and incapacitates both the microscope and stage inserts ability to focus on the normal time scales (50-110ms). In a separate test the settle time was found to be ~400ms which is ~27x slower than the RR. The RR naturally performs as well with the dish and microfluidc chip as with any other sample giving a speed advantage in the 3-27x range for the samples demonstrated here and larger benefits expected in a water dipping regime where this technique could revolutionise z stack acquisition.</p>
 
 <h4>Dynamic 4D biology</h4>
 
-<p>Having established excellent optomechanical performance of the remote re-focus and clear speed advantages of using it with a range of standard samples some readily available living organisms were identified and imaged. Here we show the RR in action with waterborne Protozoa freely moving in a 3D volume at up to 14 volumes/s (Figure 9), C. elegans freely roaming around on an agarose pad at up to 20 volumes/s (Figure 1) and yeast cells flowing in microfluidic channels at up to 50 volumes/s (Figures 2 and 9).</p>
+<p>Having established both excellent optomechanical performance of the remote re-focus and clear speed advantages of using it with a range of standard samples some readily available living organisms were identified and imaged. Here we show the RR in action with waterborne Protozoa freely moving in a 3D volume at up to 14 volumes/s (Figure 9), C. elegans freely roaming around on an agarose pad at up to 20 volumes/s (Figure 1) and yeast cells flowing in microfluidic channels at up to 50 volumes/s (Figures 2 and 9).</p>
 
 <figure id="Figure_9">
 <video controls autoplay loop muted style="width:100%;" id="Figure_9_vid"
- poster="images/Yeast 3 color/poster.png">
- <source src="images/Yeast 3 color/figure.mp4" type="video/mp4">
+ poster="images/Yeast_3_color/poster.png">
+ <source src="images/Yeast_3_color/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
 <table class="figure_controls">
@@ -335,14 +336,19 @@ The rigor of the original RR paper
 <h3>Discussion</h3>
 <h4>Remote re-focus gives the highest spatiotemporal resolution in many applications</h4>
 
+TODO: Andy editorial
+<p></p>
 <p>Many applications of high resolution optical microscopy of live organisms could benefit from a decoupling of the focusing mechanism from the sample space by using the remote re-focus method, which is particularly relevant when sensitive or flexible mounting of the sample is inherent and fast 4D acquisitions are required. Here we clearly outline the concept, method and rules for those wishing to design and build their own RR system and provide a brief overview of the history of the technique.</p>
-<p>A high performance RR arrangement is presented that may be easily replicated with a detailed discussion of the associated design choices and alignment procedure. The system is shown to have excellent optical properties over a huge 200x200x60<span>&#181;</span>m volume with good corresponding mechanical stability and fast motion dynamics that result in a maximally performant photon limited system when using a modern sCMOS camera at full field. The benefits of RR are demonstrated using typical samples where it clearly outperforms standard focusing methods with speed gains in the 3-27x range. The imaging capabilities of the system are then shown through a series of live biological samples with speeds ranging from 2.5-50 volumes/s.</p>
+
+<p>A high performance RR arrangement is presented that may be easily replicated with a detailed discussion of the associated design choices and alignment procedure. The system is shown to have excellent optical properties over a huge 200x200x60&mu;m volume with good corresponding mechanical stability and fast motion dynamics that result in a maximally performant photon limited system when using a modern sCMOS camera at full field. The benefits of RR are demonstrated using typical samples where it clearly outperforms standard focusing methods with speed gains in the 3-27x range. The imaging capabilities of the system are then shown through a series of live biological samples with speeds ranging from 2.5-50 volumes/s.</p>
 
 <h3>Acknowledgements</h3>
 
 <p>This work was funded and supported by <a href="https://www.calicolabs.com/">Calico Life Sciences LLC</a> and we would like to acknowledge the fantastic research environment that has been created here by the senior staff. We would also like to specifically thank the yeast and worm groups within the company for helping prepare and provide the biology presented.</p>
+
 <p>Special praise is given to the business development team at Calico for persuing and arranging all of our external collaborations. In this regard we would like to specifically acknowledge our close collaborations with <a href="https://www.nikoninstruments.com">Nikon</a> and <a href="http://www.leica-microsystems.com/">Leica</a> who made it possible to create a high quality instrument design and we look forward to future projects with these partners.</p>
-<p>We also thank <a href="https://www.physikinstrumente.com">Physik Instumente</a>, <a href="http://lumencor.com/">Lumencor</a> and <a href="https://www.pco.de/">PCO</a> for their detailed assistance in using their products, and our local suppliers <a href="http://www.zeradevelopment.com/">Zera Development</a> and <a href="www.markoptics.com/">Mark Optics</a> for their high quality work and readily available technical support.</p>
+
+<p>We also thank <a href="https://www.physikinstrumente.com">Physik Instumente</a>, <a href="http://lumencor.com/">Lumencor</a> and <a href="https://www.pco.de/">PCO</a> for their detailed assistance in using their products, and our local suppliers <a href="http://www.zeradevelopment.com/">Zera Development</a> and <a href="http://www.markoptics.com/">Mark Optics</a> for their high quality work and readily available technical support.</p>
 
 <h3><a href="./appendix.html">Appendix</a></h3>
 <p>Additional details and discussion can be found in the <a href="./appendix.html">appendix</a>, which is also referenced via hyperlinks throughout this article.</p>
