@@ -88,8 +88,8 @@ function update_figure_9() {
   vid.poster = postername;
 }
 
-function update_afigure_4() {
-  var choice = document.getElementById("afigure_4_choice").value;
+function update_figure_a4() {
+  var choice = document.getElementById("figure_a4_choice").value;
   if ((choice === "0.1umRR")){
   var filename = "./images/PI/Step_response-RR_piezo_for_0.1um-10ms.png";} 
   if ((choice === "0.5umRR")){
@@ -100,6 +100,6 @@ function update_afigure_4() {
   var filename = "./images/PI/Step_response-RR_piezo_for_15um-15ms.png";}
   if ((choice === "10umInsert")){
   var filename = "./images/PI/Step_response-Z_piezo_insert_for_10um-50ms.png";}
-  var img = document.getElementById("AFigure_4_png");
+  var img = document.getElementById("Figure_A4_png");
   img.src = filename;
 }
