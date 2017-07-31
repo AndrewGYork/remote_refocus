@@ -1,0 +1,7 @@
+All parameters were left as default except:
+
+1) Slice spacing was changed from 1.0 to 4.6
+using 6.5um pixels/60x mag = 108nm xy pixel size in sample
+0.5um piezo step size during acquisition/108nm = 4.6pixels in z
+
+2) Interpolation was changed from unchecked to checked
