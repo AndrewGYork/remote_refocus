@@ -106,3 +106,18 @@ copyfile(os.path.join(output_directory, 'figure.mp4'),
          os.path.join(image_directory, 'figure.mp4'))
 copyfile(os.path.join(output_directory, 'poster.png'),
          os.path.join(image_directory, 'poster.png'))
+
+## Also copy files that detail ImageJ processing from input directory to
+## output directory and images directory
+copyfile(os.path.join(input_directory, '3D_project_parameters.txt'),
+         os.path.join(output_directory, '3D_project_parameters.txt'))
+copyfile(os.path.join(output_directory, '3D_project_parameters.txt'),
+         os.path.join(image_directory, '3D_project_parameters.txt'))
+copyfile(os.path.join(input_directory, '3D_project_step_1.png'),
+         os.path.join(output_directory, '3D_project_step_1.png'))
+copyfile(os.path.join(output_directory, '3D_project_step_1.png'),
+         os.path.join(image_directory, '3D_project_step_1.png'))
+copyfile(os.path.join(input_directory, '3D_project_step_2.png'),
+         os.path.join(output_directory, '3D_project_step_2.png'))
+copyfile(os.path.join(output_directory, '3D_project_step_2.png'),
+         os.path.join(image_directory, '3D_project_step_2.png'))
