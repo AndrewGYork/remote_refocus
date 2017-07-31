@@ -61,11 +61,11 @@ The 'magic' of RR is to use a standard microscope setup (objective-tube lens) in
 [<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>]
 and will not be re-visited here. However for those wishing to build an RR system there are a few simple concepts and rules that should be highlighted.</p>
 
-<p>Firstly there are two main optical arrangements (AFigure 1) which will be refered to as single objective remote re-focus (SORR) and double objective remote re-focus (DORR) for ease of discussion. DORR is the most straightforward implementation and in its most elementary form consists of 3 identical microscopes back to back, where moving either the 2nd or 3rd objective will perform the re-focus. The simplest version of the SORR variant uses a single objective in a double pass configuration with an additional beam splitter optic and mirror. The re-focus in SORR is then performed by moving either the objective or the mirror.</p>
+<p>Firstly there are two main optical arrangements (Figure A1) which will be refered to as single objective remote re-focus (SORR) and double objective remote re-focus (DORR) for ease of discussion. DORR is the most straightforward implementation and in its most elementary form consists of 3 identical microscopes back to back, where moving either the 2nd or 3rd objective will perform the re-focus. The simplest version of the SORR variant uses a single objective in a double pass configuration with an additional beam splitter optic and mirror. The re-focus in SORR is then performed by moving either the objective or the mirror.</p>
 
-<figure id="AFigure_1">
-<img src="images/RR_schematic/RR_schematic.png" alt="AFigure 1" id="AFigure_1_svg" style="width:100%;">
-<figcaption><strong>AFigure 1: DORR vs SORR </strong> schematic of double vs single objective remote re-focus</figcaption>
+<figure id="Figure_A1">
+<img src="images/RR_schematic/RR_schematic.png" alt="Figure A1" id="Figure_A1_svg" style="width:100%;">
+<figcaption><strong>Figure A1: A schematic of the two basic remote re-focus arrangements.</strong> Double objective remote re-focus (DORR) vs single objective remote re-focus (SORR).</figcaption>
 </figure>
 
 <p></p>
@@ -90,7 +90,7 @@ Again for an air based RR system with \(n_{RR}=1\) then this simplifies to:
 
 <h4>How to check</h4>
 
-<p>It should be noted that the aforementioned rules for remote re-focus place substantial constraints on the optical design and if followed carefully a well performing system can be built with relative ease, and without the need for detailed optical design information or simulation. For those with access to detailed information about their optics and a suitable simulation software package like <a href="http://www.zemax.com/">Zemax</a> we recommend evaluating the performance of a possible RR configuration before building (AFigure 2). Even for a novice designer this process can be relatively straightforward with the following workflow:</p>
+<p>It should be noted that the aforementioned rules for remote re-focus place substantial constraints on the optical design and if followed carefully a well performing system can be built with relative ease, and without the need for detailed optical design information or simulation. For those with access to detailed information about their optics and a suitable simulation software package like <a href="http://www.zemax.com/">Zemax</a> we recommend evaluating the performance of a possible RR configuration before building (Figure A2). Even for a novice designer this process can be relatively straightforward with the following workflow:</p>
 
 <ul>
 <li>Start by laying out a simple DORR optical train with ideal elements that match the diameters and focal lengths of the intended build and adhere to the <strong>‘golden rules’</strong> of RR.</li>
@@ -99,9 +99,9 @@ Again for an air based RR system with \(n_{RR}=1\) then this simplifies to:
 </ul>
 
 
-<figure id="AFigure_2">
-<img src="images/Zemax/RR_Zemax.png" alt="AFigure 2" id="AFigure_2_svg" style="width:100%;">
-<figcaption><strong>AFigure 2: Zemax of RR </strong> using public data...</figcaption>
+<figure id="Figure_A2">
+<img src="images/Zemax/RR_Zemax.png" alt="Figure A2" id="Figure_A2_svg" style="width:100%;">
+<figcaption><strong>Figure A2: Zemax of remote re-focus</strong> This figure shows the layout of the remote re-focus using ideal lenses. The perfect lenses can then be substituted for real stock or manufactured lenses to evaluate optical performance.</figcaption>
 </figure>
 
 <h3 id="Design">
@@ -111,22 +111,22 @@ Design</h3>
 
 <p>In this section a recipe for a high performance remote re-focus in the DORR configuration is given and presented as a versatile addition to a typical microscope stand. This RR module is designed to work with a high NA 60x oil immersion objective and is capable of producing multicolor DL stacks over the full FOV of a standard sCMOS camera. The emphasis in this design was on achieving a high performance RR using minimal custom parts. In this vein all of the optics and the majority of the mechanics are relatively low cost short lead time stock parts with only a few simple bespoke mechanics where needed. The merits and choices of the design will now be discussed in turn and the reader may refer to the <a href="Build">build</a> section for a full <a href="Parts">list of parts</a>, <a href="Drawings">drawings</a> and an <a href="Alignment">alignment procedure</a>.</p>
 
-<figure id="AFigure_3">
-<img src="images/RR_images/Remote_re-focus_1.2_wireframe.png" alt="AFigure 3" id="AFigure_3_svg" style="width:100%;">
-<figcaption><strong>AFigure 3: Solidworks wireframe of RR </strong> overview...</figcaption>
+<figure id="Figure_A3">
+<img src="images/RR_images/Remote_re-focus_1.2_wireframe.png" alt="Figure A3" id="Figure_A3_svg" style="width:100%;">
+<figcaption><strong>Figure A3: 3D CAD wireframe projection of the remote re-focus.</strong> Modelling the mechanics of the remote re-focus in CAD is straightforward, highly informative and reccomended to potential builders.</figcaption>
 </figure>
 
 <p></p>
 <p>To avoid custom optics this DORR is based on the readily available <a href="https://www.nikoninstruments.com">Nikon</a> 60x1.45 oil and 40x0.95 air objectives that together with stock tube lenses <strong>very conveniently obey</strong> the first three <strong>golden rules</strong> of RR, with the 4th rule achieved by setting the right mechanical spacing of the elements (see <a href="Drawings">drawings</a>). By working closely with <a href="https://www.nikoninstruments.com">Nikon</a> we were able to establish excellent performance with a 450-650nm polychromatic strehl ratio &gt
  0.74 over an axial range of +-32&mu;m in the sample with a 150&mu;m diameter field of view.</p>
 
-<p>With good optical performance established the choice of z-drive actuator was made relatively straightforward - an axial range of +-32&mu;m in the sample with an index of ~1.5 corresponds to motion in air of ~+-50&mu;m which sits comfortably in the range of high performance piezo actuators - like the heavy duty <a href="https://www.physikinstrumente.com">PI</a> 726 that can move a ~200g objective at &gt500Hz over a 100&mu;m range. The 726 can achieve step and settle times in the 0.1-1&mu;m range in &lt10ms (AFigure 3) which is faster than the rolling time of a good sCMOS camera like the <a href="https://www.pco.de/">PCO</a>.edge 4.2 at full field of view. This equates to a running mode of 100fps to give 10 volumes per second for a 10 slice stack.<p>
+<p>With good optical performance established the choice of z-drive actuator was made relatively straightforward - an axial range of +-32&mu;m in the sample with an index of ~1.5 corresponds to motion in air of ~+-50&mu;m which sits comfortably in the range of high performance piezo actuators - like the heavy duty <a href="https://www.physikinstrumente.com">PI</a> 726 that can move a ~200g objective at &gt500Hz over a 100&mu;m range. The 726 can achieve step and settle times in the 0.1-1&mu;m range in &lt10ms (Figure A3) which is faster than the rolling time of a good sCMOS camera like the <a href="https://www.pco.de/">PCO</a>.edge 4.2 at full field of view. This equates to a running mode of 100fps to give 10 volumes per second for a 10 slice stack.<p>
 
-<figure id="AFigure_4">
-<img src="images/PI/Step_response-RR_piezo_for_0.1um-10ms.png" alt="AFigure 4" id="AFigure_4_png" style="width:100%;">
+<figure id="Figure_A4">
+<img src="images/PI/Step_response-RR_piezo_for_0.1um-10ms.png" alt="Figure A4" id="Figure_A4_png" style="width:100%;">
 <table class="figure_controls">
   <tr>
-  <td>Piezo</td><td><select id="afigure_4_choice" onchange="update_afigure_4()">
+  <td>Piezo</td><td><select id="figure_a4_choice" onchange="update_figure_a4()">
     <option value="0.1umRR" selected="selected">Remote re-focus (0.1&mu;m)</option>
 	<option value="0.5umRR">Remote re-focus (0.5&mu;m)</option>
 	<option value="1.0umRR">Remote re-focus (1.0&mu;m)</option>
@@ -135,7 +135,7 @@ Design</h3>
   </select></td><td>(step size)</td>
   </tr>
 </table>
-<figcaption><strong>AFigure 4: Piezo performance</strong> description...</figcaption>
+<figcaption><strong>Figure A4: Screen shots of piezo performance.</strong> This figure is interative and shows the step and settle performance of the stage insert and remote re-focus piezos for various parameters captured using the manufacturers software and the built in sensors on the devices. Note the 'Amplitude [&mu;m]' box and the time (ms) on the x-axis for the blue line plot to settle. </figcaption>
 </figure>
 
 <p></p>
@@ -148,18 +148,18 @@ Design</h3>
 
 <p>Another critical part of the design is the ability to align and stabilise the RR objectives as unwanted motion here will translate directly into the image, making it the most sensitive part of the module. The z-drive piezo-objective assembly is therefore mounted on a heavy duty frame and isolated from the adjustable objective, which is mounted on an xyz translation stage to give the fine adjustment needed for alignment. Both RR objectives benefit from the gravitationally aligned axially symmetric vertical arrangement which avoids many of the unwanted drifts and motions that can occur in alternative setups. Stability testing gave xy drifts in the 150nm/h range for the combined sample, stage, microscope and RR which seems acceptable given typical lab thermal drift and the intended sub minute run time of a typical acquisition. All of the standard short lead time opto-mechanics were sourced from <a href="https://www.thorlabs.com/">Thorlabs</a> and could be substituted for equivalent parts from existing lab stock.</p>
 
-<figure id="AFigure_5">
-<img src="images/RR_stability/RR_stability.svg" alt="AFigure 5" id="AFigure_5_svg" style="width:100%;">
-<figcaption><strong>AFigure 5: Stabilty test</strong> desciption of testing...</figcaption>
+<figure id="Figure_A5">
+<img src="images/RR_stability/RR_stability.svg" alt="Figure A5" id="Figure_A5_svg" style="width:100%;">
+<figcaption><strong>Figure A5: Stabilty testing showing 150nm/h drift.</strong> A graticule was imaged with the xy stage, RR piezo and microscope autofocus holding in closed loop control mode with the difference between start and stop images shown by the red/green overlay.</figcaption>
 </figure>
 
 <p></p>
-<p>An AR coated 1” 340&mu;m coverslip correction glass window was ordered from <a href="http://www.markoptics.com/">Mark Optics</a> and inserted between the two 40x air objectives to give best performance as they are optimised to work with 170&mu;m of glass. An estimate for the optical efficiency of the RR was then calculated at ~70% with (0.9^2)*(0.95^2)*(0.99^4)*(0.99) for the objectives, tube lenses, mirrors and glass window respectively and was subsequently measured at &gt73% (AFigure 6). For those looking to save on cost the glass window can also be composed of two standard coverslips sandwiched together with some immersion oil with the penalty of ~5% loss in signal.</p>
+<p>An AR coated 1” 340&mu;m coverslip correction glass window was ordered from <a href="http://www.markoptics.com/">Mark Optics</a> and inserted between the two 40x air objectives to give best performance as they are optimised to work with 170&mu;m of glass. An estimate for the optical efficiency of the RR was then calculated at ~70% with (0.9^2)*(0.95^2)*(0.99^4)*(0.99) for the objectives, tube lenses, mirrors and glass window respectively and was subsequently measured at &gt73% (Figure A6). For those looking to save on cost the glass window can also be composed of two standard coverslips sandwiched together with some immersion oil with the penalty of ~5% loss in signal.</p>
 
-<figure id="AFigure_6">
-<img src="images/RR_efficiency/White_light_test_with_2_coverslips_and_oil.svg" alt="AFigure 6a" id="AFigure_6a_svg" style="width:100%;">
-<img src="images/RR_efficiency/White_light_test_with_AR_coated_windows.svg" alt="AFigure 6b" id="AFigure_6b_svg" style="width:100%;">
-<figcaption><strong>AFigure 6: Efficiency tests</strong> desciption of testing...</figcaption>
+<figure id="Figure_A6">
+<img src="images/RR_efficiency/White_light_test_with_2_coverslips_and_oil.svg" alt="Figure A6a" id="Figure_A6a_svg" style="width:100%;">
+<img src="images/RR_efficiency/White_light_test_with_AR_coated_windows.svg" alt="Figure A6b" id="Figure_A6b_svg" style="width:100%;">
+<figcaption><strong>Figure A6: Optical efficiency tests give 73.7%.</strong> The panels show broadband transmited light images for the remote re-focus port (left) and camera only port (right) of the microscope. The efficiency is then given as the intensity ratio of these images for a) 2 standard 170&mu;m coverslips sandwiched with oil between the RR ojbectives (68.3%) b) a custom 340&mu;m AR coated glass window (73.7%).</figcaption>
 </figure>
 
 <p></p>
@@ -285,18 +285,18 @@ table, th, td {
 
 <p>For 2D CAD drawings please refer to this <a href="images/RR_CAD/2D_CAD.zip">folder</a> and for full sized assembly drawings please click <a href="images/RR_CAD/Remote_re-focus_1.2.pdf">here</a>. For our custom parts .STEP files can be found <a href="images/RR CAD/STEP files.zip">here</a> and 3D CAD for all other parts can be sourced from the respective manufacturers.</p>
 
-<figure id="AFigure_7">
-<img src="images/RR_images/Remote_re-focus_1.2_dimensions.png" alt="AFigure 7" id="AFigure_7_svg" style="width:100%;">
-<figcaption><strong>AFigure 7: RR assembly</strong> desciption...</figcaption>
+<figure id="Figure_A7">
+<img src="images/RR_images/Remote_re-focus_1.2_dimensions.png" alt="Figure A7" id="Figure_A7_svg" style="width:100%;">
+<figcaption><strong>Figure A7: A wireframe assembly drawing for the remote re-focus. </strong> The critical dimensions are shown in this drawing which allows the builder to quickly align the system (full sized versions can be found <a href="images/RR_CAD/Remote_re-focus_1.2.pdf">here</a>).</figcaption>
 </figure>
 
 <h4 id="Alignment">Alignment procedure</h4>
 
 <p>Aligning the RR for someone with optical assembly and microscopy experience is straightforward. For those unsure as to how to proceed please try one of the following alignment procedures, bearing in mind that alignment is iterative and usually a learning process. The first time might take a day or two, the nth time less than an hour...</p>
 
-<figure id="AFigure_8">
-<img src="images/RR_images/RR_alignment.jpg" alt="AFigure 7" id="AFigure_8_svg" style="width:100%;">
-<figcaption><strong>AFigure 7: RR alignment</strong> desciption...</figcaption>
+<figure id="Figure_A8">
+<img src="images/RR_images/RR_alignment.jpg" alt="Figure A8" id="Figure_A8_svg" style="width:100%;">
+<figcaption><strong>Figure 8: Alignment of the remote re-focus.</strong> This photos shows a fiber coupled laser being used to set the mirror alignment of the RR during the initial setup.</figcaption>
 </figure>
 
 <p></p>
