@@ -147,7 +147,7 @@ and suggest that remote refocusing is the right way to achieve fast, high resolu
 </figure>
 
 <p></p>
-<p>In our hands, RR eliminates the 3D bottleneck, pushing axial focusing speed beyond camera-limited speed (or photoelectron-limited speed, for dim samples). Remote refocusing's drawbacks are minimal: lower optical efficiency due to four extra lenses in the emission path, and an extended depth of field at the highest volumetric frame rates. Whilst lower efficiency is never desirable, we note that additional lenses in the emission path are tolerable and typical in many microscopy setups, such as external filter wheels, spinning disk units, etc. Elongated depth of field is either a blessing or a curse depending on the application, but only becomes relevant at the highest volumetric rates, when RR piezo settling times exceed the rolling time of our camera (see <a href="./appendix.html#Design">design</a> section for details).<p>
+<p>In our hands, RR eliminates the 3D bottleneck, pushing axial focusing speed beyond camera-limited speed (or photoelectron-limited speed, for dim samples). Remote refocusing's drawbacks are minimal: lower optical efficiency due to four extra lenses in the emission path, and an extended depth of field at the highest volumetric frame rates. Whilst lower efficiency is never desirable, we note that additional lenses in the emission path are tolerable and typical in many microscopy setups, such as spinning disk units, external filter wheels, etc. Elongated depth of field is either a blessing or a curse depending on the application, but only becomes relevant at the highest volumetric rates, when RR piezo settling times exceed the rolling time of our camera (see <a href="./appendix.html#Design">design</a> section for details).<p>
 
 <p>In contrast, multifocus 
 
@@ -157,15 +157,19 @@ and light field microscopy
 
 [<a class="citation" href="https://doi.org/10.1038/nmeth.2964" title="Simultaneous whole-animal 3D imaging of neuronal activity using light-field microscopy; Robert Prevedel,	Young-Gyu Yoon,	Maximilian Hoffmann, Nikita Pak, Gordon Wetzstein, Saul Kato, Tina Schrödel, Ramesh Raskar, sManuel Zimmer,	Edward S Boyden	and Alipasha Vaziri; Nature Methods, vol 11), p727-730, (2014)">Prevedel 2014</a>]
 
-push axial focusing speed to infinity, but reduce camera-limited imaging speed. Multifocus microscopy's X, Y, and Z fields of view can't be adjusted, which wastes voxels per second unless the sample happens to perfectly fill the (fixed) imaging volume. Light field microscopy yields even fewer voxels per second than multifocus microscopy, because it measures multiple camera pixels to characterize one Nyquist-limited voxel (other drawbacks include worse resolution and mandatory post-processing). These techniques are therefore faster than RR when the bottleneck is focusing time, but slower when the bottleneck is the camera. In our experience with well-engineered fluorescence microscopes, the bottleneck is always the camera. Multifocal and light field microscopy also combine awkwardly with powerful 3D techniques like light-sheet or spinning-disk microscopy, which combine elegantly with remote refocus [TODO: MAYBE TWO CITATIONS HERE?].
+push axial focusing speed to infinity, but reduce camera-limited imaging speed. Multifocus microscopy's X, Y, and Z fields of view can't be adjusted, which either wastes voxels per second or requires mechanical refocusing, unless the sample happens to perfectly fill the (fixed) imaging volume. Light field microscopy yields even fewer voxels per second than multifocus microscopy, because it measures multiple camera pixels to characterize one Nyquist-limited voxel (other drawbacks include degraded resolution and mandatory post-processing). These techniques are therefore faster than RR when the bottleneck is RR focusing time, but slower when the bottleneck is the camera. In our experience with well-engineered RR fluorescence microscopes, the bottleneck is always the camera. Multifocal and light field microscopy also combine awkwardly with powerful 3D techniques like light-sheet or spinning-disk microscopy, which combine elegantly with remote refocus [TODO: MAYBE TWO CITATIONS HERE?].
 </p>
 
 <p>Given the importance of fast 3D imaging, and the power and flexibility of RR, we're surprised RR isn't more popular. The <a href="./appendix.html#History">history</a> of RR shows many clever technical innovations, but few biological applications, and no commercial implementations. We speculate RR suffers from two problems: surprising pitfalls during design and construction, and a lack of advertising. We hope our design empowers builders to painlessly, confidently make their own RR, and we hope data like Figure 1 (high-resolution 3D images of <em>C. elegans</em> at 20 volumes per second) and Figure 2 (high-resolution 3D images of yeast flowing in a microfluidic channel at 50 volumes per second) will entice microscope users to try RR for their high-speed imaging challenges. Most of all, we hope to inspire microscope manufacturers to commercialize and disseminate remote refocus as the "gold standard" solution for fast 3D imaging problems.</p>
 
-<h4>The why and how of remote re-focus</h4>
+<h4>The why and how of remote refocus</h4>
 
 <p></p>
-<p>The motivation for fast re-focusing to give volumetric information is clear but the advantages of ‘remote’ or indeed what this means may not be obvious. In standard microscopes focusing is achieved with the familiar z-axis motion of either the primary objective or the sample to select the image plane (Figure 3, a) ). This is conveniently simple but the relatively high inertia of these elements on a typical microscope stand presents a major drawback when agile motion is required. This can be overcome by integrating a high power z-drive actuator onto the objective whilst holding the sample stationary to avoid disturbance, but when the highest resolutions are needed an immersion medium is used which gives an unwanted mechanical coupling. This is particularly detrimental when working with sensitive samples or in a dipping regime where fast movements of the objective will often give blur or wobble artefacts (Figure 3, c) ).</p>
+<p>The motivation for fast focusing is clear, but the advantages (or indeed, the meaning) of ‘remote’ refocusing may not be obvious. In standard microscopes, focusing is achieved by z-axis motion of either the objective lens (Figure 3a) or the sample to select the image plane. This is convenient and simple, but the high inertia of these elements requires a high-power Z-actuator to achieve agile motion, which combines awkwardly with typical multi-objective turrets. More importantly, high-resolution imaging requires immersion media like oil or water, which couples rapid vibration of the objective to the coverslip, disturbing the sample and blurring the image at high focusing speeds. (Figure 3c). In our experience, any optimization to improve this focusing speed 
+
+[<a class="citation" href="https://doi.org/10.1038/nmeth.2687" title="Instant super-resolution imaging in live cells and embryos via analog image processing; Andrew G. York, Panagiotis Chandris, Damian Dalle Nogare, Jeffrey Head, Peter Wawrzusin, Robert S. Fischer, Ajay Chitnis &amp; Hari Shroff; Nature Methods 10, 1122–1126 (2013)">York 2013</a>]
+
+is highly dependent on both the sample and the objective lens, and must be constantly re-optimized if high performance is important.</p>
 
 <figure id="Figure_3">
 <video controls autoplay loop muted style="width:100%;" id="Figure_3_vid"
@@ -178,44 +182,45 @@ push axial focusing speed to infinity, but reduce camera-limited imaging speed. 
  <source src="images/RR_animation/fast.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<figcaption><strong>Figure 3: Schematics of normal focusing vs remote re-focus at moderate and high acquisition speeds.</strong> a) Typical focusing where the primary objective is moved with respect to the sample to change the focal plane. In high resolution imaging the immersion medium creates an unwanted mechanical coupling which is only acceptable at moderate speeds. b) A schematic of remote re-focus where the primary objective and sample are stationary during focusing which removes the mechanical coupling. c) Normal focusing at high speeds with immersion medium can disturb the sample and prevent 3D imaging. d) Remote re-focus can produce fast 4D acquisitions because the sample is isolated from focus related motion.</figcaption>
+<figcaption><strong>Figure 3: Typical focusing vs. remote refocus at moderate and high acquisition speeds.</strong> <strong>(a)</strong> Typical focusing; to change the focal plane (horizontal dotted line), the objective moves with respect to the sample. Immersion oil or water (blue) couples this motion to the sample. <strong>(b)</strong> Remote re-focus; the primary objective and sample don't move during focusing, which prevents mechanical coupling. <strong>(c)</strong> At high speeds, typical focusing with immersion medium disturbs the sample, degrading or destroying 3D image quality. <strong>(d)</strong> Remote refocus allows fast 3D images because the sample is isolated from focus related motion.</figcaption>
 </figure>
 
 <p></p>
-<p>The ability to re-focus remotely, without moving either the sample or the primary objective (Figure 3, b) ), can completely isolate the sample from perturbations and present unique opportunities to improve motion dynamics to give significantly faster 4D acquisitions (Figure 3, d) ). Additional benefits include the 'bolt on' nature of the module which does not interfere with the normal operation of the microscope and provides a convenient space for a fast filter wheel without the need for an additional telescope which is commonly added for this purpose.</p>
+<p>Refocusing remotely leaves the sample and primary objective stationary (Figure 3b), isolating the sample from mechanical disturbance at high speed (Figure 3d). Because the moving part is now outside the microscope, optimizations for fast focusing become indpendent of the sample and the primary objective, greatly simplifying life for the microscope's user. The 'bolt-on' nature of the module doesn't interfere with the normal operation of the microscope, and even provides a convenient space for a fast external filter wheel without the need for an additional telescope which is commonly added for this purpose.</p>
 
-<p>A detailed description of RR theory is elegantly presented in the original paper 
-[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>]
-and will not be re-visited here. We do however provide a straightforward
-<a href="./appendix.html#Concept, rules and simulation">concept, rules and simulation</a>
-section in the
-<a href="./appendix.html">appendix</a>
-for those looking to build their own RR which highlights the potential pitfalls. We also give a concise summary of the
-<a href="./appendix.html#History">history</a>
-of the technique which may help the reader frame its use in the field of microscopy and understand how the RR version presented here fits into the story.</p>
+<p>A detailed description of RR theory is elegantly presented in the original paper
+
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>],
+
+and will not be re-visited here. We do however provide a straightforward <a href="./appendix.html#Concept, rules and simulation">concept, rules and simulation</a> section in the <a href="./appendix.html">Appendix</a> for those looking to build their own RR, which highlights the potential pitfalls. We also give a brief summary of the <a href="./appendix.html#History">history</a> of the technique which may help the reader frame its use in the field of microscopy and understand how the RR version presented here fits into the story.</p>
 
 <h3>Results</h3>
-<h4>Large diffraction limited volumes</h4>
+<h4>Large diffraction-limited volumes</h4>
 
-<p>The remote re-focus system presented in this article is designed to couple to a typical microscope stand and produce diffraction limited images using a 60x1.45 oil immersion objective (Figure 4). The z-drive included can achieve step and settle times in the 0.1-1&mu;m range in &lt;10 ms which is faster than the rolling time of a good sCMOS camera at full field, and so the dynamics of the system are purely photon and detector limited in this regime. A detailed description of the module can be found in the <a href="./appendix.html#Design">design</a> and <a href="./appendix.html#Build">build</a> sections of the <a href="./appendix.html">appendix</a> and so here the emphasis will be on the resulting optical performance.</p>
+<p>Our remote refocus is designed to couple to a typical microscope stand and produce diffraction-limited images using a 60x 1.45 numerical aperture (NA) oil immersion primary objective (Figure 4). Because our design's Z-drive can make small steps (0.1-1 &mu;m) faster than the rolling time of modern sCMOS cameras at full field (&lt;10 ms), the system imaging speed is either camera-limited or photoelectron-limited in this regime. This section describes the optical performance; for a detailed description of the module, see the <a href="./appendix.html#Design">design</a> and <a href="./appendix.html#Build">build</a> sections of the <a href="./appendix.html">Appendix</a>.</p>
 
 <figure id="Figure_4">
 <img src="images/RR_images/Fast_3D_widefield_microscope_1.0_wireframe.png" alt="Figure 4" id="Figure_4_jpg" style="width:100%;">
 <img src="images/RR_images/Remote_re-focus_1.2_rendered.jpg" alt="Figure 4" id="Figure_4_jpg" style="width:49.5%;">
 <img src="images/RR_images/Remote_re-focus_1.2_photo.jpg" alt="Figure 4" id="Figure_4_jpg" style="width:48.1%;">
-<figcaption><strong>Figure 4: Remote re-focus design.</strong> a) A wireframe image of the instrument showing that it can easily couple to the side port of a normal microscope stand with space left for a full sized incubation chamber and a fast filter wheel. b) A rendered image of the full opto-mechanically designed system optimised for a Nikon 60x1.4 oil immersion objective (and excellent performance with a Nikon 40x0.95 air objective where convenient). c) a photograph of the final build that was used to generate the data presented in this article.</figcaption>
+<figcaption><strong>Figure 4: Remote re-focus design.</strong> <strong>(a)</strong> A wireframe image of the instrument showing that it easily couples to the side port of a normal microscope stand with space left for a full sized incubation chamber and a fast filter wheel. <strong>(b)</strong> A rendered image of the full opto-mechanically designed system, optimised for a Nikon 60x 1.4 NA oil immersion objective (and giving excellent performance with a Nikon 40x 0.95 NA air objective where convenient). <strong>(c)</strong> A photograph of the final build used to generate the data presented in this article.</figcaption>
 </figure>
-
 <p></p>
+
 <p>
-The rigor of the original RR paper
-[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Jusˇkaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>],
- the comprehensive testing of subsequent builders
-[<a class="citation" href="https://doi.org/10.1073/pnas.1109111108" title="Three-dimensional imaging and photostimulation by remote-focusing and holographic light patterning; F. Anselmi, C. Ventalon, A. Bègue, D. Ogden and V. Emiliani; PNAS, vol 108(49), p19504-19509, (2011)">Anselmi 2011</a>, 
-<a class="citation" href="https://doi.org/10.1364/AO.53.003473" title="Remote-focusing microscopy with long working distance objective lenses; Y. Qi, M. Lei, Y. Yang, B. Yao, D. Dan, X. Yu, S. Yan and T. Ye; Applied Optics, vol 53(16), p3473-3478, (2014)">Qi 2014</a>]
- and the thorough optical design work implemented here meant that traditional and labour intensive volumetric PSF characterisation (using beads) was avoided and substituted for the very convenient <a href="http://argolight.com/">Argolight</a> SIM slide. This sample does not have subdriffactive point sources but does feature spatially stable patterns with broadband excitation/emmision bands and non bleaching linear features down to 30nm seperation. This was considered more than sufficient for evaluating the resolution and field of view of the RR and so the optical performance data is presented on this basis.</p>
+Because of the rigor of the original RR paper
+
+[<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>],
+
+the comprehensive testing of subsequent builders
+
+[<a class="citation" href="https://doi.org/10.1073/pnas.1109111108" title="Three-dimensional imaging and photostimulation by remote-focusing and holographic light patterning; F. Anselmi, C. Ventalon, A. Bègue, D. Ogden and V. Emiliani; PNAS, vol 108(49), p19504-19509, (2011)">Anselmi 2011</a>,
  
- <p>Using a standard GFP filter cube it was straighforward to image a minimally distorted, full field of view resolution target, with line pairs separated by 750nm accross the whole 200x200x60&mu;m volume (Figure 5). Here the microscope z-drive was used to de-focus the sample and then the RR piezo was used to re-focus and take pictures and therefore scan the design volume of the instrument (see the <a href="./appendix.html#Acquisition">aquisition</a> section for details and links to the original data).</p>
+<a class="citation" href="https://doi.org/10.1364/AO.53.003473" title="Remote-focusing microscopy with long working distance objective lenses; Y. Qi, M. Lei, Y. Yang, B. Yao, D. Dan, X. Yu, S. Yan and T. Ye; Applied Optics, vol 53(16), p3473-3478, (2014)">Qi 2014</a>],
+
+and the thorough optical design work implemented here, we avoid traditional labour-intensive volumetric PSF characterisation using beads; instead we substituted the very convenient <a href="http://argolight.com/">Argolight</a> SIM slide. The slide's variable-spacing fluorescent features (down to 30 nm separation) allow us to quickly and accurately measure spatial resolution over the full 3D field-of-view.</p>
+ 
+<p> Our system easily yields a minimally distorted, full field of view resolution target, with line pairs separated by 750nm accross the whole 200x200x60&mu;m volume (Figure 5) using a standard GFP filter cube. Here the microscope z-drive was used to de-focus the sample and then the RR piezo was used to re-focus and take pictures and therefore scan the design volume of the instrument (see the <a href="./appendix.html#Acquisition">aquisition</a> section for details and links to the original data).</p>
  
  <figure id="Figure_5">
 <img src="images/SIM_target/default.png" alt="Figure 5" id="Figure_5_png" style="width:100%;">
