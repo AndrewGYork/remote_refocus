@@ -134,7 +134,7 @@ Here we hope to revive a technique of similar vintage, the remote refocus (RR)
 
 [<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>],
 
-and suggest that remote refocusing is the right way to achieve fast, high resolution volumes in most cases.</p>
+and suggest that remote refocusing is the right way to acquire fast, high resolution 3D fluorescent images in most cases.</p>
 
 <figure id="Figure_2">
 <video controls autoplay loop muted style="width:100%;" id="Figure_2_vid"
@@ -156,7 +156,7 @@ and light field microscopy
 
 [<a class="citation" href="https://doi.org/10.1038/nmeth.2964" title="Simultaneous whole-animal 3D imaging of neuronal activity using light-field microscopy; Robert Prevedel,	Young-Gyu Yoon,	Maximilian Hoffmann, Nikita Pak, Gordon Wetzstein, Saul Kato, Tina Schrödel, Ramesh Raskar, sManuel Zimmer,	Edward S Boyden	and Alipasha Vaziri; Nature Methods, vol 11), p727-730, (2014)">Prevedel 2014</a>]
 
-push axial focusing speed to infinity, but reduce camera-limited imaging speed. Multifocus microscopy's X, Y, and Z fields of view can't be adjusted, which either wastes voxels per second or requires mechanical refocusing, unless the sample happens to perfectly fill the (fixed) imaging volume. Light field microscopy yields even fewer voxels per second than multifocus microscopy, because it measures multiple camera pixels to characterize one Nyquist-limited voxel (other drawbacks include degraded resolution and mandatory post-processing). These techniques are therefore faster than RR when the bottleneck is RR focusing time, but slower when the bottleneck is the camera. In our experience with well-engineered RR fluorescence microscopes, the bottleneck is always the camera. Multifocal and light field microscopy also combine awkwardly with powerful 3D techniques like light-sheet or spinning-disk microscopy, which combine elegantly with remote refocus [TODO: MAYBE TWO CITATIONS HERE?].
+push axial focusing speed to infinity, but reduce camera-limited imaging speed. Multifocus microscopy's X, Y, and Z fields of view can't be adjusted, which either wastes voxels per second or requires slow conventional focusing, unless the sample happens to perfectly fill the (fixed) imaging volume. Light field microscopy yields even fewer voxels per second than multifocus microscopy, because it measures multiple camera pixels to characterize one Nyquist-limited voxel (other drawbacks include degraded resolution and mandatory post-processing). These techniques are therefore faster than RR when the bottleneck is RR focusing time, but slower when the bottleneck is the camera. In our experience with well-engineered RR fluorescence microscopes, the bottleneck is always the camera. Multifocal and light field microscopy also combine awkwardly with powerful 3D techniques like light-sheet or spinning-disk microscopy, which combine elegantly with remote refocus [TODO: MAYBE TWO CITATIONS HERE?].
 </p>
 
 <p>Given the importance of fast 3D imaging, and the power and flexibility of RR, we're surprised RR isn't more popular. The <a href="./appendix.html#History">history</a> of RR shows many clever technical innovations, but few biological applications, and no commercial implementations. We speculate RR suffers from two problems: surprising pitfalls during design and construction, and a lack of advertising. We hope our design empowers builders to painlessly, confidently make their own RR, and we hope data like Figure 1 (high-resolution 3D images of <em>C. elegans</em> at 20 volumes per second) and Figure 2 (high-resolution 3D images of yeast flowing in a microfluidic channel at 50 volumes per second) will entice microscope users to try RR for their high-speed imaging challenges. Most of all, we hope to inspire microscope manufacturers to commercialize and disseminate remote refocus as the "gold standard" solution for fast 3D imaging problems.</p>
@@ -181,17 +181,17 @@ is highly dependent on both the sample and the objective lens, and must be const
  <source src="images/RR_animation/fast.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<figcaption><strong>Figure 3: Typical focusing vs. remote refocus at moderate and high acquisition speeds.</strong> <strong>(a)</strong> Typical focusing; to change the focal plane (horizontal dotted line), the objective moves with respect to the sample. Immersion oil or water (blue) couples this motion to the sample. <strong>(b)</strong> Remote re-focus; the primary objective and sample don't move during focusing, which prevents mechanical coupling. <strong>(c)</strong> At high speeds, typical focusing with immersion medium disturbs the sample, degrading or destroying 3D image quality. <strong>(d)</strong> Remote refocus allows fast 3D images because the sample is isolated from focus related motion.</figcaption>
+<figcaption><strong>Figure 3: Typical focusing vs. remote refocus at moderate and high acquisition speeds.</strong> <strong>(a)</strong> Typical focusing; to change the focal plane (horizontal dotted line), the objective moves with respect to the sample. Immersion oil or water (blue) couples this motion to the sample. <strong>(b)</strong> Remote re-focus; the primary objective and sample don't move during focusing, which prevents mechanical coupling. <strong>(c)</strong> At high speeds, typical focusing with immersion fluid disturbs the sample, degrading or destroying 3D image quality. <strong>(d)</strong> Remote refocus allows fast 3D images because the sample is isolated from focus-related motion.</figcaption>
 </figure>
-
 <p></p>
-<p>Refocusing remotely leaves the sample and primary objective stationary (Figure 3b), isolating the sample from mechanical disturbance at high speed (Figure 3d). Because the moving part is now outside the microscope, optimizations for fast focusing become indpendent of the sample and the primary objective, greatly simplifying life for the microscope's user. The 'bolt-on' nature of the module doesn't interfere with the normal operation of the microscope, and even provides a convenient space for a fast external filter wheel without the need for an additional telescope which is commonly added for this purpose.</p>
+
+<p>Refocusing remotely leaves the sample and primary objective stationary (Figure 3b), isolating the sample from mechanical disturbance at high speed (Figure 3d). Because the moving part is now outside the microscope, optimizations for fast focusing become indpendent of the sample and the primary objective, greatly simplifying life for the microscope's user. The 'bolt-on' nature of the module doesn't interfere with the normal operation of the microscope, and even provides a convenient space for a fast external filter wheel without the need for an additional telescope (which is commonly added for this purpose).</p>
 
 <p>A detailed description of RR theory is elegantly presented in the original paper
 
 [<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>],
 
-and will not be re-visited here. We do however provide a straightforward <a href="./appendix.html#Concept, rules and simulation">concept, rules and simulation</a> section in the <a href="./appendix.html">Appendix</a> for those looking to build their own RR, which highlights the potential pitfalls. We also give a brief summary of the <a href="./appendix.html#History">history</a> of the technique which may help the reader frame its use in the field of microscopy and understand how the RR version presented here fits into the story.</p>
+and will not be re-visited here. We do however provide a straightforward <a href="./appendix.html#Concept, rules and simulation">concept, rules and simulation</a> section in the <a href="./appendix.html">Appendix</a> for those looking to build their own RR, which highlights potential pitfalls. We also give a brief summary of the <a href="./appendix.html#History">history</a> of the technique which may help the reader frame its use in the field of microscopy and understand how the RR version presented here fits into the story.</p>
 
 <h3>Results</h3>
 <h4>Large volumes with uncompromised resolution</h4>
@@ -202,12 +202,14 @@ and will not be re-visited here. We do however provide a straightforward <a href
 <img src="images/RR_images/Fast_3D_widefield_microscope_1.0_wireframe.png" alt="Figure 4" id="Figure_4_jpg_1" style="width:100%;">
 <img src="images/RR_images/Remote_re-focus_1.2_rendered.jpg" alt="Figure 4" id="Figure_4_jpg_2" style="width:49.5%;">
 <img src="images/RR_images/Remote_re-focus_1.2_photo.jpg" alt="Figure 4" id="Figure_4_jpg_3" style="width:48.1%;">
-<figcaption><strong>Figure 4: Remote re-focus design.</strong> <strong>(a)</strong> A wireframe image of the instrument showing that it easily couples to the side port of a normal microscope stand with space left for a full sized incubation chamber and a fast filter wheel. <strong>(b)</strong> A rendered image of the full opto-mechanically designed system, optimised for a Nikon 60x 1.4 NA oil immersion objective (and giving excellent performance with a Nikon 40x 0.95 NA air objective where convenient). <strong>(c)</strong> A photograph of the final build used to generate the data presented in this article.</figcaption>
+<figcaption><strong>Figure 4: Remote re-focus design.</strong> <strong>(a)</strong> A wireframe image of the instrument showing that it easily couples to the side port of a normal microscope stand with space left for a full sized incubation chamber and a fast filter wheel. <strong>(b)</strong> A rendered image of the full opto-mechanically designed system, optimised for a Nikon 60x 1.4 NA oil immersion objective (and giving excellent performance with a Nikon 40x 0.95 NA air objective). <strong>(c)</strong> A photograph of the final build used to generate the data presented in this article.</figcaption>
 </figure>
 <p></p>
 
 <p>
-Because of the rigor of the original RR paper
+We characterize image quality via <a href="http://argolight.com/">Argolight's</a> SIM slide, with variable-spacing fluorescent features (down to 30 nm separation) which allow us to quickly and accurately measure spatial resolution over the full 3D field-of-view.
+
+We eschewed traditional labour-intensive volumetric PSF characterisation via beads because of the rigor of the original RR paper
 
 [<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>],
 
@@ -217,9 +219,9 @@ the comprehensive testing of subsequent builders
  
 <a class="citation" href="https://doi.org/10.1364/AO.53.003473" title="Remote-focusing microscopy with long working distance objective lenses; Y. Qi, M. Lei, Y. Yang, B. Yao, D. Dan, X. Yu, S. Yan and T. Ye; Applied Optics, vol 53(16), p3473-3478, (2014)">Qi 2014</a>],
 
-and the thorough optical design work implemented here, we characterize image quality via <a href="http://argolight.com/">Argolight's</a> SIM slide rather than traditional labour-intensive volumetric PSF characterisation using beads. The slide's variable-spacing fluorescent features (down to 30 nm separation) allow us to quickly and accurately measure spatial resolution over the full 3D field-of-view.</p>
+and the thorough optical design work implemented here.</p>
  
-<p> Our system yields minimally distorted images across the whole 200x200x60 &mu;m<sup>3</sup> volume (Figure 5), using a standard GFP filter cube; note the clearly resolved line pairs, which are separated by 750nm. We construct a "virtual" 3D test object from a 2D resolution target by moving the microscope's primary objective Z-drive and refocusing via the RR piezo (see the <a href="./appendix.html#Acquisition">aquisition</a> section for details and raw data).</p>
+<p> Our system yields minimally distorted images across the entire 200x200x60 &mu;m<sup>3</sup> volume (Figure 5), using a standard GFP filter cube; note the clearly resolved line pairs, which are separated by 750nm. We construct a "virtual" 3D test object from a 2D resolution target by moving the microscope's primary objective Z-drive and refocusing via the RR piezo (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details and raw data).</p>
  
  <figure id="Figure_5">
 <img src="images/SIM_target/default.png" alt="Figure 5" id="Figure_5_png" style="width:100%;">
@@ -244,14 +246,14 @@ and the thorough optical design work implemented here, we characterize image qua
     <option value="02" selected="selected">-1.0</option>
     <option value="01">-1.5</option>
     <option value="00">-2.0</option>
-  </select></td><td>(&mu;m, relative to microscope de-focus)</td>
+  </select></td><td>(&mu;m; at 0, the RR approximately cancels the primary objective's defocus)</td>
   </tr>
   </table>
 <figcaption><strong>Figure 5: RR delivers minimal distortion across the 3D field of view.</strong> Images of an engineered flourescent target (Argolight SIM slide) show the remote refocus's large (200x200x60 &mu;m<sup>3</sup>) imaging volume, with minimal distortion and clearly resolvable line pairs separated by 750 nm across the whole volume. We used the microscope Z-drive to de-focus the sample, and then the RR piezo to re-focus, scanning the full 3D design volume of the instrument. Note the figure is interactive, allowing the reader to tune both the microscope objective and RR piezo position to inspect 3D image quality.</figcaption>
 </figure>
 <p></p>
 
-<p>To quantify resolution, we translated finely spaced resolution lines through the field of view. Consistent with our expections of diffraction-limited performance within the design volume, the RR does not degrade resolution, easily resolving lines separated by 270 nm accross the entire volume (Figure 6), and 240 nm near the center (see <a href="./appendix.html#Design">design</a> section for details). Note the classic Rayleigh limit \(\frac{0.61\lambda}{NA}\) predicts ~230nm resolution using this filter cube, which unmodified microscopes rarely achieve in practice.</p>
+<p>To quantify resolution, we translated finely spaced resolution lines through the field of view. Consistent with our expections of diffraction-limited performance within the design volume, the RR does not degrade resolution, easily resolving lines separated by 270 nm across the entire volume (Figure 6), and 240 nm near the center (see <a href="./appendix.html#Design">design</a> section for details). Note the classic Rayleigh limit \(\frac{0.61\lambda}{NA}\) predicts ~230nm resolution using this filter cube, which even unmodified microscopes rarely achieve in our experience.</p>
 
 <figure id="Figure_6">
 <img src="images/SIM_lines_center/default.png" alt="Figure 6" id="Figure_6_png" style="width:100%;">
@@ -299,14 +301,14 @@ and the thorough optical design work implemented here, we characterize image qua
     <option value="02">-1.50</option>
     <option value="01">-1.75</option>
     <option value="00">-2.00</option>
-  </select></td><td>(&mu;m, relative to microscope de-focus)</td>
+  </select></td><td>(&mu;m; at 0, the RR approximately cancels the primary objective's defocus)</td>
   </tr> 
   </table>
 <figcaption><strong>Figure 6: RR delivers uncompromised resolution across the design volume.</strong> Finely separated flourescent lines (Argolight SIM slide) show the resolution of our RR design. The pattern consists of 14 line pairs that range from fully overlapped (top) to a separation of 390 nm (bottom) in 30 nm steps. The data shows a 200x200x60 &mu;m<sup>3</sup> volume with resolving power better than 270nm line separation, and better than 240 nm in the central volume. We used the microscope Z-drive to de-focus the sample, and then the RR piezo to re-focus, scanning the full 3D design volume of the instrument. Note the figure is interactive, allowing the reader to tune both the microscope objective and RR piezo position to inspect 3D image quality.</figcaption>
 </figure>
  
 <p></p>
-<p>To complete the testing straightforward broadband optical efficiency and stability tests were carried out giving a throughput of &gt;73% and a mechanical drift of ~150nm/h respectively (see the <a href="./appendix.html#Design">design</a> section). For a nice demonstration of the volumetric capabilty of the RR see Firgure 7 which shows a uniform 3D structure consisting of an array of rings separated by 5&mu;m in each axis (see <a href="link...">Full data</a> for high resolution images).</p>
+<p>Broadband optical efficiency tests show the <a href="./appendix.html#Figure_A6">RR throughput is &gt;73%</a>, and stability tests show a <a href="./appendix.html#Figure_A5">mechanical drift of ~150 nm/h</a> (see the <a href="./appendix.html#Design">design</a> section for details). Finally, Figure 7 explicitly demonstrates volumetric imaging via a 3D rendering of an Argolight structure (consisting of an array of rings separated by 5 &mu;m in each axis; see <a href="link...">TODO: ADD LINK Full data</a> for raw data).</p>
 
 <figure id="Figure_7">
 <video controls autoplay loop muted style="width:100%;" id="Figure_7_vid"
@@ -314,40 +316,53 @@ and the thorough optical design work implemented here, we characterize image qua
  <source src="images/SIM_3D_projected/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<figcaption><strong>Figure 7: Volumetric imaging capability of remote re-focus shown with a 3D structure (Argolight SIM slide).</strong> The pattern consists of a 3D array of 9x9x9 rings separated by 5&mu;m on each orthogal axis. The data was acquired by focusing the microscope z-drive onto the top plane and then using the RR piezo to take the z stack. The stack was then processed with ImageJ to give a 3D projection using default parameters, the original stack and processing method is available in the data repository (see the <a href="./appendix.html#Acquisition">aquisition</a> section for details).</figcaption>
+<figcaption><strong>Figure 7: Volumetric imaging capability of remote refocus illustrated via 3D structures on the Argolight SIM slide.</strong> The pattern consists of a 3D array of 9x9x9 rings separated by 5 &mu;m in X, Y, and Z. We acquired the data by focusing the microscope Z-drive onto the top plane, and then used the RR piezo to take the Z-stack. The stack was then processed with ImageJ to give 3D projections from various angles (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details).</figcaption>
 </figure>
 
-<h4>Much faster, especially with non-rigid and delicate samples</h4>
+<h4>Much faster than standard focusing, especially with non-rigid and delicate samples</h4>
 
-<p>Having established excellent optical performance, the temporal dynamics of the remote re-focus were explored using a series of standard samples: a glass slide with chrome graticule (rigid), a glass slide with agarose pad and coverslip (semi-rigid), a plastic dish with coverslip bottom (semi-rigid) and a microfluidic chip (flexible) (Figure 8). To evaluate the advantages of the RR the system was compared to a typcal microscope stand and a high peformance piezo stage insert. For each sample the microsope was used to set an initial 10 &mu;m de-focus and then each device in turn was used to focus the sample with an approprate time interval before returning to it's initial position. The allocated time was determined in a sample independent way, either by the resulting serial communications latency for the microscope (&gt; 100ms) or by evaluating the step and settle time of the piezo devices (15-50ms) using internal sensors (see the <a href="./appendix.html#Acquisition">aquisition</a> section in the <a href="./appendix.html">appendix</a> for details).</p>
-
-<p>For the graticule and agarose slides all three z-drives were able to reach focus in the allocated times, with the microscope showing significant xy motion but the piezo stage insert and RR options both focusing as expected. Because these samples are stiff and well clamped the main benefit of the RR in this regime is the physical decoupling of the fast z-drive from the microscope which allows a wide range of actuators to be considered. In this design the &lt;15 ms step and settle of the RR (10&mu;m jump) is achieved by using a bulky piezo unit that does not fit on every microscope platform and occupies a large space that interferes with the nosepiece automation and neighbouring objectives. Because the RR piezo unit is large, powerful and specifically optimised for the RR objective it offers an immediate 3x gain in speed compared to the other methods we tested, regardless of the sample. It should also be noted that another major practical benefit of this architecture is that the RR piezo, camera and light source can all be triggered and controlled by high speed analogue signals which aviods the communication latency that often cripples good temporal performance in focusing.</p>
+<p>Having established excellent image quality, we next measured the speed of our remote refocus (Figure 8) using a series of standard samples: a glass slide with chrome graticule (very rigid), a glass slide with agarose pad and coverslip (semi-rigid), a plastic dish with coverslip bottom (semi-flexible) and a microfluidic chip (very flexible). We compare our RR's focusing speed vs. standard focusing methods: the motorized primary objective of a premium microscope stand, and a high-performance Z-piezo stage insert. For each sample, we set the microscope stand primary objective to an initial 10 &mu;m de-focus, and used each device in turn to focus the sample and then return to its initial position. The allocated focusing times for the RR piezo (15 ms) and the piezo stage insert (50 ms) were determined by their measured 10 &mu;m step-and-settle times (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details). The focusing time of the motorized objective (~100 ms) is bottlenecked by serial port communication latency (the primary bottleneck for most microscopy systems; we encourage anyone interested in fast acquisition to learn how to use an analog-out card).</p>
 
 <figure id="Figure_8">
-<video controls autoplay loop muted style="width:49%;" id="Figure_8a_vid"
+<img src="images/Samples/graticule.jpg" alt="Figure 8" id="Figure_8a_svg" style="width:45%;">
+<img src="images/Samples/uFchip.jpg" alt="Figure 8" id="Figure_8b_svg" style="width:45%;">
+<video controls autoplay loop muted style="width:45%;" id="Figure_8a_vid"
  poster="images/Graticule/poster.png">
  <source src="images/Graticule/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<video controls autoplay loop muted style="width:49%;" id="Figure_8b_vid"
+<video controls autoplay loop muted style="width:45%;" id="Figure_8b_vid"
  poster="images/uFchip/poster.png">
  <source src="images/uFchip/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<img src="images/Samples/graticule.jpg" alt="Figure 8" id="Figure_8a_svg" style="width:49%;">
-<img src="images/Samples/uFchip.jpg" alt="Figure 8" id="Figure_8b_svg" style="width:49%;">
 <table class="figure_controls">
   <tr>
   <td>Sample choice:</td><td><select id="figure_8_sample_choice" onchange="update_figure_8()">
-    <option value="graticule" selected="selected">Graticule(very low) and &mu;Fchip(very high)</option>
-    <option value="agarose">Agarose pad(low) and Dish(high)</option>
-  </select></td><td>(sensitivity)</td>
+    <option value="graticule" selected="selected">Graticule (very rigid) and &mu;Fchip (very flexible)</option>
+    <option value="agarose">Agarose pad (somewhat rigid) and Dish (somewhat flexible)</option>
+  </select></td>
   </tr>
 </table>
-<figcaption><strong>Figure 8: Focusing response of standard samples comparing a microscope stand, piezo stage insert and remote re-focus.</strong> The figure is interactive and consists of 4 sub figures that are paired: (graticule + microfluidc chip) and (agarose pad + dish), where each sub figure consists of 3 panels: a video of focusing at 1000fps (top), intensity vs time for a slice of the video (middle) and a photo of the sample (bottom). The (very rigid) graticule consists of a thick glass slide with an opaque chrome mask and shows minimal disturbance from the oil coupled focusing motion of the microsope stand and stage insert, where both devices reach focus in the allocated times of 110ms and 50ms respectively. Some xy motion is noticeable from the microscope stand, which is also slow due to serial communication latency, but the stage insert performs well and so the (3x) speed advantage of the remote re-focus in this case is purely due to it being more specifically optimised for the task (15ms focus time). The microfluidic chip consists of a finely featured PDMS device bonded to standard 170&mu;m coverglass and was designed and tested for high resolution microscopy of live biology in 4D. Here the microscope and stage insert are unable to focus on the sample at high speed due to the coupling of the oil which causes the sample to flex, where as the remote re-focus can operate unimpeded and shows huge (27x) gains in speed. The agarose slide consists of a standard glass slide with a ~1mm agarose pad and C. Elegans under a standard 170&mu;m coverslip. The relatively slow microscope stand was able to focus on the worm in a similar way to the graticule (some xy motion) but because the agarose is not fully rigid the faster stage insert could not reach a sharp focus in the time interval (the remote re-focus was unimpeded). The dish sample consists of a premium manufactured plastic dish with bonded 170&mu;m converglass and a sprinkling of aluminium particles for imaging. This sample was more flexible than the agarose pad and so the microscope and stage insert struggled to find sharp focus and predictably the remote re-focus was unaffected.</figcaption>
-</figure>
+<figcaption><strong>Figure 8: RR delivers faster focusing and less sample disturbance vs. standard techniques, for a range of standard samples.</strong> 
 
+Each column of the figure shows one sample type. The top panel is a photo of the sample, showing how it was mounted. The middle panel shows a 1000 fps video of focusing performance for a 10 &mu;m motion of the microscope stand (first motion), the piezo stage insert (second motion), and the RR (third motion) for that sample. The bottom panel shows a kymograph of image intensity vs. space (left/right) and time (up/down) of a central horizontal line of pixels from the corresponding video. The video illustrates the lateral sample disturbance due to each method, and the kymograph highlights the axial focusing speed. Note that the figure is interactive, allowing the reader to switch between displaying either: <strong>(1)</strong> a very rigid graticule (left) and a very flexible microfluidic chip (right), or <strong>(2)</strong> a somewhat rigid coverslip/agarose pad/glass slide sample (left, like the one shown in Figure 1) and a somewhat flexible plastic dish with bonded 170 &mu;m coverglass and a sprinkling of aluminum particles for imaging contrast (right).
+
+<!--
+
+This text should probably be in the body rather than the caption, and I don't want to delete it until I'm sure:
+
+The figure is interactive and consists of 4 sub figures that are paired: (graticule + microfluidic chip) and (agarose pad + dish), where each sub figure consists of 3 panels: a video of focusing at 1000fps (top), intensity vs time for a slice of the video (middle) and a photo of the sample (bottom).  The microfluidic chip consists of a finely featured PDMS device bonded to standard 170&mu;m coverglass and was designed and tested for high resolution microscopy of live biology in 4D. Here the microscope and stage insert are unable to focus on the sample at high speed due to the coupling of the oil which causes the sample to flex, where as the remote re-focus can operate unimpeded and shows huge (27x) gains in speed. The agarose slide consists of a standard glass slide with a ~1mm agarose pad and <em>C. elegans</em> under a standard 170&mu;m coverslip. The relatively slow microscope stand was able to focus on the worm in a similar way to the graticule (some xy motion) but because the agarose is not fully rigid the faster stage insert could not reach a sharp focus in the time interval (the remote re-focus was unimpeded). The dish sample consists of a premium manufactured plastic dish with bonded 170&mu;m converglass and a sprinkling of aluminium particles for imaging. This sample was more flexible than the agarose pad and so the microscope and stage insert struggled to find sharp focus and predictably the remote re-focus was unaffected.</figcaption>
+-->
+</figure>
 <p></p>
+
+<p>The graticule is an opaque chrome mask deposited on a small, thick glass slide, supported by a larger solid metal slide. It is extremely rigid, allowing good focus during the microscope stand's motion (100 ms) and the piezo stage insert's motion (50 ms). The microscope stand causes some lateral vibration during focusing, but the piezo stage insert performs well. This is a best-case scenario for the piezo insert; in our experience, most samples are much less rigid. However, the RR motion (15 ms) is still ~3x faster than the piezo stage in this case, because its design allows room for a larger, more powerful piezo, moving a small, predictable mass.</p>
+
+<p>
+For the graticule and agarose slides, all three focusing methods were able to reach focus in the allocated times, with the microscope showing significant lateral motion but the piezo stage insert and RR both focusing as expected. Because these samples are stiff and well clamped the main benefit of the RR in this regime is the physical decoupling of the fast z-drive from the microscope which allows a wide range of actuators to be considered. In this design the &lt;15 ms step and settle of the RR (10&mu;m jump) is achieved by using a bulky piezo unit that does not fit on every microscope platform and occupies a large space that interferes with the nosepiece automation and neighbouring objectives. Because the RR piezo unit is large, powerful and specifically optimised for the RR objective it offers an immediate 3x gain in speed compared to the other methods we tested, regardless of the sample. It should also be noted that another major practical benefit of this architecture is that the RR piezo, camera and light source can all be triggered and controlled by high speed analogue signals which aviods the communication latency that often cripples good temporal performance in focusing.</p>
+
+
 <p>For the dish and microfluidic chip samples the advantages of the RR are substantial. The microscope is able to reach focus on the dish by virture of being ~7x slower, which gives the oil and sample just enough time to settle (although the xy motion is still noticable). The stage insert however is only ~3x slower and so extra settle time must be added to the acquisition to compensate for the motion coupled to the sample and reach a sharp focus. With the flexible microfluidic chip the coupling of the oil is more detrimental and incapacitates both the microscope and stage inserts ability to focus on the normal time scales (50-110ms). In a separate test the settle time was found to be ~400ms which is ~27x slower than the RR. The RR naturally performs as well with the dish and microfluidc chip as with any other sample giving a speed advantage in the 3-27x range for the samples demonstrated here and larger benefits expected in a water dipping regime where this technique could revolutionise z stack acquisition.</p>
 
 <h4>Dynamic 4D biology</h4>
