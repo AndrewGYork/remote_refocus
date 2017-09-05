@@ -321,7 +321,7 @@ and the thorough optical design work implemented here.</p>
 
 <h4>Much faster than standard focusing, especially with non-rigid and delicate samples</h4>
 
-<p>Having established excellent image quality, we next measured the speed of our remote refocus (Figure 8) using a series of standard samples: a glass slide with chrome graticule (very rigid), a glass slide with agarose pad and coverslip (semi-rigid), a plastic dish with coverslip bottom (semi-flexible) and a microfluidic chip (very flexible). We compare our RR's focusing speed vs. standard focusing methods: the motorized primary objective of a premium microscope stand, and a high-performance Z-piezo stage insert. For each sample, we set the microscope stand primary objective to an initial 10 &mu;m de-focus, and used each device in turn to focus the sample and then return to its initial position. The allocated focusing times for the RR piezo (15 ms) and the piezo stage insert (50 ms) were determined by their measured 10 &mu;m step-and-settle times (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details). The focusing time of the motorized objective (~100 ms) is bottlenecked by serial port communication latency (the primary bottleneck for most microscopy systems; we encourage anyone interested in fast acquisition to learn how to use an analog-out card).</p>
+<p>Having established excellent image quality, we next measured the speed of our remote refocus (Figure 8) using a series of standard samples: a glass slide with chrome graticule (very rigid), a glass slide with agarose pad and coverslip (semi-rigid), a plastic dish with coverslip bottom (semi-flexible) and a microfluidic chip (very flexible). We compare our RR's focusing speed vs. standard focusing methods: the motorized primary objective of a premium microscope stand, and a high-performance Z-piezo stage insert. For each sample, we set the microscope stand primary objective to an initial 10 &mu;m de-focus, and used each device in turn to focus the sample and then return to its initial position. The allotted focusing times for the RR piezo (15 ms) and the piezo stage insert (50 ms) were determined by their <a href="./appendix.html#Figure_A4">measured</a> 10 &mu;m step-and-settle times (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details). The focusing time of the motorized objective (~100 ms) is bottlenecked by serial port communication latency. Note that serial port communication is the primary bottleneck for most microscopy systems; we encourage anyone interested in fast acquisition to <a href="https://github.com/AndrewGYork/tools/blob/master/ni.py">learn how to use an analog-out card</a>.</p>
 
 <figure id="Figure_8">
 <img src="images/Samples/graticule.jpg" alt="Figure 8" id="Figure_8a_svg" style="width:45%;">
@@ -339,8 +339,8 @@ and the thorough optical design work implemented here.</p>
 <table class="figure_controls">
   <tr>
   <td>Sample choice:</td><td><select id="figure_8_sample_choice" onchange="update_figure_8()">
-    <option value="graticule" selected="selected">Graticule (very rigid) and &mu;Fchip (very flexible)</option>
-    <option value="agarose">Agarose pad (somewhat rigid) and Dish (somewhat flexible)</option>
+    <option value="graticule" selected="selected">Graticule (very rigid) and &mu;Fluidic chip (very flexible)</option>
+    <option value="agarose">Agarose pad (semi-rigid) and Dish (semi-flexible)</option>
   </select></td>
   </tr>
 </table>
@@ -357,17 +357,15 @@ The figure is interactive and consists of 4 sub figures that are paired: (gratic
 </figure>
 <p></p>
 
-<p>The graticule is an opaque chrome mask deposited on a small, thick glass slide, supported by a larger solid metal slide. It is extremely rigid, allowing good focus during the microscope stand's motion (100 ms) and the piezo stage insert's motion (50 ms). The microscope stand causes some lateral vibration during focusing, but the piezo stage insert performs well. This is a best-case scenario for the piezo insert; in our experience, most samples are much less rigid. However, the RR motion (15 ms) is still ~3x faster than the piezo stage in this case, because its design allows room for a larger, more powerful piezo, moving a small, predictable mass.</p>
+<p>The graticule is an opaque chrome mask deposited on a small, thick glass slide, supported by a larger solid metal slide. This stiff, well-clamped sample is nearly undisturbed by the immersion oil during fast focusing (50 ms) via the piezo stage insert, and it may not be obvious what advantage RR offers in this regime. However, the RR is still &gt;3x faster (15 ms), because RR lets us use a powerful, bulky piezo, <a href="./appendix.html#Figure_A4">tuned to drive a small fixed mass</a>. This piezo is much too large to fit under the primary objective, and even if it could, we'd have to re-tune it every time the sample or primary objective changed.</p>
 
-<p>
-For the graticule and agarose slides, all three focusing methods were able to reach focus in the allocated times, with the microscope showing significant lateral motion but the piezo stage insert and RR both focusing as expected. Because these samples are stiff and well clamped the main benefit of the RR in this regime is the physical decoupling of the fast z-drive from the microscope which allows a wide range of actuators to be considered. In this design the &lt;15 ms step and settle of the RR (10&mu;m jump) is achieved by using a bulky piezo unit that does not fit on every microscope platform and occupies a large space that interferes with the nosepiece automation and neighbouring objectives. Because the RR piezo unit is large, powerful and specifically optimised for the RR objective it offers an immediate 3x gain in speed compared to the other methods we tested, regardless of the sample. It should also be noted that another major practical benefit of this architecture is that the RR piezo, camera and light source can all be triggered and controlled by high speed analogue signals which aviods the communication latency that often cripples good temporal performance in focusing.</p>
+<p>The advantages of RR only increase for more typical samples, which are less rigid. For example, the agarose sample sandwiches <em>C. elegans</em> on a ~1 mm agarose pad between a standard glass slide and a 170 &mu;m coverslip, or the dish sample, a standard manufactured plastic dish with bonded 170 &mu;m converglass and a sprinkling of aluminium particles for imaging contrast. The flexibility of the agarose prevents the piezo stage insert from reaching sharp focus in the alloted time, and the dish was even worse. Predictably, the remote refocus was unaffected by the flexibility or mass of either sample.</p>
 
-
-<p>For the dish and microfluidic chip samples the advantages of the RR are substantial. The microscope is able to reach focus on the dish by virture of being ~7x slower, which gives the oil and sample just enough time to settle (although the xy motion is still noticable). The stage insert however is only ~3x slower and so extra settle time must be added to the acquisition to compensate for the motion coupled to the sample and reach a sharp focus. With the flexible microfluidic chip the coupling of the oil is more detrimental and incapacitates both the microscope and stage inserts ability to focus on the normal time scales (50-110ms). In a separate test the settle time was found to be ~400ms which is ~27x slower than the RR. The RR naturally performs as well with the dish and microfluidc chip as with any other sample giving a speed advantage in the 3-27x range for the samples demonstrated here and larger benefits expected in a water dipping regime where this technique could revolutionise z stack acquisition.</p>
+<p>The microfluidic chip is a finely featured polydimethylsiloxane (PDMS) device bonded to a 60x50 mm<sup>2</sup> 100 &mu;m coverglass, designed for long-term high resolution 3D microscopy of living yeast. The sample is extremely flexible, and moving the microscope objective or stage insert bends it substantially via the immersion oil, requiring more than 400 ms settling time. Of course, this is irrelevant to the RR, which shows a huge (27x) speed advantage in this case. This eliminates a common tension between microscope builders and microscope users; it's easy for the builder to blame the sample for being too flexible, but redesigning a complex microfluidic chip should not be taken lightly. Our colleagues are thrilled that the remote refocus saves them from choosing between painfully slow image acquisition, or painfully slow chip redesign, and we suspect many other users will have the same experience.</p>
 
 <h4>Dynamic 4D biology</h4>
 
-<p>Having established both excellent optomechanical performance of the remote re-focus and clear speed advantages of using it with a range of standard samples some readily available living organisms were identified and imaged. Here we show the RR in action with waterborne Protozoa freely moving in a 3D volume at up to 14 volumes/s (Figure 9), C. elegans freely roaming around on an agarose pad at up to 20 volumes/s (Figure 1) and yeast cells flowing in microfluidic channels at up to 50 volumes/s (Figures 2 and 9).</p>
+<p>Having established excellent optical and mechanical performance, we next explore the ability and the limits of remote refocus for imaging living organisms at high speed. Samples include <em>C. elegans</em> roaming an agarose pad imaged at up to 20 volumes/s (Figure 1), yeast cells flowing in microfluidic channels imaged at up to 50 volumes/s (Figures 2 and 9), and waterborne protozoa freely moving in a 3D volume imaged at up to 14 volumes/s (Figure 9).</p>
 
 <figure id="Figure_9">
 <video controls autoplay loop muted style="width:100%;" id="Figure_9_vid"
@@ -383,28 +381,47 @@ For the graticule and agarose slides, all three focusing methods were able to re
 	<option value="amoeba">Amoeba</option>
 	<option value="paramecium">Paramecium</option>
 	<option value="spiro">Spirostomum</option>
-	<option value="food">Spirostomum food</option>
-	<option value="flower">Spirostomum flower</option>
+	<option value="food">Spirostomum "food"</option>
+	<option value="flower">Spirostomum "flower"</option>
   </select></td><td>(sample type)</td>
   </tr>
 </table>
-<figcaption><strong>Figure 9: Demonstrations of 4D biology.</strong> Yeast 3 color: imaged with transmitted light, GFP and RFP flowing in a 150&mu;m wide microfluidic channel with a depth of 10&mu;m, 12 slices in 0.5&mu;m steps with 6ms exposure times to give 4.6V/s. Yeast 2 color: imaged with transmitted light and GFP flowing in a 150&mu;m wide microfluidic channel with a depth of 10&mu;m, 12 slices in 1&mu;m steps with 10ms exposure times to give 4.2V/s. Amoeba: imaged with DIC in a 184 well plate with 170&mu;m coverglass, 4 slices in 5&mu;m steps with 20ms exposure times to give 12.5V/s. Paramecium, spirostomum, spirostomum food and spirostomum flower: all imaged with DIC in a 184 well plate with 170&mu;m coverglass, 6 slices in 10&mu;m steps with 10ms exposure times to give 16.7V/s. The cropping varied between samples (see original data in the <a href="./appendix.html#Acquisition">aquisition</a> section) but the scale bar is 20&mu;m in all cases.</figcaption>
+<figcaption><strong>Figure 9: Demonstrations of 4D biological imaging via RR.</strong> Yeast 3 color: imaged with transmitted light, GFP and RFP flowing in a 150 &mu;m wide microfluidic channel with a depth of 10&mu;m, 12 slices in 0.5 &mu;m steps with 6ms exposure times giving 4.6 volumes/s. Yeast 2 color: imaged with transmitted light and GFP flowing in a 150 &mu;m wide microfluidic channel with a depth of 10 &mu;m, 12 slices in 1 &mu;m steps with 10 ms exposure times giving 4.2 volumes/s. Amoeba: imaged with DIC in a 184 well plate with 170 &mu;m coverglass, 4 slices in 5 &mu;m steps with 20 ms exposure times giving 12.5 volumes/s. Paramecium, spirostomum, spirostomum "food" and spirostomum "flower": all imaged with DIC in a 184 well plate with 170 &mu;m coverglass, 6 slices in 10 &mu;m steps with 10 ms exposure times giving 16.7 volumes/s. The field of view varies between samples (see original data in the <a href="./appendix.html#Acquisition">acquisition</a> section) but the scale bar is 20 &mu;m in all cases.</figcaption>
 </figure>
+<p></p>
+
+<p>TODO: We're camera-limited, so RR limits are camera limits, in this case, lines per second.</p>
+<p>At what speed do we start to get extended depth of field? Which samples show this limit?</p>
 
 <h3>Discussion</h3>
 <h4>Remote re-focus gives the highest spatiotemporal resolution in many applications</h4>
 
-TODO: Andy editorial
-<p></p>
-<p>Many applications of high resolution optical microscopy of live organisms could benefit from a decoupling of the focusing mechanism from the sample space by using the remote re-focus method, which is particularly relevant when sensitive or flexible mounting of the sample is inherent and fast 4D acquisitions are required. Here we clearly outline the concept, method and rules for those wishing to design and build their own RR system and provide a brief overview of the history of the technique.</p>
+<p>Many applications of high resolution optical microscopy of live organisms could benefit from a decoupling of the focusing mechanism from the sample space by using the remote re-focus method, which is particularly relevant when sensitive or flexible mounting of the sample is inherent and fast 4D acquisitions are required.</p>
+
+<p>
+Additional Discussion outline:
+
+* Modular unit. Solves one problem, doesn't make other problems. Can combine with spinning disk, light-sheet, SIM, etc.
+* Does NOT deliver truly simultaneous images; when you need a true 3D "snapshot", use multifocus or light-field.
+* Ripe for commercial adoption; to our knowledge, Tony Wilson's patent is not yet licensed.
+* We're interested in integrating with Micromanager. Contact us if you are too.
+* We use python control code. Contact us if you want help doing the same.
+* We're very eager to see others adopt the technique; contact us if you're building one and want to discuss.
+</p>
+
+
+<!--
+This stuff is more of a summary than a discussion; probably delete, but I'll leave it here for now just in case.
+<p> Here we clearly outline the concept, method and rules for those wishing to design and build their own RR system and provide a brief overview of the history of the technique.</p>
 
 <p>A high performance RR arrangement is presented that may be easily replicated with a detailed discussion of the associated design choices and alignment procedure. The system is shown to have excellent optical properties over a huge 200x200x60&mu;m volume with good corresponding mechanical stability and fast motion dynamics that result in a maximally performant photon limited system when using a modern sCMOS camera at full field. The benefits of RR are demonstrated using typical samples where it clearly outperforms standard focusing methods with speed gains in the 3-27x range. The imaging capabilities of the system are then shown through a series of live biological samples with speeds ranging from 2.5-50 volumes/s.</p>
+-->
 
 <h3>Acknowledgements</h3>
 
-<p>This work was funded and supported by <a href="https://www.calicolabs.com/">Calico Life Sciences LLC</a> and we would like to acknowledge the fantastic research environment that has been created here by the senior staff. We would also like to specifically thank the yeast and worm groups within the company for helping prepare and provide the biology presented.</p>
+<p>This work was funded and supported by <a href="https://www.calicolabs.com/">Calico Life Sciences LLC</a> and we would like to acknowledge the fantastic research environment that has been created here by the senior staff. We would also like to specifically thank the yeast and worm groups within the company for helping prepare and provide the biological samples presented.</p>
 
-<p>Special praise is given to the business development team at Calico for persuing and arranging all of our external collaborations. In this regard we would like to specifically acknowledge our close collaborations with <a href="https://www.nikoninstruments.com">Nikon</a> and <a href="http://www.leica-microsystems.com/">Leica</a> who made it possible to create a high quality instrument design and we look forward to future projects with these partners.</p>
+<p>Special praise is given to the business development team at Calico for pursuing and arranging all of our external collaborations. In this regard we would like to specifically acknowledge our close collaborations with <a href="https://www.nikoninstruments.com">Nikon</a> and <a href="http://www.leica-microsystems.com/">Leica</a> who made it possible to create a high quality instrument design and we look forward to future projects with these partners.</p>
 
 <p>We also thank <a href="https://www.physikinstrumente.com">Physik Instumente</a>, <a href="http://lumencor.com/">Lumencor</a> and <a href="https://www.pco.de/">PCO</a> for their detailed assistance in using their products, and our local suppliers <a href="http://www.zeradevelopment.com/">Zera Development</a> and <a href="http://www.markoptics.com/">Mark Optics</a> for their high quality work and readily available technical support.</p>
 
