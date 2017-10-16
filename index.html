@@ -12,7 +12,7 @@ Based on this theme: https://github.com/broccolini/dinky , which mentioned that 
     <base target="_blank">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4D imaging via remote refocus by Alfred Millett-Sikking</title>
+    <title>remote_refocus by AMSikking</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/prism.css">
@@ -37,7 +37,7 @@ Based on this theme: https://github.com/broccolini/dinky , which mentioned that 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/AMSikking/remote_refocus/zipball/master">Download ZIP</a></li>
           <li><a class="buttons github" href="https://github.com/AMSikking/remote_refocus">View On GitHub</a></li>
-          <li><a class="buttons pdf" href="./4D%20imaging%20via%20remote%20refocus%20by%20Alfred%20Millett-Sikking.pdf">Download PDF</a></li>
+          <li><a class="buttons pdf" href="./remote_refocus%20by%20AMSikking.pdf">Download PDF</a></li>
         </ul>
         <p class="header" style="text-align:left;">This project is maintained by <a class="header name" href="https://github.com/AMSikking">AMSikking</a>, and was funded by <a class="header name" href="https://www.calicolabs.com/">Calico Labs</a></p>
       </header>
@@ -48,6 +48,10 @@ The real text begins here.
  -->
 <section>
 <h1>Research article</h1>
+<h3 class="onlyprint">
+Note that this is a limited PDF or print version; animated and interactive figures are disabled. For the full version of this article, please visit <a href="https://amsikking.github.io/remote_refocus">https://amsikking.github.io/remote_refocus</a></h3>
+<noscript>
+<h3>Your browser doesn't seem to support Javascript. This document uses Javascript for interactive figures, math typesetting, and to automatically generate the reference list. Either activate Javascript, or use the "Download PDF" link above if you want properly typeset math and a reference list.</h3></noscript>
 <h2>Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy</h2>
 <p class="author_list">Alfred Millett-Sikking<sup>1*</sup>, Nathaniel H. Thayer<sup>1</sup>, Adam Bohnert<sup>1</sup> and Andrew G. York<sup>1</sup></p>
 <p class="author_affiliations"><sup>1</sup>Calico Life Sciences LLC, South San Francisco, CA 94080, USA</p>
@@ -68,9 +72,6 @@ removes focusing as a speed limit while adding minimal drawbacks, and we propose
 
 <h3>Peer review status</h3>
 <p class="abstract">Pre-print published XXX XX XXXX doi: XXX (This article is not yet peer-reviewed)</p>
-
-<h3 class="onlyprint">
-Note that this is a limited PDF or print version; animated and interactive figures are disabled. For the full version of this article, please visit <a href="https://amsikking.github.io/remote_refocus">https://amsikking.github.io/remote_refocus</a></h3>
 
 <h3>Introduction</h3>
 <h4>Remote refocus removes the primary speed limit of 3D microscopy, with minimal drawbacks</h4>
@@ -419,7 +420,11 @@ The figure is interactive and consists of 4 sub figures that are paired: (gratic
 <h3>Discussion</h3>
 <h4>Paths towards widespread adoption of remote refocus</h4>
 
-<p>We believe that RR is ripe for widespread adoption, cleanly and flexibly addressing a common challenge without introducing other problems. Many microscopes could benefit from decoupling the focusing mechanism from the sample via remote refocus, especially when the sample is sensitive and high spatiotemporal resolution is required. RR's modularity is a great strength; you can treat it as a "black box" attached directly before your camera to eliminate focusing speed limits, without interfering mechanically or optically with other features of your microscope, ranging from objective turrets and emission filters to spinning-disk units or even structured illumination microscopy. To our knowledge, Tony Wilson's patent is available for licensing, and we encourage microscope vendors to explore this possibility.</p>
+<p>We believe that RR is ripe for widespread adoption, cleanly and flexibly addressing a common challenge without introducing other problems. Many microscopes could benefit from decoupling the focusing mechanism from the sample via remote refocus, especially when the sample is sensitive and high spatiotemporal resolution is required. RR's modularity is a great strength; you can treat it as a "black box" attached directly before your camera to eliminate focusing speed limits, without interfering mechanically or optically with other features of your microscope, ranging from objective turrets and emission filters to spinning-disk units or even structured illumination microscopy. To our knowledge, the foundational patent claiming aspects of the RR design
+
+[<a class="citation" href="https://patents.google.com/patent/US8144395B2/en" title="Focusing apparatus and method; Tony Wilson, Rimvydas Juskaitis, Martin James Booth, Edward Botcherby, assigned to Isis Innovation Limited; U.S. Patent No. 8,498,048 (2013)">Wilson 2013</a>]
+
+is available for licensing, and we encourage microscope vendors to explore this possibility.</p>
 
 <p>For some applications, we would still recommend other approaches. For example, RR enables high volumetric frame rates, but doesn't deliver truly simultaneous "snapshot" volumetric imaging, unlike multifocus or light-field microscopy. Although the hardware cost of our design (~$20k) is a fraction of a high-end fluorescence microscope's price, light-field microscopy's hardware is even cheaper, a simple microlens array (~$1k) and a powerful computer. Of course, our RR's price is dominated by the piezo and objectives, and could be  <a href="./appendix.html#Parts">redesigned to minimize cost</a>.</p>
 
@@ -444,6 +449,9 @@ for our RR design. Since the controller for our piezo can act as an analog-out c
 
 <h3><a href="./appendix.html">Appendix</a></h3>
 <p>Additional details and discussion can be found in the <a href="./appendix.html">appendix</a>, which is also referenced via hyperlinks throughout this article.</p>
+
+<noscript>
+<h3>Your browser doesn't seem to support Javascript. This document uses Javascript to generate a reference list, which would normally be displayed here. Either activate Javascript, or use the "Download PDF" link above if you want to see the reference list.</h3></noscript>
 
 </section>
 <footer>
