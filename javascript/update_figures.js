@@ -1,4 +1,15 @@
+// Check if our big images are available locally or remotely:
 var big_data_output = "./../big_data_output";
+var img = new Image();
+img.onerror = function() {
+  window.big_data_output = "https://andrewgyork.github.io/remote_refocus_data";
+  img.onerror = ""
+  img.src = big_data_output + "/Worm_DIC/poster.png"
+}
+img.onload = function() {
+  console.log("Loading interactive images from: " + big_data_output)
+}
+img.src = big_data_output + "/Worm_DIC/poster.png"
 
 function update_figure_1() {
   var choice = document.getElementById("figure_1_choice").value;
