@@ -7,6 +7,8 @@ TODO: FIX PUBLICATION DATE
 
 TODO: see below for a README.md for figure generation code
 
+TODO: fix links to Zenodo raw data in the appendix
+
 <a href="https://zenodo.org/badge/latestdoi/48553955"><img src="https://zenodo.org/badge/48553955.svg" alt="DOI"></a>
 
 A scientific publication, describing a way to improve microscopy. This repository hosts everything you need to reproduce our results. Read the publication here:
