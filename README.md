@@ -1,7 +1,7 @@
 # Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy
 TODO: FIX ZENODO BADGE
 
-TODO: MAKE PDF
+TODO: MAKE PDF of main text AND APPENDIX
 
 TODO: FIX PUBLICATION DATE
 
