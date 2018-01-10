@@ -1,12 +1,11 @@
 # remote_refocus
-Scripts used to generate the figures in the remote refocus manuscript. One script for each interactive figure, e.g.: `figure_1_worm_DIC.py`,
-`figure_1_worm_TL_FL.py`, `figure_2_yeast_cyto_FL.py`, `figure_3_RR_animation.py`, etc; run these scripts to generate the corresponding
-figures in the main text. Note there is no script for figure 4 of the main text or the figures in the appendix as they are static.
+Scripts used to generate the figures in the remote refocus manuscript. One script for each logical portion of an interactive figure, e.g.: `figure_1_worm_DIC.py`, `figure_1_worm_TL_FL.py`, `figure_2_yeast_cyto_FL.py`, `figure_3_RR_animation.py`, etc; run these scripts to generate the corresponding figures in the main text. Note there is no script for figure 4 of the main text or the figures in the appendix
+as they were not generated programatically.
 
-If you want to run the code you'll need to excetute the following:
-1) Download the remote_refocus repository, unzip and place the contents into a new directory named 'master'
-2) Download the original 'big_data_input' folder from zenodo (17.5GB) DOI: and unzip (27.3GB)
-3) Create a new directory and add 'master' and 'big_data_input' to the folder
+If you want to run the code you'll need to excecute the following:
+1) Download the [remote_refocus repository](https://github.com/AMSikking/remote_refocus/zipball/master), unzip and place into a new folder e.g. 'temp'
+2) Download the original 'big_data_input' folder from zenodo (17.5GB) DOI: , unzip (27.3GB) and add to the 'temp' directory (see screen shot below).
+<img src="./../images/folder_structure_figure_generation.png" alt="folder structure" width="800">
 4) Create a Python 3 environment with the associated subpackages [Numpy](http://www.numpy.org/), [Scipy](https://www.scipy.org/), and
 [Matplotlib](http://matplotlib.org/). [Anaconda](https://www.continuum.io/downloads) satisfies these requirements with a single
 installation.
