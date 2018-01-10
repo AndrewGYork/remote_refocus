@@ -53,11 +53,13 @@ Note that this is a limited PDF or print version; animated and interactive figur
 <noscript>
 <h3>Your browser doesn't seem to support Javascript. This document uses Javascript for interactive figures, math typesetting, and to automatically generate the reference list. Either activate Javascript, or use the "Download PDF" link above if you want properly typeset math and a reference list.</h3></noscript>
 <h2>Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy</h2>
-<p class="author_list">Alfred Millett-Sikking<sup>1*</sup>, Nathaniel H. Thayer<sup>1</sup>, Adam Bohnert<sup>1</sup> and Andrew G. York<sup>1</sup></p>
+<p class="author_list">Alfred Millett-Sikking<sup>1*</sup>, Nathaniel H. Thayer<sup>1</sup>, Adam Bohnert<sup>1</sup> and Andrew G. York<sup>1&dagger;</sup></p>
 <p class="author_affiliations"><sup>1</sup>Calico Life Sciences LLC, South San Francisco, CA 94080, USA</p>
 <p class="contact_email">
-<sup>*</sup>Institutional email: 
+<sup>*</sup>Institutional email:
 <a href="mailto:amsikking+RR@calicolabs.com" target="_self">amsikking+RR@calicolabs.com</a>
+<sup>&dagger;</sup>Institutional email:
+<a href="mailto:agy+RR@calicolabs.com" target="_self">agy+RR@calicolabs.com</a>; Permanent email: <a href="mailto:andrew.g.york+RR@gmail.com" target="_self">andrew.g.york+RR@gmail.com</a>
 </p>
 
 <h3>Abstract</h3>
@@ -209,7 +211,7 @@ and will not be re-visited here. We do however provide a straightforward <a href
 <h3>Results</h3>
 <h4>Large volumes with uncompromised resolution</h4>
 
-<p>We designed our remote refocus to couple to a typical microscope stand and produce diffraction-limited images using a 60x 1.45 numerical aperture (NA) oil immersion primary objective (Figure 4). Because our design's Z-drive can make small steps (0.1-1 &mu;m) faster than the rolling time of modern sCMOS cameras at full field (&lt;10 ms), the system imaging speed is either camera-limited or photoelectron-limited in this regime. This section describes the optical performance; for a detailed description of the module, see the <a href="./appendix.html#Design">design</a> and <a href="./appendix.html#Build">build</a> sections of the <a href="./appendix.html">Appendix</a>.</p>
+<p>We designed our remote refocus to couple to a typical microscope stand and produce diffraction-limited images using a 60x 1.4 numerical aperture (NA) oil immersion primary objective (Figure 4). Because our design's Z-drive can make small steps (0.1-1 &mu;m) faster than the rolling time of modern sCMOS cameras at full field (&lt;10 ms), the system imaging speed is either camera-limited or photoelectron-limited in this regime. This section describes the optical performance; for a detailed description of the module, see the <a href="./appendix.html#Design">design</a> and <a href="./appendix.html#Build">build</a> sections of the <a href="./appendix.html">Appendix</a>.</p>
 
 <figure id="Figure_4">
 <img src="images/RR_images/Fast_3D_widefield_microscope_1.0_wireframe.png" alt="Figure 4" id="Figure_4_jpg_1" style="width:100%;">
@@ -234,7 +236,7 @@ the comprehensive testing of subsequent builders
 
 and the thorough optical design work implemented here.</p>
  
-<p> Our system yields minimally distorted images across the entire 200x200x60 &mu;m<sup>3</sup> volume (Figure 5), using a standard GFP filter cube; note the clearly resolved line pairs, which are separated by 750nm. We construct a "virtual" 3D test object from a 2D resolution target by moving the microscope's primary objective Z-drive and refocusing via the RR piezo (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details and raw data).</p>
+<p> Our system yields minimally distorted images across the entire 200x200x60 &mu;m<sup>3</sup> volume (Figure 5), using a standard GFP filter cube; note the clearly resolved line pairs, which are separated by 750 nm. We construct a "virtual" 3D test object from a 2D resolution target by moving the microscope's primary objective Z-drive and refocusing via the RR piezo (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details and raw data).</p>
  
  <figure id="Figure_5">
 <img src="images/SIM_target/default.png" alt="Figure 5" id="Figure_5_png" style="width:100%;">
@@ -262,11 +264,11 @@ and the thorough optical design work implemented here.</p>
   </select></td><td>(&mu;m; at 0, the RR approximately cancels the primary objective's defocus)</td>
   </tr>
   </table>
-<figcaption><strong>Figure 5: RR delivers minimal distortion across the 3D field of view.</strong> Images of an engineered flourescent target (Argolight SIM slide) show the remote refocus's large (200x200x60 &mu;m<sup>3</sup>) imaging volume, with minimal distortion and clearly resolvable line pairs separated by 750 nm across the whole volume. We used the microscope Z-drive to de-focus the sample, and then the RR piezo to re-focus, scanning the full 3D design volume of the instrument. Note the figure is interactive, allowing the reader to tune both the microscope objective and RR piezo position to inspect 3D image quality.</figcaption>
+<figcaption><strong>Figure 5: RR delivers minimal distortion across the 3D field of view.</strong> Images of an engineered flourescent target (Argolight SIM slide) show the remote refocus's large (200x200x60 &mu;m<sup>3</sup>) imaging volume, with minimal distortion and clearly resolvable line pairs separated by 750 nm across the whole volume. We used the microscope Z-drive to de-focus the sample, and then the RR piezo to re-focus, scanning the full 3D design volume of the instrument. Note the figure is interactive, allowing the reader to tune both the microscope objective and RR piezo position to inspect 3D image quality. Scale bar is 20 &mu;m.</figcaption>
 </figure>
 <p></p>
 
-<p>To quantify resolution, we translated finely spaced resolution lines through the field of view. Consistent with our expections of diffraction-limited performance within the design volume, the RR does not degrade resolution, easily resolving lines separated by 270 nm across the entire volume (Figure 6), and 240 nm near the center (see <a href="./appendix.html#Design">design</a> section for details). Note the classic Rayleigh limit \(\frac{0.61\lambda}{NA}\) predicts ~230nm resolution using this filter cube, which even unmodified microscopes rarely achieve in our experience.</p>
+<p>To quantify resolution, we translated finely spaced resolution lines through the field of view. Consistent with our expections of diffraction-limited performance within the design volume, the RR does not degrade resolution, easily resolving lines separated by 270 nm across the entire volume (Figure 6), and 240 nm near the center (see <a href="./appendix.html#Design">design</a> section for details). Note the classic Rayleigh limit \(\frac{0.61\lambda}{NA}\) predicts ~230 nm resolution using this filter cube, which even unmodified microscopes rarely achieve in our experience.</p>
 
 <figure id="Figure_6">
 <img src="images/SIM_lines_center/default.png" alt="Figure 6" id="Figure_6_png" style="width:100%;">
@@ -317,11 +319,11 @@ and the thorough optical design work implemented here.</p>
   </select></td><td>(&mu;m; at 0, the RR approximately cancels the primary objective's defocus)</td>
   </tr> 
   </table>
-<figcaption><strong>Figure 6: RR delivers uncompromised resolution across the design volume.</strong> Finely separated flourescent lines (Argolight SIM slide) show the resolution of our RR design. The pattern consists of 14 line pairs that range from fully overlapped (top) to a separation of 390 nm (bottom) in 30 nm steps. The data shows a 200x200x60 &mu;m<sup>3</sup> volume with resolving power better than 270nm line separation, and better than 240 nm in the central volume. We used the microscope Z-drive to de-focus the sample, and then the RR piezo to re-focus, scanning the full 3D design volume of the instrument. Note the figure is interactive, allowing the reader to tune both the microscope objective and RR piezo position to inspect 3D image quality.</figcaption>
+<figcaption><strong>Figure 6: RR delivers uncompromised resolution across the design volume.</strong> Finely separated flourescent lines (Argolight SIM slide) show the resolution of our RR design. The pattern consists of 14 line pairs that range from fully overlapped (top) to a separation of 390 nm (bottom) in 30 nm steps. The data shows a 200x200x60 &mu;m<sup>3</sup> volume with resolving power better than 270 nm line separation, and better than 240 nm in the central volume. We used the microscope Z-drive to de-focus the sample, and then the RR piezo to re-focus, scanning the full 3D design volume of the instrument. Note the figure is interactive, allowing the reader to tune both the microscope objective and RR piezo position to inspect 3D image quality. Scale bar is 20 &mu;m.</figcaption>
 </figure>
  
 <p></p>
-<p>Broadband optical efficiency tests show the <a href="./appendix.html#Figure_A6">RR throughput is &gt;73%</a>, and stability tests show a <a href="./appendix.html#Figure_A5">mechanical drift of ~150 nm/h</a> (see the <a href="./appendix.html#Design">design</a> section for details). Finally, Figure 7 explicitly demonstrates volumetric imaging via a 3D rendering of an Argolight structure that consists of an array of rings separated by 5 &mu;m in each axis (see <a href="link...">TODO: ADD LINK Full data</a> for raw data).</p>
+<p>Broadband optical efficiency tests show the <a href="./appendix.html#Figure_A6">RR throughput is &gt;73%</a>, and stability tests show a <a href="./appendix.html#Figure_A5">mechanical drift of ~150 nm/hour</a> (see the <a href="./appendix.html#Design">design</a> section for details). Finally, Figure 7 explicitly demonstrates volumetric imaging via a 3D rendering of an Argolight structure that consists of an array of rings separated by 5 &mu;m in each axis.</p>
 
 <figure id="Figure_7">
 <video controls autoplay loop muted style="width:100%;" id="Figure_7_vid"
@@ -329,7 +331,7 @@ and the thorough optical design work implemented here.</p>
  <source src="images/SIM_3D_projected/figure.mp4" type="video/mp4">
  Your browser doesn't support HTML5 MP4 video.`
 </video>
-<figcaption><strong>Figure 7: Volumetric imaging capability of remote refocus illustrated via 3D structures on the Argolight SIM slide.</strong> The pattern consists of a 3D array of 9x9x9 rings separated by 5 &mu;m in X, Y, and Z. We acquired the data by focusing the microscope Z-drive onto the top plane, and then used the RR piezo to take the Z-stack. The stack was then processed with ImageJ to give 3D projections from various angles (see the <a href="./appendix.html#Acquisition">acquisition</a> section for details).</figcaption>
+<figcaption><strong>Figure 7: Volumetric imaging capability of remote refocus illustrated via 3D structures on the Argolight SIM slide.</strong> The pattern consists of a 3D array of 9x9x9 rings separated by 5 &mu;m in X, Y, and Z. We acquired the data by focusing the microscope Z-drive onto the top plane, and then used the RR piezo to take the Z-stack. We processed the stack with ImageJ to give 3D projections from various angles. Scale bar is 20 &mu;m.</figcaption>
 </figure>
 
 <h4>Much faster than standard focusing, especially with non-rigid and delicate samples</h4>
@@ -413,7 +415,7 @@ The figure is interactive and consists of 4 sub figures that are paired: (gratic
 
 <p>RR combined with <a href="./appendix.html#Additional_equipment">fast-switching LED illumination</a> and an appropriate filter set allows high-speed multi-color imaging of rapidly flowing yeast (Figure 9 with <code>Sample choice: Yeast - 3 color</code>). Note that even at 4.6 volumes per second, the flow still moves significantly during each volume. In this case, our speed limit isn't focusing, signal rates, or illumination intensity; it's the camera. Current sCMOS chips measure at most 2x10<sup>5</sup> lines per second, independent of the number of pixels per line. Cropping our camera to a small number of long lines (Figure 2) enables 50 volumes per second, fast enough to 'freeze' this rapid flow without sacrificing pixels per second, and orienting the flow perpendicular to the camera lines maximizes yeast per second measured by this '3D cytometer'.</p>
 
-<p>Piezo motion potentially elongates the depth of field when the piezo step-and-settle time (~10 ms here) exceeds the camera "dead time" between illuminations (~5 &mu;s per line here). For example, in Figure 2 we cropped the camera vertically to 200 lines, and each 2 ms exposure consists of a 1 ms dead time followed by 1 ms of illumination (500 frames/s). We moved the RR piezo at a constant 1.66 mm/s velocity during each bi-directional volume, extending the effective depth of field by 1.66 &mu;m, ~2 fold the static depth of field estimated via \(\frac{2\lambda n}{\text{NA}^2}\) (~750nm). We found the resulting Z-resolution acceptable, but there are ways to circumvent the issue, e.g. a larger piezo, a lighter RR objective, a more sophisticated control voltage; perhaps simplest is to use a shorter illumination time.</p>
+<p>Piezo motion potentially elongates the depth of field when the piezo step-and-settle time (~10 ms here) exceeds the camera "dead time" between illuminations (~5 &mu;s per line here). For example, in Figure 2 we cropped the camera vertically to 200 lines, and each 2 ms exposure consists of a 1 ms dead time followed by 1 ms of illumination (500 frames/s). We moved the RR piezo at a constant 1.66 mm/s velocity during each bi-directional volume, extending the effective depth of field by 1.66 &mu;m, ~2 fold the static depth of field estimated via \(\frac{2\lambda n}{\text{NA}^2}\) (~750 nm). We found the resulting Z-resolution acceptable, but there are ways to circumvent the issue, e.g. a larger piezo, a lighter RR objective, a more sophisticated control voltage; perhaps simplest is to use a shorter illumination time.</p>
 
 <p>While searching a <em>Spirostomum</em> sample, we incidentally acquired two interesting videos of "contaminant" species that highlight limits of our design. We imaged the first species (Figure 9 with <code>Sample choice: Contaminant - <em>Epistylis</em>?</code>) at 16.7 volumes/s. While the main body of the creature is almost stationary during one volume, the cilia near the 'mouth' show motion blur during a single 10 ms 2D exposure. This suggests we'd need to image at least 200-300 volumes/s to 'freeze' this rapid motion in 3D, which approaches the resonant frequency of our piezo and the limit of our camera's frame rate for useful fields of view. The second species (Figure 9 with <code>Sample choice: Contaminant - <em>Paramecium</em>?</code>) is even faster, moving its entire body almost this quickly. We suspect simultaneous multiplane methods like multifocus or light-field microscopy would be better suited for imaging such rapid motion; even with volumetric frame rates no faster than RR, at least they could avoid motion blur during one volume by strobing sufficiently bright illumination for a sufficiently short time.</p>
 
@@ -426,7 +428,7 @@ The figure is interactive and consists of 4 sub figures that are paired: (gratic
 
 is available for licensing, and we encourage microscope vendors to explore this possibility.</p>
 
-<p>For some applications, we would still recommend other approaches. For example, RR enables high volumetric frame rates, but doesn't deliver truly simultaneous "snapshot" volumetric imaging, unlike multifocus or light-field microscopy. Although the hardware cost of our design (~$20k) is a fraction of a high-end fluorescence microscope's price, light-field microscopy's hardware is even cheaper, a simple microlens array (~$1k) and a powerful computer. Of course, our RR's price is dominated by the piezo and objectives, and could be  <a href="./appendix.html#Parts">redesigned to minimize cost</a>.</p>
+<p>For some applications, we would still recommend other approaches. For example, RR enables high volumetric frame rates, but doesn't deliver truly simultaneous "snapshot" volumetric imaging, unlike multifocus or light-field microscopy. Although the hardware cost of our design (~$30k) is a fraction of a high-end fluorescence microscope's price, light-field microscopy's hardware is even cheaper, a simple microlens array (~$1k) and a powerful computer. Of course, our RR's price is dominated by the piezo and objectives, and could be  <a href="./appendix.html#Parts">redesigned to minimize cost</a>.</p>
 
 <p>Perhaps the greatest obstacle to building your own RR is getting software to control the hardware. We write our own <a href="./appendix.html#Example_code">Python code</a> to control our hardware. This approach is powerful, flexible, and <a href="https://github.com/AndrewGYork/tools">open-source</a>, but our code is poorly documented and very specific to our needs. We encourage anyone interested in learning this approach to contact or visit <a href="mailto:andrew.g.york+remote_refocus@gmail.com">Andrew York</a>, although we caution that this is only appropriate for people who are proficient in <a href="https://python.org">Python</a> programming, or serious about achieving proficiency.</p>
 
