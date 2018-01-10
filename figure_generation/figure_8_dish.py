@@ -3,10 +3,10 @@
 import os
 import subprocess as sp
 from shutil import copyfile
-# Dependencies from the Scipy stack https://www.scipy.org/stackspec.html:
+# Dependencies from the Scipy stack https://www.scipy.org/stackspec.html :
 import numpy as np
 import matplotlib.pyplot as plt
-# Dependencies from https://github.com/AndrewGYork/tools:
+# Dependencies from https://github.com/AndrewGYork/remote_refocus/figure_generation :
 import np_tif
 
 ## Set/create directories
