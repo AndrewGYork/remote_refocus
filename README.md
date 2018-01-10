@@ -5,9 +5,7 @@ TODO: MAKE PDF of main text AND APPENDIX
 
 TODO: FIX PUBLICATION DATE
 
-TODO: see below for a README.md for figure generation code
-
-TODO: fix links to Zenodo raw data in the appendix
+TODO: fix links to Zenodo raw data in the appendix and the figure gen readme
 
 <a href="https://zenodo.org/badge/latestdoi/48553955"><img src="https://zenodo.org/badge/48553955.svg" alt="DOI"></a>
 
@@ -22,7 +20,7 @@ This repository is intended to hold a (mostly) self-contained scientific publica
 
 * HTML, javascript, CSS, and small images (`index.html`, `appendix.html`, and the `javascript`, `stylesheets`, and `images` directories)
 * A (limited) PDF version of the publication; note that this does not include animated/interactive figures.
-* Code which produces figures (in the `figure_generation` directory). You can run and modify this code to verify and explore our results. See `figure_generation/README.md` for instructions how to run the figure generation code. TODO: MAKE THIS README.md FILE
+* Code which produces figures (in the `figure_generation` directory). You can run and modify this code to verify and explore our results. See `figure_generation/README.md` for instructions how to run the figure generation code.
 
 Some files aren't suitable for version control, (e.g. raw data, large numbers of pre-rendered figure images, etc). These are stored in a sister repository:
 
