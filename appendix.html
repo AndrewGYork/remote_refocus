@@ -12,7 +12,7 @@ Based on this theme: https://github.com/broccolini/dinky , which mentioned that 
     <base target="_blank">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4D imaging via remote refocus by Alfred Millett-Sikking</title>
+    <title>remote_refocus_appendix by AMSikking</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/prism.css">
@@ -37,6 +37,7 @@ Based on this theme: https://github.com/broccolini/dinky , which mentioned that 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/AMSikking/remote_refocus/zipball/master">Download ZIP</a></li>
           <li><a class="buttons github" href="https://github.com/AMSikking/remote_refocus">View On GitHub</a></li>
+          <li><a class="buttons pdf" href="./remote_refocus_appendix%20by%20AMSikking.pdf">Download PDF</a></li>
         </ul>
         <p class="header" style="text-align:left;">This project is maintained by <a class="header name" href="https://github.com/AMSikking">AMSikking</a>, and was funded by <a class="header name" href="https://www.calicolabs.com/">Calico Life Sciences LLC</a></p>
       </header>
@@ -72,14 +73,14 @@ and will not be re-visited here. However, for those wishing to build an RR syste
 </figure>
 <p></p>
 
-<p>The main benefit of SORR is that the mirror can be very small and agile (&lt;1 mm diameter) as it only has to cover the original sample scaled field of view (FOV), but the penalty is the introduction of the beam splitter optic. If a SORR is used with polarized light then the introduction of a quarter wave plate and polarizing beam splitter cube can give high optical efficiency. However in most imaging modalities light is unpolarized and so the splitter optic in the SORR arrangement results in an immediate signal loss of 50% with a polarizing splitter and quarter wave plate, or 75% with a 50/50 splitter. Despite this loss the SORR arrangement has been implemented in many microscopes due to the potentially high speeds and the relative simplicity of the optical train as discussed in the <a href="./appendix.html#History">history</a> section. However if maximum efficiency is prioritized then the DORR arrangement is preferable and inherently faster in 'photon limited' applications, and for this reason the DORR arrangement was pursued in this work.
+<p>The main benefit of SORR is that the mirror can be very small and agile (&lt;1 mm diameter) as it only has to cover the original sample scaled field of view (FOV), but the penalty is the introduction of the beam splitter optic. If a SORR is used with polarized light then the introduction of a quarter wave plate and polarizing beam splitter cube can give high optical efficiency. However in most imaging modalities light is unpolarized and so the splitter optic in the SORR arrangement results in an immediate signal loss of 50% with a polarizing splitter and quarter wave plate, or 75% with a 50/50 splitter. Despite this loss the SORR arrangement has been implemented in many microscopes due to the potentially high speeds and the relative simplicity of the optical train as discussed in the <a href="./appendix.html#History" target="_self">history</a> section. However if maximum efficiency is prioritized then the DORR arrangement is preferable and inherently faster in 'photon limited' applications, and for this reason the DORR arrangement was pursued in this work.
 </p>
 
 <h4>The golden rules</h4>
 
 <p>Secondly there are a number of <strong>‘golden rules’</strong> for remote re-focus which must be respected to achieve best performance and are independent of the SORR or DORR arrangement.</p>
 <ol>
-  <li>The <strong>magnification</strong> between the sample and it’s remote 3D copy should be set <strong>equal to the ratio of the index</strong> between these two locations:
+  <li>The <strong>magnification</strong> between the sample and its remote 3D copy should be set <strong>equal to the ratio of the index</strong> between these two locations:
 
 	\[M_{RR} = \frac{n_{sample}}{n_{RR}}\]
 
@@ -125,7 +126,7 @@ Design</h3>
 </figure>
 
 <p></p>
-<p>To avoid custom optics, this DORR is based on the readily available <a href="https://www.nikoninstruments.com">Nikon</a> 60x 1.45 NA oil and 40x 0.95 NA air objectives that, together with stock tube lenses, <strong>very conveniently obey</strong> the first three <strong>golden rules</strong> of RR, with the 4th rule achieved by setting the right mechanical spacing of the elements (see <a href="./appendix.html#Drawings" target="_self">drawings</a>). By working closely with <a href="https://www.nikoninstruments.com">Nikon</a>, we were able to establish excellent performance with a 450-650nm polychromatic Strehl ratio &gt;0.74 over an axial range of +/-32 &mu;m in the sample with a 150 &mu;m diameter field of view.</p>
+<p>To avoid custom optics, this DORR is based on the readily available <a href="https://www.nikoninstruments.com">Nikon</a> 60x 1.4 NA oil and 40x 0.95 NA air objectives that, together with stock tube lenses, <strong>very conveniently obey</strong> the first three <strong>golden rules</strong> of RR, with the 4th rule achieved by setting the right mechanical spacing of the elements (see <a href="./appendix.html#Drawings" target="_self">drawings</a>). By working closely with <a href="https://www.nikoninstruments.com">Nikon</a>, we were able to establish excellent performance with a 450-650 nm polychromatic Strehl ratio &gt;0.74 over an axial range of +/-32 &mu;m in the sample with a 150 &mu;m diameter field of view.</p>
 
 <p>With good optical design established, the choice of Z-drive actuator was made relatively straightforward - an axial range of +/-32 &mu;m in the sample with an index of ~1.5 corresponds to motion in air of ~+/-50 &mu;m, which sits comfortably in the range of high performance piezo actuators - like the heavy duty <a href="https://www.physikinstrumente.com">PI</a> 726 that can move a ~200 g objective at &gt;500 Hz over a 100 &mu;m range. The 726 can achieve step-and-settle times in the 0.1-1 &mu;m range in &lt;10 ms (Figure A3), which is faster than the rolling time of a good sCMOS camera like the <a href="https://www.pco.de/">PCO</a>.edge 4.2 at full field of view. This equates to a running mode of 100 fps, giving 10 volumes per second for a 10-slice stack.<p>
 
@@ -140,11 +141,11 @@ Design</h3>
     <option value="10umInsert">{Piezo stage insert (10 &mu;m)</option>
   </select></td><td>(step size)</td></tr>
 </table>
-<figcaption><strong>Figure A4: Screen shots of piezo performance.</strong> This figure is interative and shows the step-and-settle performance of the piezo stage insert and remote refocus piezo for various parameters captured using the manufacturer's software and the built-in sensors on the devices. Note the 'Amplitude [&mu;m]' box and the time (ms) on the x-axis for the blue line plot to settle.</figcaption>
+<figcaption><strong>Figure A4: Screen shots of piezo performance.</strong> This figure is interactive and shows the step-and-settle performance of the piezo stage insert and remote refocus piezo for various parameters captured using the manufacturer's software and the built-in sensors on the devices. Note the 'Amplitude [&mu;m]' box and the time (ms) on the x-axis for the blue line plot to settle.</figcaption>
 </figure>
 <p></p>
 
-<p>Cropping the camera chip can produce higher frame rates for the fastest acquisitions, but in this regime the rolling time of the camera can be shorter than the step-and-settle time of the piezo, and motionless frames are no longer possible. It is straightforward, however, to operate the piezo in a constant-velocity mode, by sending a triangle wave signal to its analog input with an amplitude that corresponds to the desired stack size. The camera can then take frames at a high rate as the piezo moves continuosly through the sample to give fast volumetric imaging but with an extended depth of field. It should also be noted that due to current limitations on sCMOS cameras the increased frame rates are achieved by cropping only one axis (up/down) with no benefit to cropping the second axis (left/right), and this forces elongated fields of view that may not be appropriate for all samples.</p>
+<p>Cropping the camera chip can produce higher frame rates for the fastest acquisitions, but in this regime the rolling time of the camera can be shorter than the step-and-settle time of the piezo, and motionless frames are no longer straightforward. It is straightforward, however, to operate the piezo in a constant-velocity mode, by sending a triangle wave signal to its analog input with an amplitude that corresponds to the desired stack size. The camera can then take frames at a high rate as the piezo moves continuously through the sample to give fast volumetric imaging but with an extended depth of field. It should also be noted that due to current limitations on sCMOS cameras the increased frame rates are achieved by cropping only one axis (up/down) with no benefit to cropping the second axis (left/right), and this forces elongated fields of view that may not be appropriate for all samples.</p>
 
 <p>This motion solution prioritizes performance above economy, but may be substituted for other devices for those on a budget. Z-drive flexibility is a second-order advantage of using the RR arrangement - large, atypical actuators that would otherwise be awkward to fit to a typical microscope can be accomodated with relative ease and do not interfere with normal operation of the stand.</p>
 
@@ -167,7 +168,7 @@ Design</h3>
 </figure>
 <p></p>
 
-<p>A flexible slot was reserved in the infinity space behind the last objective for the inclusion of a high speed emission filter wheel like the <a href="https://asi-instruments.com/">ASI</a> FW-1000, which we chose for its high speed trigger options and &lt;40 ms switching time. This can be mounted on the RR breadboard or directly to the optical table to avoid any unwanted vibrations that can couple from the torque generated by fast wheels. Of course, any filter wheel that physically fits can be used here - including a low-cost manual wheel from <a href="https://www.thorlabs.com/">Thorlabs</a> that will connect directly to the mechanics for starting off. The camera is easily focused by sliding the Z-position of the last mirror and orientated correctly with the built-in rotation mount, and the caged mirror on the input arm can be used to pull out the intermediate image plane without removing the instrument, if needed. The remaining custom parts were prepared by <a href="http://www.zeradevelopment.com/">Zera Development</a>, but can be also readily milled by almost any CNC machine shop; see the <a href="./appendix.html#Drawings" target="_self">drawings</a> section for details. If you're unfamiliar with machine shops, simply send a copy of the drawing we provide to Zera.</p>
+<p>A flexible slot was reserved in the infinity space behind the last objective for the inclusion of a high speed emission filter wheel like the <a href="http://www.asiimaging.com/">ASI</a> FW-1000, which we chose for its high speed trigger options and &lt;40 ms switching time. This can be mounted on the RR breadboard or directly to the optical table to avoid any unwanted vibrations that can couple from the torque generated by fast wheels. Of course, any filter wheel that physically fits can be used here - including a low-cost manual wheel from <a href="https://www.thorlabs.com/">Thorlabs</a> that will connect directly to the mechanics for starting off. The camera is easily focused by sliding the Z-position of the last mirror and orientated correctly with the built-in rotation mount, and the caged mirror on the input arm can be used to pull out the intermediate image plane without removing the instrument, if needed. The remaining custom parts were prepared by <a href="http://www.zeradevelopment.com/">Zera Development</a>, but can be also readily milled by almost any CNC machine shop; see the <a href="./appendix.html#Drawings" target="_self">drawings</a> section for details. If you're unfamiliar with machine shops, simply send a copy of the drawing we provide to Zera.</p>
 
 <h3 id="Build">
 Build</h3>
@@ -270,7 +271,7 @@ table, th, td {
   <tr><td>41</td>		<td>Nikon</td> 				<td>MXA22018</td>
   <td>Tube lens 200mm EFL</td>																			<td>3</td></tr>
   <tr><td>42</td>		<td>Nikon</td>				<td>MRD00405</td>
-  <td>CFI Plan Apo Lambda 40x - 0.95NA, WD0.25-0.17</td>												<td>2</td></tr>
+  <td>CFI Plan Apo Lambda 40x - 0.95NA, WD0.25-0.16</td>												<td>2</td></tr>
   <tr><td>43</td>		<td>Nikon</td>				<td>MRD01605</td>
   <td>CFI60 Plan Apochromat Lambda 60x Oil Immersion Objective Lens, N.A. 1.4, W.D., 0.13mm, F.O.V. 25mm, DIC</td>																										<td>1</td></tr>
   <tr><td>44</td>		<td>Zera Development</td>   <td>DMi8 casting flange adaptor 1.0</td>
@@ -320,7 +321,7 @@ table, th, td {
     <ol>
       <li>Image a known transmitted light sample (like a graticule) with the primary objective tube lens pair on the microscope using the eyepieces to centre and focus.</li>
       <li>Remove the RR lenses (two objective tube lens pairs) and the camera.</li>
-      <li>Set the white light source to maximum intensity and darken the room so that the beam is visible throughout he system.</li>
+      <li>Set the white light source to maximum intensity and darken the room so that the beam is visible throughout the system.</li>
       <li>Use pinholes or irises to firstly align the RR to the microscope by adjusting the height of the feet and the relative position on the table (then bolt down). A graticule with a well-chosen scale can have a visible image (crosshairs) that can be used at the magnified image plane to get good alignment.</li>
       <li>Now use pinholes or irises to axially align the rest of the path using the RR tip/tilt mirrors. At the end of this step the beam should be centered in X/Y at every point in the system, from the primary objective to the camera.</li>
       <li>Add the camera to the RR and fit the lenses as close as possible to their designed positions ready for imaging.</li>
@@ -374,7 +375,7 @@ table, th, td {
 
 <h4>How we took our data</h4>
 
-<p> With the above mentioned hardware setup we used <a href="https://www.python.org/">python</a> scripts to issue serial port commands to devices and create voltages to play with the <a href="http://www.ni.com/">National Instruments</a> analog-out card. In practice, data was taken by focusing on the sample with the microscope Z-drive to give the ‘zero’ or reference position. Focus was then adjusted by using the either the microscope Z, the piezo Z stage insert, or the remote refocus piezo depending on the mode of operation.</p>
+<p> With the above mentioned hardware setup we used <a href="https://www.python.org/">Python</a> scripts to issue serial port commands to devices and create voltages to play with the <a href="http://www.ni.com/">National Instruments</a> analog-out card. In practice, data was taken by focusing on the sample with the microscope Z-drive to give the ‘zero’ or reference position. Focus was then adjusted by using either the microscope Z, the piezo Z stage insert, or the remote refocus piezo depending on the mode of operation.</p>
 
 <p>The original data presented in this article is available for download and review in either compressed format (lossy but manageable size &lt; 2 GB) or full (no compromise but huge &lt; 50 GB)</p>
 
@@ -670,7 +671,7 @@ improved on the original OPM setup by coupling the excitation through the RR so 
 
 [<a class="citation" href="https://doi.org/10.1073/pnas.1109111108" title="Three-dimensional imaging and photostimulation by remote-focusing and holographic light patterning; F. Anselmi, C. Ventalon, A. Bègue, D. Ogden and V. Emiliani; PNAS, vol 108(49), p19504-19509, (2011)">Anselmi 2011</a>]
 
-combined SORR with 3D holographic stimulation and introduce a novel tilt of the RR scan mirror that is similar in concept to the OPM setup, and allows imaging of tunable oblique planes in the sample. The paper also offers a thorough quantification of RR performance with the optics used in the experiment confirming the analysis of the original paper
+combined SORR with 3D holographic stimulation and introduced a novel tilt of the RR scan mirror that is similar in concept to the OPM setup, and allows imaging of tunable oblique planes in the sample. The paper also offers a thorough quantification of RR performance with the optics used in the experiment confirming the analysis of the original paper
 
 [<a class="citation" href="https://doi.org/10.1016/j.optcom.2007.10.007" title="An optical technique for remote focusing in microscopy; E.J. Botcherby, R. Juškaitis, M.J. Booth and T. Wilson; Optics Communications, vol 281(4), p880-887, (2007)">Botcherby 2007</a>].
 
