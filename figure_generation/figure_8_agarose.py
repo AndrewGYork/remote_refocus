@@ -1,8 +1,12 @@
+#!/usr/bin/env python3
+# Dependencies from the Python 3 standard library:
 import os
 import subprocess as sp
 from shutil import copyfile
+# Dependencies from the Scipy stack https://www.scipy.org/stackspec.html:
 import numpy as np
 import matplotlib.pyplot as plt
+# Dependencies from https://github.com/AndrewGYork/tools:
 import np_tif
 
 ## Set/create directories

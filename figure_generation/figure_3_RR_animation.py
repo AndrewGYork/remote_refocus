@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+# Dependencies from the Python 3 standard library:
 import os
-from subprocess import check_call
+import subprocess as sp
 from shutil import copyfile
 
 ## Set/create directories
