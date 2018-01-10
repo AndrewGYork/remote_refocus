@@ -5,7 +5,9 @@ as they were not generated programatically.
 If you want to run the code you'll need to excecute the following:
 1) Download the [remote_refocus repository](https://github.com/AMSikking/remote_refocus/zipball/master), unzip and place into a new folder e.g. 'temp'
 2) Download the original 'big_data_input' folder from zenodo (17.5GB) DOI: , unzip (27.3GB) and add to the 'temp' directory (see screen shot below).
+
 <img src="./../images/folder_structure_figure_generation.png" alt="folder structure" width="800">
+
 4) Create a Python 3 environment with the associated subpackages [Numpy](http://www.numpy.org/), [Scipy](https://www.scipy.org/), and
 [Matplotlib](http://matplotlib.org/). [Anaconda](https://www.continuum.io/downloads) satisfies these requirements with a single
 installation.
