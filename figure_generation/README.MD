@@ -4,7 +4,7 @@ as they were not generated programatically.
 
 If you want to run the code you'll need to excecute the following:
 1) Download the [remote_refocus repository](https://github.com/AMSikking/remote_refocus/zipball/master), unzip and place into a new folder e.g. `temp`
-2) Download the original `big_data_input` folder from Zenodo (17.5GB) DOI: , unzip (27.3GB) and add to the `temp` directory (see screen shot below).
+2) Download the original `big_data_input` folder from Zenodo (17.5GB) [DOI:10.5281/zenodo.1145453](https://doi.org/10.5281/zenodo.1145453) , unzip (27.3GB) and add to the `temp` directory (see screen shot below).
 
 <img src="./../images/folder_structure_figure_generation.png" alt="folder structure" width="800">
 
