@@ -3,10 +3,6 @@ TODO: FIX ZENODO BADGE
 
 TODO: MAKE PDF of main text AND APPENDIX
 
-TODO: FIX PUBLICATION DATE
-
-TODO: fix links to Zenodo raw data in the appendix and the figure gen readme
-
 <a href="https://zenodo.org/badge/latestdoi/48553955"><img src="https://zenodo.org/badge/48553955.svg" alt="DOI"></a>
 
 A scientific publication, describing a way to improve microscopy. This repository hosts everything you need to reproduce our results. Read the publication here:
