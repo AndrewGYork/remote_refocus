@@ -1,7 +1,7 @@
 # Remote refocus enables class-leading spatiotemporal resolution in 4D optical microscopy
 TODO: FIX ZENODO BADGE
 
-<a href="https://zenodo.org/badge/latestdoi/48553955"><img src="https://zenodo.org/badge/48553955.svg" alt="DOI"></a>
+<a href="https://..."><img src="https://zenodo.org/badge/.svg" alt="DOI"></a>
 
 A scientific publication, describing a way to improve microscopy. This repository hosts everything you need to reproduce our results. Read the publication here:
 https://calico.github.io/remote_refocus (hosted via the Calico Labs institutional GitHub account)
