@@ -54,6 +54,7 @@ p {
 p.author_list {
   margin:0 0 0px;
   font-weight: 700;
+  text-align: left;
 }
 
 p.author_affiliations {
@@ -63,6 +64,7 @@ p.author_affiliations {
 
 p.contact_email {
   font-style: italic;
+  text-align: left;
 }
 
 p.abstract {
