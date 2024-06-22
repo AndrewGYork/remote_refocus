@@ -22,3 +22,5 @@ https://github.com/AndrewGYork/remote_refocus_data
 Hopefully this makes it easier to manage big, non-text files without risking the faithful version control of small, important text-based files stored here.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+![social_preview](https://github.com/amsikking/remote_refocus/blob/master/social_preview.png)
